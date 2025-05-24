@@ -92,8 +92,8 @@ data <- data %>%
 
 data <- data %>% 
   rowwise() %>%
-  mutate(perc_mig = mean(c(Q121:Q129))) %>% 
+  mutate(perc_mig = sum(c(Q121, Q122, Q123, Q124, Q125, Q126, Q127, Q128,Q129))) %>% 
   ungroup() #Escala sumativa percepción de migración
 
-# Guardar datos ----------------------------------------------------------------
+# Guardar datos ----sum()# Guardar datos ----------------------------------------------------------------
 save(data,file="output/data.RData")
