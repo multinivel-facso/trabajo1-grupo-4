@@ -14,7 +14,6 @@ Aqui ponemos la introducción, de acuerdo con la [pauta](https://correlacional.n
 
 En este ejemplo daremos una mirada a la salud mental, y exploraremos posibles asociaciones con la edad, sexo y nivel educacional.
 
-
 # Variables
 
 Aqui ponemos las variables, de acuerdo con la [pauta](https://correlacional.netlify.app/trabajos).
@@ -64,11 +63,9 @@ Y las variables del módulo de Salud y Bienestar, referentes a *Estado de ánimo
 -   Frecuencia: Enlentecimiento físico
 -   Frecuencia: Pensamiento de muerte o dañarse
 
-
 ```{r, echo=FALSE}
 include_graphics("https://www.desarrollosocialyfamilia.gob.cl/storage/image/banner-saludmental.png")
 ```
-
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
 tab1 <- data %>%

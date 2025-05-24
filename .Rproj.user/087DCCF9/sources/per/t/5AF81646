@@ -1,0 +1,32 @@
+{
+    "id": "5AF81646",
+    "path": "~/GitHub/trabajo1-grupo-4/plantilla_informe.qmd",
+    "project_path": "plantilla_informe.qmd",
+    "type": "quarto_markdown",
+    "hash": "2628030623",
+    "contents": "",
+    "dirty": false,
+    "created": 1748056623325.0,
+    "source_on_save": false,
+    "relative_order": 1,
+    "properties": {
+        "rmdVisualMode": "true",
+        "rmdVisualWrapConfigured": "true",
+        "source_window_id": "",
+        "Source": "Source",
+        "docOutlineVisible": "1",
+        "rmdVisualModeLocation": "136:0",
+        "cursorPosition": "0,0",
+        "scrollLine": "0",
+        "rmdVisualCollapsedChunks": "",
+        "docOutlineSize": "167"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1748058570,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1748058570812,
+    "read_only": false,
+    "read_only_alternatives": []
+}
