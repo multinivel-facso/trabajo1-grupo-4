@@ -1,14 +1,3 @@
-# ******************************************************************************
-# 
-#                         Universidad de Chile
-#                     Facultad de Ciencias Sociales
-#                    Estadística Correlacional 2023
-#
-#             Plantilla procesamiento trabajo final curso
-#
-# ******************************************************************************
-
-
 # Carga Librerías --------------------------------------------------------------
 
 library(pacman)
@@ -37,7 +26,7 @@ load("Github/trabajo1-grupo-4/input/data/WVS_Cross-National_Wave_7_Rdata_v6_0.RD
 data <- `WVS_Cross-National_Wave_7_v6_0` %>% 
   select(pais=B_COUNTRY, sexo=Q260, nacionalismo=Q254, democ, meanschooling, 
          hdi, giniWB,  Q121, Q122, Q123, Q124, Q125, Q126, Q127, Q128, 
-         Q129, Q240, personal_income=Q288) #con variables contextuales, sin alfabetismo 
+         Q129, pos_pol=Q240, personal_income=Q288) #con variables contextuales, sin alfabetismo 
 
 ## Remover NA's ----------------------------------------------------------------
 
