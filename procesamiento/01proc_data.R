@@ -27,7 +27,7 @@ rm(list = ls()) # para limpiar el entorno de trabajo
 
 # Carga datos ------------------------------------------------------------------
 
-load("input/data/WVS_Cross-National_Wave_7_Rdata_v6_0.RData")
+load("Github/trabajo1-grupo-4/input/data/WVS_Cross-National_Wave_7_Rdata_v6_0.RData")
 
 
 # Limpieza de datos ------------------------------------------------------------
@@ -35,28 +35,19 @@ load("input/data/WVS_Cross-National_Wave_7_Rdata_v6_0.RData")
 
 ## Filtrar y seleccionar -------------------------------------------------------
 data <- `WVS_Cross-National_Wave_7_v6_0` %>% 
-  select(pais=B_COUNTRY, sexo=Q260, niv_educ=Q275, nacionalismo=Q254, democ, 
-         polregfh, incomeWB, btidemstatus, meanschooling, 
-         incomeindexHDI, hdi, Q121, Q122, Q123, Q124, Q125, Q126, Q127, Q128, 
-         Q129, Q251, personal_income=Q288) #con variables contextuales, sin alfabetismo 
+  select(pais=B_COUNTRY, sexo=Q260, nacionalismo=Q254, democ, meanschooling, 
+         hdi, giniWB,  Q121, Q122, Q123, Q124, Q125, Q126, Q127, Q128, 
+         Q129, Q240, personal_income=Q288) #con variables contextuales, sin alfabetismo 
 
-data_2 <- `WVS_Cross-National_Wave_7_v6_0` %>% 
-  select(pais=B_COUNTRY, sexo=Q260, alf=E1_LITERACY, niv_educ=Q275, 
-         nacionalismo=Q254, Q121, Q122, Q123, Q124, Q125, Q126, Q127, Q128, Q129, Q240,
-         Q251, personal_income=Q288) #con alfabetismo
 ## Remover NA's ----------------------------------------------------------------
 
 data <- data %>% 
   set_na(., na = c(-1, -2, -3, -4, -5, -999, -9999)) #Recodificamos variables a NA
 
-data_2 <- data_2 %>% 
-  set_na(., na = c(-1, -2, -3, -4, -5))
 
 colSums(is.na(data))
-colSums(is.na(data_2))
 
 data <- na.omit(data)
-data_2 <- na.omit(data_2)
 
 ## Recodificar y crear variables --------------------------------------------------------
 
@@ -82,18 +73,10 @@ data <- data %>%
     TRUE ~ .x
   )))
 
-data <- data %>%
-  mutate(across(c(polregfh), ~ case_when(
-    .x == 1 ~ 0,
-    .x == 2 ~ 1,
-    .x == 3 ~ 2,
-    TRUE ~ .x
-  )))
-
 data <- data %>% 
   rowwise() %>%
   mutate(perc_mig = sum(c(Q121, Q122, Q123, Q124, Q125, Q126, Q127, Q128,Q129))) %>% 
   ungroup() #Escala sumativa percepción de migración
 
 # Guardar datos ----sum()# Guardar datos ----------------------------------------------------------------
-save(data,file="output/data.RData")
+save(data, file="Github/trabajo1-grupo-4/output/data.RData")
