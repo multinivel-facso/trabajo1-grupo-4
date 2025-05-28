@@ -1,8 +1,8 @@
 ---
 title: "Título del trabajo grupal"
-subtitle: "Estadística Correlacional 2023"
-author: "Equipo docente"
-date: "2023-11-07"
+subtitle: "Análisis de Datos Multinivel"
+author: "Paula Córdova, Jesús Díaz Molina, Benjamín Zavala"
+date: "2025-05-28"
 lang: es
 format: html
 editor: visual
@@ -10,15 +10,15 @@ editor: visual
 
 # Introducción
 
-Aqui ponemos la introducción, de acuerdo con la [pauta](https://correlacional.netlify.app/trabajos).
+La migración es hoy en día uno de los fenómenos más contingentes a nivel mundial, de acuerdo a la ONU (s.f.) el número de migrantes a nivel internacional corresponde a 304 millones de personas aproximadamente, un número que se ha duplicado desde 1990. Estos procesos migratorios pueden explicarse por diversos factores, como lo pueden ser los económicos, sociales, políticos, demográficos y ecológicos (Armijos-Orellana et al, 2022), por lo que debe comprenderse como un fenómeno multicausal en el que influyen cuestiones no solo individuales, sino también contextuales, como lo pueden ser una crisis económica a nivel nacional, crisis políticas, conflictos bélicos, desplazamiento por riesgos socionaturales, etc. 
 
-En este ejemplo daremos una mirada a la salud mental, y exploraremos posibles asociaciones con la edad, sexo y nivel educacional.
+Ante el aumento de los flujos migratorios, han aparecido también discursos que presentan una mala percepción hacia las personas migrantes, cayendo directamente en posiciones anti migrantes y discriminatorias que se pueden ver reflejadas en fenómenos políticos de nivel global como lo es el auge de la extrema derecha. Diversos estudios han dado cuenta de que existe una relación entre las posiciones de derecha más extremas y una mala percepción hacia la migración (Servicio Jesuita a Migrantes, 2020; Akkerman, 2018) en conjunto a una tendencia hacia posiciones más nacionalistas o bajo discursos, denominados por las mismas personas, “patriotas” que suelen ir de la mano con una negatividad hacia la migración (Akkerman, 2018; Buraschi y Aguilar-Idañez, 2023), estas posiciones, también suelen manifestarse más en hombres (SJM, 2020). La percepción hacia la migración también se puede ver influida por cuestiones como un régimen más democrático o liberal respecto a políticas de migración (Romero, 2021), donde en aquellos países con una política más democrática presentan una mejor percepción de las personas migrantes.
+
+Por otro lado, factores individuales como lo pueden ser el nivel educativo o el nivel socioeconómico pueden influir en una percepción negativa hacia la migración, producto de que existiría una posible competencia entre las personas migrantes y las personas de menor nivel educacional o bajos ingresos por aquellas ocupaciones de menor complejización (Romero, 2021; Emmenegger y Klemmensen, 2013). Los países que suelen tener un mayor nivel de desarrollo en diversos indicadores como el índice de desarrollo humano, o mayores niveles de educación, suelen recibir mayor migración. como lo muestran los informes OCDE (2024) que dan cuenta de cómo existe un aumento de la migración hacia gran parte de los países pertenecientes a este, por lo que la percepción hacia la migración puede verse afectada por el desarrollo de un país al existir una mayor migración ante un mayor nivel de desarrollo.
+
+Como se muestra con lo comentado anteriormente, vemos como el fenómeno migratorio y las percepciones hacia este constituyen una cuestión fundamental a nivel global, en tanto la migración así como la oposición a esta van en aumento durante los últimos años por lo que el estudio de la percepción hacia la migración se vuelve contingente. Para estudiar esto se debe analizar cuestiones contextuales y factores individuales que darían cuenta de una mayor apreciación u oposición hacia la migración, y al transformarse en un fenómeno global, se vuelve interesante el análisis desde una perspectiva multinivel que considere factores contextuales de cada país que permita conocer cómo varían las percepciones sobre migración no solo considerando cuestiones individuales.
 
 # Variables
-
-Aqui ponemos las variables, de acuerdo con la [pauta](https://correlacional.netlify.app/trabajos).
-
-Podemos cargar las librerías sin que aparezca en nuestro informe, señalando la especificación al chunk `echo=FALSE`.
 
 ```{r librerias, echo=FALSE, warning=FALSE, message=FALSE, collapse=TRUE}
 if (!require("pacman")) install.packages("pacman") # solo la primera vez
@@ -35,87 +35,73 @@ options(scipen = 999) # para desactivar notacion cientifica
 rm(list = ls()) # para limpiar el entorno de trabajo
 ```
 
-Esto lo podemos repetir para la carga de la base de datos y el procesamiento de los datos.
-
 ```{r datos, echo=FALSE, warning=FALSE, message=FALSE}
 load(file="output/data.RData")
 ```
 
-A continuación, en nuestro ejemplo describiremos las variables necesarias para responder a nuestro objetivo.
+Para esta investigación se utilizarán datos rescatados de la séptima ola del World Values Survey (WVS), recolectados entre 2017 y 2022. Esta base de datos incluye aproximadamente 80.000 casos distribuidos en 66 países. Con esto, es posible construir una estructura de datos de dos niveles: nivel 1 (personas) y nivel 2 (países). 
 
-## Descripción de variables
+Para la construcción del modelo se consideró como variable de anidación el país de residencia de las personas encuestadas. 
 
-En este ejemplo, se seleccionaron las variables:
+Respecto a la variable dependiente se elaboró una escala sumativa de actitudes hacia la migración a partir de 9 ítems, codificados en una escala de 0 a 18, donde el valor más alto (18) indica una actitud negativa hacia la migración y el valor más bajo (0) indica una actitud positiva frente a la migración. Los ítems considerados fueron: Q122. Ocupan vacantes laborales importantes; Q123. Enriquecen la diversidad cultural; Q124. Aumentan la tasa de criminalidad; Q125. Brindar asilo a personas refugiadas políticas perseguidas en otros países; Q126. Aumentan el riesgo de terrorismo ; Q127. Ofrecen a personas de países pobres una mejor calidad de vida; Q128. Incrementan el desempleo; y Q129. Generan conflictos sociales. Cada uno de estos ítems tenían tres posibilidades de respuesta: De acuerdo (2); Difícil de decir (1); En desacuerdo (0). Para que todas las afirmaciones apuntaran en la misma dirección dentro de la escala, se recodificaron cuatro ítems (Q122; Q123; Q125; Q127) invirtiendo los valores de las categorías extremas: De acuerdo como 0 y En desacuerdo como 2. Finalmente, se incluyó el ítem Q121. ¿Cómo evaluaría el impacto de estas personas en el desarrollo de su país? Esta pregunta utiliza una escala Likert que va de Muy bueno (5) a Muy malo (1). Para mantener la coherencia con la dirección de la escala general, se recodificaron las categorías 1 y 2 como 2, la categoría 3 como 1, y las categorías 4 y 5 como 0. 
 
--   sexo: sexo del encuestado, con nivel de medición nominal
--   edad: edad del encuestado, con nivel de medición intervalar
--   nedu: nivel educativo del encuestado, con nivel de medición ordinal
+Las variables independientes a nivel individual son: el ingreso relativo del hogar (Q288) que consta de una escala de 1 a 10, siendo 1 el grupo más bajo y 10 el más alto; el sexo de la persona encuestada (Q260), variable que fue recodificada: 0 = Masculino y 1 = Femenino; y finalmente la autoubicación ideológica en el eje izquierda-derecha (Q240) que consta de una escala del 1 (más a la izquierda) al 10 (más a la derecha). 
 
-Y las variables del módulo de Salud y Bienestar, referentes a *Estado de ánimo: sintomatología depresiva*, con nivel de medición ordinal, los ítems son los siguientes:
+Por otro lado, se consideró como variable independiente agregada el orgullo nacional (Q254) cuyas opciones de respuesta van desde Muy orgullosa/o (1) a No soy \[nacionalidad del país\] (5). Otra variable considerada fue el índice de democracia institucionalizada que va de 0 a 10, según datos de Polity V de 2018. También se consideró la variable de años promedio de escolaridad proveniente de datos de la UNESCO de 2018. Finalmente se consideró el Índice de Desarrollo Humano (IDH) como una medida agregada del nivel de desarrollo de cada país.
 
--   Frecuencia: Poco interés o alegría
--   Frecuencia: Decaimiento, pesadez o desesperanza
--   Frecuencia: Dificultad para dormir o exceso de sueño
--   Frecuencia: Cansancio o sensación de falta de energía
--   Frecuencia: Apetito disminuido o aumentado
--   Frecuencia: Dificultad para concentrarse
--   Frecuencia: Mala opinión de sí mismo
--   Frecuencia: Enlentecimiento físico
--   Frecuencia: Pensamiento de muerte o dañarse
-
-```{r, echo=FALSE}
-include_graphics("https://www.desarrollosocialyfamilia.gob.cl/storage/image/banner-saludmental.png")
-```
-
-```{r, echo=FALSE, warning=FALSE, message=FALSE}
+```{r, echo=FALSE, warning=FALSE, message=FALSE, results='hide'}
 data_desc = data %>% 
   select(perc_mig, sexo, nacionalismo, democ, pos_pol,
            meanschooling, hdi, giniWB, personal_income) %>%
   as.data.frame()
-names(data)
+names_data <- names(data)
 
-stargazer(data_desc,title="Estadísticos descriptivos", type = "text") #Descriptivos de la base de las variables seleccionadas
+table_1 <- stargazer(data_desc, type = "html") #Descriptivos de la base de las variables seleccionadas
 
 ```
 
-En la @tbl-sexo podemos ver que la proporción de mujeres que responde la encuesta corresponde a `r pm`%, mientras que la propoción de hombres corresponde a `r ph`%.
+En la @tbl-desc
 
-```{r tbl-sexo, echo=FALSE, warning=FALSE, message=FALSE}
-#| label: tbl-sexo
-#| tbl-cap: "Distribución de sexo"
+```{r tbl-desc, echo=FALSE, warning=FALSE, message=FALSE, results='asis'}
+#| label: tbl-desc
+#| tbl-cap: "Descriptivos variables"
 #| tbl-cap-location: top
 #| warning: false
-tabla1
+cat(table_1, sep = "\n")
 ```
 
 # Análisis
 
-Aqui ponemos el análisis, de acuerdo con la [pauta](https://correlacional.netlify.app/trabajos).
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+results_0 = lmer(perc_mig ~ 1 + (1 | pais), data = data)
+Null_model <- summary(results_0)
+ICC <- reghelper::ICC(results_0)
+```
 
-En nuestro ejemplo, analizaremos la correlación entre algunas variables.
+Nuestra correlación intraclase calculada a partir del modelo nulo es de `r ICC`
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
 results_1 = lmer(perc_mig ~ 1 + sexo + pos_pol + nacionalismo + personal_income + (1 | pais), data = data)
-screenreg(results_1, naive=TRUE) #Modelo 1, variables individuales
+modelo_1 <- screenreg(results_1, naive=TRUE) #Modelo 1, variables individuales
 
-reghelper::ICC(results_1)
+ICC_1 <- reghelper::ICC(results_1)
 
 ```
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
 results_2 = lmer(perc_mig ~ 1 + democ + hdi + giniWB + meanschooling + (1 | pais), data = data)
-screenreg(results_2)#Modelo 2, variables contextuales
+modelo_2 <- screenreg(results_2)#Modelo 2, variables contextuales
 
-reghelper::ICC(results_2)
+ICC_2 <- reghelper::ICC(results_2)
 
 ```
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
 results_3 = lmer(perc_mig ~ 1 + democ + hdi + giniWB + meanschooling + sexo +
                    pos_pol + nacionalismo + personal_income + (1 | pais), data = data)
-screenreg(results_3) #Modelo 3 multinivel
+modelo_3 <- screenreg(results_3) #Modelo 3 multinivel
 
-reghelper::ICC(results_3)
+ICC_3 <- reghelper::ICC(results_3)
 
 ```
 
@@ -128,11 +114,11 @@ agg_mlm=data %>% group_by(pais) %>% summarise_all(funs(mean))
 reg_agg=lm(perc_mig ~ + democ + hdi + giniWB + meanschooling + sexo +
              pos_pol + nacionalismo + personal_income, data=agg_mlm)
 
-screenreg(list(reg_ind, reg_agg, results_3))
+modelos_1_2_3 <- screenreg(list(reg_ind, reg_agg, results_3))
 
 #Tabla comparativa entre modelos--
 
-htmlreg(list(reg_ind, reg_agg, results_3), 
+table_modelos <- htmlreg(list(reg_ind, reg_agg, results_3), 
         custom.model.names = c("Individual","Agregado","Multinivel"),    
         custom.coef.names = c("Intercepto", "$democ_{ij}$","$hdi_{ij}$", "$giniWB_{j}$", "$meanschooling_{j}$","$sexo_{j}$",
                               "$pos_pol_{j}$","$nacionalismo_{j}$","$personal_incomel_{j}$"), 
@@ -145,17 +131,15 @@ htmlreg(list(reg_ind, reg_agg, results_3),
 
 ```
 
-En la @fig-cor_edad_dep es posible apreciar... La correlación entre la edad y el promedio de la sintomatología depresiva corresponde a `r cor_edad_dep`.
-
-```{r fig-cor_edad_dep, echo=FALSE}
-#| label: fig-cor_edad_dep
-#| fig-cap: "Correlación entre edad y sintomatología depresiva"
+```{r tbl-modelos, echo=FALSE, results='asis'}
+#| label: tbl-modelos
+#| tbl-cap: "Comparación Modelos"
+#| tbl-cap-location: top
 #| warning: false
-#| message: false
-#| fig-align: center
-#| out-width: 80%
-grafico1
+cat(table_modelos, sep = "\n")
 ```
+
+En la @tbl-modelos es posible apreciar
 
 # Conclusiones
 
@@ -163,6 +147,4 @@ Aqui redactamos algunas conclusiones, de acuerdo con la [pauta](https://correlac
 
 # Biliografía
 
--   COES (2023). *Radiografía del Cambio Social: Análisis de Resultados Longitudinales ELSOC 2016-2022. Presentación de Resultados COES*. Marzo, Santiago de Chile.
-
--   R Core Team (2023). *R: A Language and Environment for Statistical Computing*. R Foundation for Statistical Computing, Vienna, Austria. <https://www.R-project.org/>.
+-   

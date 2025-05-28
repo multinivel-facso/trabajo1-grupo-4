@@ -2,11 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.353">
+<meta name="generator" content="quarto-1.4.555">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Equipo docente">
+<meta name="author" content="Paula Córdova, Jesús Díaz Molina, Benjamín Zavala">
 
 <title>Título del trabajo grupal</title>
 <style>
@@ -35,9 +35,35 @@ ul.task-list li input[type="checkbox"] {
 <link href="plantilla_informe_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="plantilla_informe_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 
-<script src="plantilla_informe_files/libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="plantilla_informe_files/libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -50,7 +76,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Título del trabajo grupal</h1>
-<p class="subtitle lead">Estadística Correlacional 2023</p>
+<p class="subtitle lead">Análisis de Datos Multinivel</p>
 </div>
 
 
@@ -60,14 +86,14 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Autor/a</div>
     <div class="quarto-title-meta-contents">
-             <p>Equipo docente </p>
+             <p>Paula Córdova, Jesús Díaz Molina, Benjamín Zavala </p>
           </div>
   </div>
     
     <div>
     <div class="quarto-title-meta-heading">Fecha de publicación</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">7 de noviembre de 2023</p>
+      <p class="date">28 de mayo de 2025</p>
     </div>
   </div>
   
@@ -75,99 +101,670 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
+
 
 <section id="introducción" class="level1">
 <h1>Introducción</h1>
-<p>Aqui ponemos la introducción, de acuerdo con la <a href="https://correlacional.netlify.app/trabajos">pauta</a>.</p>
-<p>En este ejemplo daremos una mirada a la salud mental, y exploraremos posibles asociaciones con la edad, sexo y nivel educacional.</p>
+<p>La migración es hoy en día uno de los fenómenos más contingentes a nivel mundial, de acuerdo a la ONU (s.f.) el número de migrantes a nivel internacional corresponde a 304 millones de personas aproximadamente, un número que se ha duplicado desde 1990. Estos procesos migratorios pueden explicarse por diversos factores, como lo pueden ser los económicos, sociales, políticos, demográficos y ecológicos (Armijos-Orellana et al, 2022), por lo que debe comprenderse como un fenómeno multicausal en el que influyen cuestiones no solo individuales, sino también contextuales, como lo pueden ser una crisis económica a nivel nacional, crisis políticas, conflictos bélicos, desplazamiento por riesgos socionaturales, etc.&nbsp;</p>
+<p>Ante el aumento de los flujos migratorios, han aparecido también discursos que presentan una mala percepción hacia las personas migrantes, cayendo directamente en posiciones anti migrantes y discriminatorias que se pueden ver reflejadas en fenómenos políticos de nivel global como lo es el auge de la extrema derecha. Diversos estudios han dado cuenta de que existe una relación entre las posiciones de derecha más extremas y una mala percepción hacia la migración (Servicio Jesuita a Migrantes, 2020; Akkerman, 2018) en conjunto a una tendencia hacia posiciones más nacionalistas o bajo discursos, denominados por las mismas personas, “patriotas” que suelen ir de la mano con una negatividad hacia la migración (Akkerman, 2018; Buraschi y Aguilar-Idañez, 2023), estas posiciones, también suelen manifestarse más en hombres (SJM, 2020). La percepción hacia la migración también se puede ver influida por cuestiones como un régimen más democrático o liberal respecto a políticas de migración (Romero, 2021), donde en aquellos países con una política más democrática presentan una mejor percepción de las personas migrantes.</p>
+<p>Por otro lado, factores individuales como lo pueden ser el nivel educativo o el nivel socioeconómico pueden influir en una percepción negativa hacia la migración, producto de que existiría una posible competencia entre las personas migrantes y las personas de menor nivel educacional o bajos ingresos por aquellas ocupaciones de menor complejización (Romero, 2021; Emmenegger y Klemmensen, 2013). Los países que suelen tener un mayor nivel de desarrollo en diversos indicadores como el índice de desarrollo humano, o mayores niveles de educación, suelen recibir mayor migración. como lo muestran los informes OCDE (2024) que dan cuenta de cómo existe un aumento de la migración hacia gran parte de los países pertenecientes a este, por lo que la percepción hacia la migración puede verse afectada por el desarrollo de un país al existir una mayor migración ante un mayor nivel de desarrollo.</p>
+<p>Como se muestra con lo comentado anteriormente, vemos como el fenómeno migratorio y las percepciones hacia este constituyen una cuestión fundamental a nivel global, en tanto la migración así como la oposición a esta van en aumento durante los últimos años por lo que el estudio de la percepción hacia la migración se vuelve contingente. Para estudiar esto se debe analizar cuestiones contextuales y factores individuales que darían cuenta de una mayor apreciación u oposición hacia la migración, y al transformarse en un fenómeno global, se vuelve interesante el análisis desde una perspectiva multinivel que considere factores contextuales de cada país que permita conocer cómo varían las percepciones sobre migración no solo considerando cuestiones individuales.</p>
 </section>
 <section id="variables" class="level1">
 <h1>Variables</h1>
-<p>Aqui ponemos las variables, de acuerdo con la <a href="https://correlacional.netlify.app/trabajos">pauta</a>.</p>
-<p>Podemos cargar las librerías sin que aparezca en nuestro informe, señalando la especificación al chunk <code>echo=FALSE</code>.</p>
-<p>Esto lo podemos repetir para la carga de la base de datos y el procesamiento de los datos.</p>
-<p>A continuación, en nuestro ejemplo describiremos las variables necesarias para responder a nuestro objetivo.</p>
-<section id="descripción-de-variables" class="level2">
-<h2 class="anchored" data-anchor-id="descripción-de-variables">Descripción de variables</h2>
-<p>En este ejemplo, se seleccionaron las variables:</p>
-<ul>
-<li>sexo: sexo del encuestado, con nivel de medición nominal</li>
-<li>edad: edad del encuestado, con nivel de medición intervalar</li>
-<li>nedu: nivel educativo del encuestado, con nivel de medición ordinal</li>
-</ul>
-<p>Y las variables del módulo de Salud y Bienestar, referentes a <em>Estado de ánimo: sintomatología depresiva</em>, con nivel de medición ordinal, los ítems son los siguientes:</p>
-<ul>
-<li>Frecuencia: Poco interés o alegría</li>
-<li>Frecuencia: Decaimiento, pesadez o desesperanza</li>
-<li>Frecuencia: Dificultad para dormir o exceso de sueño</li>
-<li>Frecuencia: Cansancio o sensación de falta de energía</li>
-<li>Frecuencia: Apetito disminuido o aumentado</li>
-<li>Frecuencia: Dificultad para concentrarse</li>
-<li>Frecuencia: Mala opinión de sí mismo</li>
-<li>Frecuencia: Enlentecimiento físico</li>
-<li>Frecuencia: Pensamiento de muerte o dañarse</li>
-</ul>
-<div class="cell">
-<div class="cell-output-display">
-<p><img src="https://www.desarrollosocialyfamilia.gob.cl/storage/image/banner-saludmental.png" class="img-fluid"></p>
-</div>
-</div>
-<p>En la <a href="#tbl-sexo">Tabla&nbsp;1</a> podemos ver que la proporción de mujeres que responde la encuesta corresponde a 60.12%, mientras que la propoción de hombres corresponde a 39.88%.</p>
-<div class="cell tbl-cap-location-top">
-<div class="cell-output-display">
-<div id="tbl-sexo" class="anchored">
-<table class="lightable-classic table table-sm table-striped small" data-quarto-postprocess="true">
-<caption>Tabla&nbsp;1: Distribución de sexo</caption>
-<thead>
-<tr class="header">
-<th style="text-align: center;" data-quarto-table-cell-role="th">Sexo</th>
-<th style="text-align: center;" data-quarto-table-cell-role="th">n</th>
-<th style="text-align: center;" data-quarto-table-cell-role="th">Proporción</th>
+<p>Para esta investigación se utilizarán datos rescatados de la séptima ola del World Values Survey (WVS), recolectados entre 2017 y 2022. Esta base de datos incluye aproximadamente 80.000 casos distribuidos en 66 países. Con esto, es posible construir una estructura de datos de dos niveles: nivel 1 (personas) y nivel 2 (países).&nbsp;</p>
+<p>Para la construcción del modelo se consideró como variable de anidación el país de residencia de las personas encuestadas.&nbsp;</p>
+<p>Respecto a la variable dependiente se elaboró una escala sumativa de actitudes hacia la migración a partir de 9 ítems, codificados en una escala de 0 a 18, donde el valor más alto (18) indica una actitud negativa hacia la migración y el valor más bajo (0) indica una actitud positiva frente a la migración. Los ítems considerados fueron: Q122. Ocupan vacantes laborales importantes; Q123. Enriquecen la diversidad cultural; Q124. Aumentan la tasa de criminalidad; Q125. Brindar asilo a personas refugiadas políticas perseguidas en otros países; Q126. Aumentan el riesgo de terrorismo ; Q127. Ofrecen a personas de países pobres una mejor calidad de vida; Q128. Incrementan el desempleo; y Q129. Generan conflictos sociales. Cada uno de estos ítems tenían tres posibilidades de respuesta: De acuerdo (2); Difícil de decir (1); En desacuerdo (0). Para que todas las afirmaciones apuntaran en la misma dirección dentro de la escala, se recodificaron cuatro ítems (Q122; Q123; Q125; Q127) invirtiendo los valores de las categorías extremas: De acuerdo como 0 y En desacuerdo como 2. Finalmente, se incluyó el ítem Q121. ¿Cómo evaluaría el impacto de estas personas en el desarrollo de su país? Esta pregunta utiliza una escala Likert que va de Muy bueno (5) a Muy malo (1). Para mantener la coherencia con la dirección de la escala general, se recodificaron las categorías 1 y 2 como 2, la categoría 3 como 1, y las categorías 4 y 5 como 0.&nbsp;</p>
+<p>Las variables independientes a nivel individual son: el ingreso relativo del hogar (Q288) que consta de una escala de 1 a 10, siendo 1 el grupo más bajo y 10 el más alto; el sexo de la persona encuestada (Q260), variable que fue recodificada: 0 = Masculino y 1 = Femenino; y finalmente la autoubicación ideológica en el eje izquierda-derecha (Q240) que consta de una escala del 1 (más a la izquierda) al 10 (más a la derecha).&nbsp;</p>
+<p>Por otro lado, se consideró como variable independiente agregada el orgullo nacional (Q254) cuyas opciones de respuesta van desde Muy orgullosa/o (1) a No soy [nacionalidad del país] (5). Otra variable considerada fue el índice de democracia institucionalizada que va de 0 a 10, según datos de Polity V de 2018. También se consideró la variable de años promedio de escolaridad proveniente de datos de la UNESCO de 2018. Finalmente se consideró el Índice de Desarrollo Humano (IDH) como una medida agregada del nivel de desarrollo de cada país.</p>
+<p>En la <a href="#tbl-desc" class="quarto-xref">Tabla&nbsp;1</a></p>
+<div id="tbl-desc" class="cell quarto-float anchored" data-tbl-cap-location="top">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-desc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabla&nbsp;1: Descriptivos variables
+</figcaption>
+<div aria-describedby="tbl-desc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table style="text-align:center">
+<tbody><tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
 </tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">1151</td>
-<td style="text-align: center;">39.88</td>
+<tr>
+<td style="text-align:left">
+Statistic
+</td>
+<td>
+N
+</td>
+<td>
+Mean
+</td>
+<td>
+St.&nbsp;Dev.
+</td>
+<td>
+Min
+</td>
+<td>
+Max
+</td>
 </tr>
-<tr class="even">
-<td style="text-align: center;">2</td>
-<td style="text-align: center;">1735</td>
-<td style="text-align: center;">60.12</td>
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
 </tr>
-</tbody><tfoot>
-<tr class="odd">
-<td style="text-align: center; padding: 0; border: 0;"><sup>a</sup> Fuente: Elaboración propia en base a ELSOC 2016.</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
+<tr>
+<td style="text-align:left">
+perc_mig
+</td>
+<td>
+48,717
+</td>
+<td>
+8.584
+</td>
+<td>
+3.807
+</td>
+<td>
+0
+</td>
+<td>
+18
+</td>
 </tr>
-</tfoot>
-
-</table>
+<tr>
+<td style="text-align:left">
+sexo
+</td>
+<td>
+48,717
+</td>
+<td>
+0.507
+</td>
+<td>
+0.500
+</td>
+<td>
+0
+</td>
+<td>
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+nacionalismo
+</td>
+<td>
+48,717
+</td>
+<td>
+1.608
+</td>
+<td>
+0.839
+</td>
+<td>
+1
+</td>
+<td>
+5
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+democ
+</td>
+<td>
+48,717
+</td>
+<td>
+7.370
+</td>
+<td>
+3.011
+</td>
+<td>
+0
+</td>
+<td>
+10
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+pos_pol
+</td>
+<td>
+48,717
+</td>
+<td>
+5.746
+</td>
+<td>
+2.453
+</td>
+<td>
+1
+</td>
+<td>
+10
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+meanschooling
+</td>
+<td>
+48,717
+</td>
+<td>
+10.029
+</td>
+<td>
+2.560
+</td>
+<td>
+2.800
+</td>
+<td>
+14.100
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+hdi
+</td>
+<td>
+48,717
+</td>
+<td>
+0.790
+</td>
+<td>
+0.111
+</td>
+<td>
+0.470
+</td>
+<td>
+0.939
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+giniWB
+</td>
+<td>
+48,717
+</td>
+<td>
+38.294
+</td>
+<td>
+6.006
+</td>
+<td>
+24.900
+</td>
+<td>
+53.900
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+personal_income
+</td>
+<td>
+48,717
+</td>
+<td>
+5.023
+</td>
+<td>
+2.107
+</td>
+<td>
+1
+</td>
+<td>
+10
+</td>
+</tr>
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+</tbody></table>
 </div>
-
-
+</figure>
 </div>
-</div>
-</section>
 </section>
 <section id="análisis" class="level1">
 <h1>Análisis</h1>
-<p>Aqui ponemos el análisis, de acuerdo con la <a href="https://correlacional.netlify.app/trabajos">pauta</a>.</p>
-<p>En nuestro ejemplo, analizaremos la correlación entre algunas variables.</p>
-<p>En la <a href="#fig-cor_edad_dep">Figura&nbsp;1</a> es posible apreciar… La correlación entre la edad y el promedio de la sintomatología depresiva corresponde a 0.0176236.</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div id="fig-cor_edad_dep" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="plantilla_informe_files/figure-html/fig-cor_edad_dep-1.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figura&nbsp;1: Correlación entre edad y sintomatología depresiva</figcaption>
+<p>Nuestra correlación intraclase calculada a partir del modelo nulo es de 0.1517897</p>
+<div id="tbl-modelos" class="cell quarto-float anchored" data-tbl-cap-location="top">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-modelos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabla&nbsp;2: Comparación Modelos
+</figcaption>
+<div aria-describedby="tbl-modelos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="texreg" style="margin: 10px auto;border-collapse: collapse;border-spacing: 0px;color: #000000;border-top: 2px solid #000000;">
+<caption>
+Comparación de modelos Individual, Agregado y Multinivel
+</caption>
+<thead>
+<tr>
+<th style="padding-left: 5px;padding-right: 5px;">
+&nbsp;
+</th>
+<th style="padding-left: 5px;padding-right: 5px;">
+Individual
+</th>
+<th style="padding-left: 5px;padding-right: 5px;">
+Agregado
+</th>
+<th style="padding-left: 5px;padding-right: 5px;">
+Multinivel
+</th>
+</tr>
+</thead>
+<tbody>
+<tr style="border-top: 1px solid #000000;">
+<td style="padding-left: 5px;padding-right: 5px;">
+Intercepto
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+9.74<sup>***</sup>
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+12.18
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+10.03<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">
+&nbsp;
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+(0.22)
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+(6.72)
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+(2.43)
+</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">
+<span class="math inline">\(democ_{ij}\)</span>
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+-0.15<sup>***</sup>
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+-0.12
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+-0.11
+</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">
+&nbsp;
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+(0.01)
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+(0.09)
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+(0.08)
+</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">
+<span class="math inline">\(hdi_{ij}\)</span>
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+2.54<sup>***</sup>
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+1.64
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+2.03
+</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">
+&nbsp;
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+(0.30)
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+(4.20)
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+(3.73)
+</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">
+<span class="math inline">\(giniWB_{j}\)</span>
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+0.02<sup>***</sup>
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+0.00
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+0.00
+</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">
+&nbsp;
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+(0.00)
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+(0.04)
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+(0.04)
+</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">
+<span class="math inline">\(meanschooling_{j}\)</span>
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+-0.31<sup>***</sup>
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+-0.18
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+-0.21
+</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">
+&nbsp;
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+(0.01)
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+(0.19)
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+(0.18)
+</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">
+<span class="math inline">\(sexo_{j}\)</span>
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+-0.08<sup>*</sup>
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+-4.87
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+-0.05
+</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">
+&nbsp;
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+(0.03)
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+(4.62)
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+(0.03)
+</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">
+<span class="math inline">\(pos_pol_{j}\)</span>
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+0.16<sup>***</sup>
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+0.18
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+0.15<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">
+&nbsp;
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+(0.01)
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+(0.58)
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+(0.01)
+</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">
+<span class="math inline">\(nacionalismo_{j}\)</span>
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+-0.07<sup>***</sup>
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+0.32
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+-0.16<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">
+&nbsp;
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+(0.02)
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+(0.98)
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+(0.02)
+</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">
+<span class="math inline">\(personal_incomel_{j}\)</span>
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+-0.10<sup>***</sup>
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+-0.20
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+-0.10<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">
+&nbsp;
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+(0.01)
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+(0.46)
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+(0.01)
+</td>
+</tr>
+<tr style="border-top: 1px solid #000000;">
+<td style="padding-left: 5px;padding-right: 5px;">
+R<sup>2</sup>
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+0.08
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+0.25
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+&nbsp;
+</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">
+Adj. R<sup>2</sup>
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+0.08
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+0.06
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+&nbsp;
+</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">
+Num. obs.
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+48717
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+41
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+48717
+</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">
+AIC
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+&nbsp;
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+&nbsp;
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+257101.41
+</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">
+BIC
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+&nbsp;
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+&nbsp;
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+257198.14
+</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">
+Log Likelihood
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+&nbsp;
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+&nbsp;
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+-128539.70
+</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">
+Num. groups: pais
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+&nbsp;
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+&nbsp;
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+41
+</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">
+Var:id (<span class="math inline">\(\tau_{00}\)</span>)
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+&nbsp;
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+&nbsp;
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+1.82
+</td>
+</tr>
+<tr style="border-bottom: 2px solid #000000;">
+<td style="padding-left: 5px;padding-right: 5px;">
+Var: Residual (<span class="math inline">\(\sigma^2\)</span>)
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+&nbsp;
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+&nbsp;
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+11.41
+</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td style="font-size: 0.8em;" colspan="4">
+<sup>***</sup>p &lt; 0.001; <sup>**</sup>p &lt; 0.01; <sup>*</sup>p &lt; 0.05. Errores estándar en paréntesis
+</td>
+</tr>
+</tfoot>
+</table>
+</div>
 </figure>
 </div>
-</div>
-</div>
+<p>En la <a href="#tbl-modelos" class="quarto-xref">Tabla&nbsp;2</a> es posible apreciar</p>
 </section>
 <section id="conclusiones" class="level1">
 <h1>Conclusiones</h1>
@@ -176,8 +773,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="biliografía" class="level1">
 <h1>Biliografía</h1>
 <ul>
-<li><p>COES (2023). <em>Radiografía del Cambio Social: Análisis de Resultados Longitudinales ELSOC 2016-2022. Presentación de Resultados COES</em>. Marzo, Santiago de Chile.</p></li>
-<li><p>R Core Team (2023). <em>R: A Language and Environment for Statistical Computing</em>. R Foundation for Statistical Computing, Vienna, Austria. <a href="https://www.R-project.org/" class="uri">https://www.R-project.org/</a>.</p></li>
+<li></li>
 </ul>
 </section>
 
@@ -262,10 +858,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -275,8 +888,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -288,7 +910,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -332,6 +1077,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -357,6 +1103,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -417,6 +1189,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 
