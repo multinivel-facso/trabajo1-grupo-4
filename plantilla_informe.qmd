@@ -22,13 +22,7 @@ Como se muestra con lo comentado anteriormente, vemos como el fenómeno migrator
 
 ```{r librerias, echo=FALSE, warning=FALSE, message=FALSE, collapse=TRUE}
 if (!require("pacman")) install.packages("pacman") # solo la primera vez
-pacman::p_load(lme4,
-               reghelper,
-               haven,
-               stargazer,
-               ggplot2, # gráficos
-               texreg, # tablas de regresion (screenreg)
-               dplyr) # manipulacion de datos
+pacman::p_load(lme4,haven,foreign, stargazer, texreg, lattice, sjPlot, dplyr, ggplot2, ggeffects) # paquetes a cargar # manipulacion de datos
            
 
 options(scipen = 999) # para desactivar notacion cientifica
@@ -49,26 +43,24 @@ Las variables independientes a nivel individual son: el ingreso relativo del hog
 
 Por otro lado, se consideró como variable independiente agregada el orgullo nacional (Q254) cuyas opciones de respuesta van desde Muy orgullosa/o (1) a No soy \[nacionalidad del país\] (5). Otra variable considerada fue el índice de democracia institucionalizada que va de 0 a 10, según datos de Polity V de 2018. También se consideró la variable de años promedio de escolaridad proveniente de datos de la UNESCO de 2018. Finalmente se consideró el Índice de Desarrollo Humano (IDH) como una medida agregada del nivel de desarrollo de cada país.
 
-```{r, echo=FALSE, warning=FALSE, message=FALSE, results='hide'}
-data_desc = data %>% 
-  select(perc_mig, sexo, nacionalismo, democ, pos_pol,
-           meanschooling, hdi, giniWB, personal_income) %>%
-  as.data.frame()
-names_data <- names(data)
+```{r, echo=FALSE, warning=FALSE, message=FALSE, results='asis'}
+library(dplyr)
+library(stargazer)
 
-table_1 <- stargazer(data_desc, type = "html") #Descriptivos de la base de las variables seleccionadas
+data_desc <- data %>%
+  select(perc_mig, sexo, nacionalismo, democ, pos_pol,
+         meanschooling, hdi, giniWB, personal_income) %>%
+  as.data.frame()
+
+# Guarda la tabla como archivo HTML
+stargazer(data_desc, type = "html", out = "tabla_descriptivos.html")
+
+
 
 ```
 
 En la @tbl-desc
 
-```{r tbl-desc, echo=FALSE, warning=FALSE, message=FALSE, results='asis'}
-#| label: tbl-desc
-#| tbl-cap: "Descriptivos variables"
-#| tbl-cap-location: top
-#| warning: false
-cat(table_1, sep = "\n")
-```
 
 # Análisis
 
@@ -114,31 +106,17 @@ agg_mlm=data %>% group_by(pais) %>% summarise_all(funs(mean))
 reg_agg=lm(perc_mig ~ + democ + hdi + giniWB + meanschooling + sexo +
              pos_pol + nacionalismo + personal_income, data=agg_mlm)
 
-modelos_1_2_3 <- screenreg(list(reg_ind, reg_agg, results_3))
-
-#Tabla comparativa entre modelos--
-
-table_modelos <- htmlreg(list(reg_ind, reg_agg, results_3), 
-        custom.model.names = c("Individual","Agregado","Multinivel"),    
-        custom.coef.names = c("Intercepto", "$democ_{ij}$","$hdi_{ij}$", "$giniWB_{j}$", "$meanschooling_{j}$","$sexo_{j}$",
-                              "$pos_pol_{j}$","$nacionalismo_{j}$","$personal_incomel_{j}$"), 
-        custom.gof.names=c(NA,NA,NA,NA,NA,NA,NA,
-                           "Var:id ($\\tau_{00}$)","Var: Residual ($\\sigma^2$)"),
-        custom.note = "%stars. Errores estándar en paréntesis",
-        caption="Comparación de modelos Individual, Agregado y Multinivel",
-        caption.above=TRUE,
-        doctype = FALSE)
 
 ```
 
-```{r tbl-modelos, echo=FALSE, results='asis'}
-#| label: tbl-modelos
-#| tbl-cap: "Comparación Modelos"
-#| tbl-cap-location: top
-#| warning: false
-cat(table_modelos, sep = "\n")
-```
+```{r, echo=FALSE, warning=FALSE, message=FALSE, results='asis'}
+tab_model(results_0, reg_ind, reg_agg, results_3, 
+  show.ci = FALSE, 
+  show.se = TRUE,
+  dv.labels = c("Nulo","Individual", "Agregado", "Multinivel"))
 
+
+```
 En la @tbl-modelos es posible apreciar
 
 # Conclusiones
