@@ -68,10 +68,6 @@ Por otro lado, se consideró como variable independiente agregada el orgullo nac
 
 En cuanto a los datos estadísticos descriptivos, la escala de actitudes hacia la migración (perc_mig) tiene una media de 8,58 puntos y su desviación estándar de 3,81, en un rango de 0 a 18, lo que sugiere una distribución amplia de opiniones frente a la migración. En cuanto a las variables de nivel individual, el ingreso del hogar (personal_income) muestra una media de 5,02 (s = 2,11) en una escala de 1 a 10; la autoubicación ideológica (pos_pol) tiene una media de 5,75 (s = 2,45), también en escala de 1 a 10; y la variable sexo presenta una media de 0,51, lo que indica una distribución relativamente equilibrada. Sobre las variables agregada, el orgullo nacional (nacionalismo) tiene una media de 1,61 (s = 0,84) en una escala de 1 a 5, mientras que el índice de democracia institucionalizada presenta un promedio de 7,37 (s = 3,01), con valores entre 0 y 10. El promedio de años de escolaridad (meanschooling) es de 10,03 años (s = 2,56), y el Índice de Desarrollo Humano (IDH) tiene una media de 0,79 (s = 0,11), con una amplitud de valores del 0,47 a 0,94. Finalmente, el índice de Gini tineun promedio de 38,29, con valores entre 24,90 y 53,90.
 
-Para el análisis de los datos se estimaron modelos multinivel con intercepto aleatorio por país en cada caso. Para esto, en primer lugar se estimó un modelo nulo que permite calcular la correlación intra-clase, la cual justifica la necesidad de este tipo de modelo. Luego, se estimó un modelo con las variables del nivel 1 para observar su relación con las actitudes hacia la migración. Posteriormente se repitió este proceso con las variables de nivel 2 con el mismo objetivo. Finalmente se estimó un modelo multinivel completo con predictores de ambos niveles para dar cuenta de los efectos del nivel 1 y el nivel 2 sobre las actitudes hacia la migración. Se calculó la correlación intra-clase con el fin de evaluar el efecto de la inclusión de los predictores de cada nivel en la proporción de varianza explicada entre países.
-
-# Variables
-
 ```{r librerias, echo=FALSE, warning=FALSE, message=FALSE, collapse=TRUE}
 if (!require("pacman")) install.packages("pacman") # solo la primera vez
 pacman::p_load(lme4,haven,foreign, stargazer, texreg, lattice, sjPlot, dplyr, ggplot2, ggeffects, parameters) # paquetes a cargar # manipulacion de datos
@@ -90,8 +86,8 @@ library(dplyr)
 library(stargazer)
 
 data_desc <- data %>%
-  select(perc_mig, sexo, nacionalismo, democ, pos_pol,
-         meanschooling, hdi, giniWB, personal_income) %>%
+  select(perc_mig, female, nacionalismo, democ, pos_pol,
+         meanschooling, hdi, personal_income) %>%
   as.data.frame()
 
 # Guarda la tabla como archivo HTML
@@ -108,6 +104,8 @@ cat(table_1, sep = "\n")
 
 En la @tbl-desc
 
+Para el análisis de los datos se estimaron modelos multinivel con intercepto aleatorio por país en cada caso. Para esto, en primer lugar se estimó un modelo nulo que permite calcular la correlación intra-clase, la cual justifica la necesidad de este tipo de modelo. Luego, se estimó un modelo con las variables del nivel 1 para observar su relación con las actitudes hacia la migración. Posteriormente se repitió este proceso con las variables de nivel 2 con el mismo objetivo. Finalmente se estimó un modelo multinivel completo con predictores de ambos niveles para dar cuenta de los efectos del nivel 1 y el nivel 2 sobre las actitudes hacia la migración. Se calculó la correlación intra-clase con el fin de evaluar el efecto de la inclusión de los predictores de cada nivel en la proporción de varianza explicada entre países.
+
 # Análisis
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
@@ -119,7 +117,7 @@ ICC <- reghelper::ICC(results_0)
 Nuestra correlación intraclase calculada a partir del modelo nulo es de `r ICC` , lo que nos indica que un 15% de la varianza puede verse representada por
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
-results_1 = lmer(perc_mig ~ 1 + sexo + pos_pol + nacionalismo + personal_income + (1 | pais), data = data)
+results_1 = lmer(perc_mig ~ 1 + female + pos_pol + nacionalismo + personal_income + (1 | pais), data = data)
 modelo_1 <- screenreg(results_1, naive=TRUE) #Modelo 1, variables individuales
 
 ICC_1 <- reghelper::ICC(results_1)
@@ -127,7 +125,7 @@ ICC_1 <- reghelper::ICC(results_1)
 ```
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
-results_2 = lmer(perc_mig ~ 1 + democ + hdi + giniWB + meanschooling + (1 | pais), data = data)
+results_2 = lmer(perc_mig ~ 1 + democ + hdi + meanschooling + (1 | pais), data = data)
 modelo_2 <- screenreg(results_2)#Modelo 2, variables contextuales
 
 ICC_2 <- reghelper::ICC(results_2)
@@ -135,8 +133,7 @@ ICC_2 <- reghelper::ICC(results_2)
 ```
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
-results_3 = lmer(perc_mig ~ 1 + democ + hdi + giniWB + meanschooling + sexo +
-                   pos_pol + nacionalismo + personal_income + (1 | pais), data = data)
+results_3 = lmer(perc_mig ~ 1 + democ + hdi + meanschooling + female + pos_pol + nacionalismo + personal_income + (1 | pais), data = data)
 modelo_3 <- screenreg(results_3) #Modelo 3 multinivel
 
 ICC_3 <- reghelper::ICC(results_3)
@@ -144,22 +141,21 @@ ICC_3 <- reghelper::ICC(results_3)
 ```
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
-reg_ind=lm(perc_mig ~ democ + hdi + giniWB + meanschooling + sexo +
+reg_ind=lm(perc_mig ~ democ + hdi + meanschooling + female +
              pos_pol + nacionalismo + personal_income, data=data)
 
 agg_mlm=data %>% group_by(pais) %>% summarise_all(funs(mean))
 
-reg_agg=lm(perc_mig ~ + democ + hdi + giniWB + meanschooling + sexo +
-             pos_pol + nacionalismo + personal_income, data=agg_mlm)
+reg_agg=lm(perc_mig ~ + democ + hdi+ meanschooling + female + pos_pol + nacionalismo + personal_income, data=agg_mlm)
 
-
+reg_pend_aleatoria=lmer(perc_mig ~ 1 + democ + hdi + meanschooling + female + pos_pol + nacionalismo + personal_income +( 1 + nacionalismo | pais), data = data)
 ```
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE, results='asis'}
-tab_modelos <- tab_model(results_0, reg_ind, reg_agg, results_3, 
+tab_modelos <- tab_model(results_0, reg_ind, reg_agg, results_3, reg_pend_aleatoria, 
   show.ci = FALSE, 
   show.se = TRUE,
-  dv.labels = c("Nulo","Individual", "Agregado", "Multinivel"))
+  dv.labels = c("Nulo","Individual", "Agregado", "Multinivel", "Pendiente aleatoria nacionalismo"))
 
 
 ```
@@ -173,17 +169,6 @@ tab_modelos
 ```
 
 En la @tbl-modelos es posible apreciar
-
-```{r}
-reg_mlm0=lmer(perc_mig ~ 1 + ( 1 | pais), data = data)
-reg_mlm1=lmer(perc_mig ~ + sexo + pos_pol + nacionalismo + personal_income + (1 | pais), data = data)
-
-data$mlm1 <- predict(reg_mlm1)
-
-pred_fijo <- data %>%  
-  ggplot(aes(pos_pol, mlm1, color = pais, group = pais)) + 
-  geom_smooth(se = F, method = lm) 
-```
 
 # Conclusiones
 

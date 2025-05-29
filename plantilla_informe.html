@@ -21,40 +21,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -117,13 +83,44 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Por otro lado, factores individuales como lo pueden ser el nivel educativo o el nivel socioeconómico pueden influir en una percepción negativa hacia la migración, producto de que existiría una posible competencia entre las personas migrantes y las personas de menor nivel educacional o bajos ingresos por aquellas ocupaciones de menor complejización (Romero, 2021; Emmenegger y Klemmensen, 2013). Los países que suelen tener un mayor nivel de desarrollo en diversos indicadores como el índice de desarrollo humano, o mayores niveles de educación, suelen recibir mayor migración. como lo muestran los informes OCDE (2024) que dan cuenta de cómo existe un aumento de la migración hacia gran parte de los países pertenecientes a este, por lo que la percepción hacia la migración puede verse afectada por el desarrollo de un país al existir una mayor migración ante un mayor nivel de desarrollo.</p>
 <p>Como se muestra con lo comentado anteriormente, vemos como el fenómeno migratorio y las percepciones hacia este constituyen una cuestión fundamental a nivel global, en tanto la migración así como la oposición a esta van en aumento durante los últimos años por lo que el estudio de la percepción hacia la migración se vuelve contingente. Para estudiar esto se debe analizar cuestiones contextuales y factores individuales que darían cuenta de una mayor apreciación u oposición hacia la migración, y al transformarse en un fenómeno global, se vuelve interesante el análisis desde una perspectiva multinivel que considere factores contextuales de cada país que permita conocer cómo varían las percepciones sobre migración no solo considerando cuestiones individuales.</p>
 </section>
-<section id="variables" class="level1">
-<h1>Variables</h1>
-<p>Para esta investigación se utilizarán datos rescatados de la séptima ola del World Values Survey (WVS), recolectados entre 2017 y 2022. Esta base de datos incluye aproximadamente 80.000 casos distribuidos en 66 países. Con esto, es posible construir una estructura de datos de dos niveles: nivel 1 (personas) y nivel 2 (países).&nbsp;</p>
-<p>Para la construcción del modelo se consideró como variable de anidación el país de residencia de las personas encuestadas.&nbsp;</p>
-<p>Respecto a la variable dependiente se elaboró una escala sumativa de actitudes hacia la migración a partir de 9 ítems, codificados en una escala de 0 a 18, donde el valor más alto (18) indica una actitud negativa hacia la migración y el valor más bajo (0) indica una actitud positiva frente a la migración. Los ítems considerados fueron: Q122. Ocupan vacantes laborales importantes; Q123. Enriquecen la diversidad cultural; Q124. Aumentan la tasa de criminalidad; Q125. Brindar asilo a personas refugiadas políticas perseguidas en otros países; Q126. Aumentan el riesgo de terrorismo ; Q127. Ofrecen a personas de países pobres una mejor calidad de vida; Q128. Incrementan el desempleo; y Q129. Generan conflictos sociales. Cada uno de estos ítems tenían tres posibilidades de respuesta: De acuerdo (2); Difícil de decir (1); En desacuerdo (0). Para que todas las afirmaciones apuntaran en la misma dirección dentro de la escala, se recodificaron cuatro ítems (Q122; Q123; Q125; Q127) invirtiendo los valores de las categorías extremas: De acuerdo como 0 y En desacuerdo como 2. Finalmente, se incluyó el ítem Q121. ¿Cómo evaluaría el impacto de estas personas en el desarrollo de su país? Esta pregunta utiliza una escala Likert que va de Muy bueno (5) a Muy malo (1). Para mantener la coherencia con la dirección de la escala general, se recodificaron las categorías 1 y 2 como 2, la categoría 3 como 1, y las categorías 4 y 5 como 0.&nbsp;</p>
-<p>Las variables independientes a nivel individual son: el ingreso relativo del hogar (Q288) que consta de una escala de 1 a 10, siendo 1 el grupo más bajo y 10 el más alto; el sexo de la persona encuestada (Q260), variable que fue recodificada: 0 = Masculino y 1 = Femenino; y finalmente la autoubicación ideológica en el eje izquierda-derecha (Q240) que consta de una escala del 1 (más a la izquierda) al 10 (más a la derecha).&nbsp;</p>
-<p>Por otro lado, se consideró como variable independiente agregada el orgullo nacional (Q254) cuyas opciones de respuesta van desde Muy orgullosa/o (1) a No soy [nacionalidad del país] (5). Otra variable considerada fue el índice de democracia institucionalizada que va de 0 a 10, según datos de Polity V de 2018. También se consideró la variable de años promedio de escolaridad proveniente de datos de la UNESCO de 2018. Finalmente se consideró el Índice de Desarrollo Humano (IDH) como una medida agregada del nivel de desarrollo de cada país.</p>
+<section id="objetivos" class="level1">
+<h1>Objetivos</h1>
+<p>En este estudio se pretende abordar las actitudes hacia la migración en distintos países a través de un enfoque multinivel, en el cual se consideran tanto factores individuales como contextuales, para determinar si existen patrones contextuales que puedan dar una explicación a posibles diferencias sistemáticas entre países.&nbsp;<br>
+</p>
+<p><strong>Objetivo general:</strong> Identificar en qué medida las actitudes hacia la migración se ven influidas por el país de residencia.&nbsp;<br>
+</p>
+<p><strong>Objetivos específicos:</strong></p>
+<ul>
+<li><p>Analizar el efecto de las variables individuales sobre las actitudes hacia la migración.</p></li>
+<li><p>Analizar el efecto de las variables agregadas sobre las actitudes hacia la migración.</p></li>
+<li><p>Explorar las posibles diferencias en las relaciones entre las variables individuales y las actitudes hacia la migración según el contexto nacional.</p></li>
+</ul>
+</section>
+<section id="hipótesis" class="level1">
+<h1>Hipótesis</h1>
+<p><strong>Hipótesis:</strong></p>
+<p><strong>Nivel 1 (individual):</strong></p>
+<ul>
+<li><p>Personas que se identifican con posiciones políticas inclinadas a la derecha tenderán hacia una actitud más negativa hacia la migración.&nbsp;</p></li>
+<li><p>Personas con mayores niveles de ingresos tenderán hacia una actitud más negativa hacia la migración.&nbsp;</p></li>
+<li><p>Las actitudes hacia la migración difieren según el sexo de la persona.</p></li>
+</ul>
+<p><strong>Nivel 2: (país):</strong></p>
+<ul>
+<li><p>Un mayor nivel de desarrollo humano se asociará con actitudes más positivas hacia la migración.</p></li>
+<li><p>Países con mayores niveles de nacionalismo presentan actitudes más negativas hacia la migración.&nbsp;</p></li>
+<li><p>Países con menores promedios de años de escolaridad tenderán hacia actitudes más negativas hacia la migración.</p></li>
+<li><p>Países con menores niveles de democracia institucionalizada se asociarán con actitudes más negativas hacia la migración.&nbsp;</p></li>
+</ul>
+</section>
+<section id="datos-variables-y-método" class="level1">
+<h1>Datos, variables y método</h1>
+<p>Para esta investigación se utilizarán datos rescatados de la séptima ola del World Values Survey (WVS), recolectados entre 2017 y 2022. Esta base de datos incluye aproximadamente 80.000 casos distribuidos en 66 países. Con esto, es posible construir una estructura de datos de dos niveles: nivel 1 (personas) y nivel 2 (países). Para preparar los datos, se aplicó un proceso de limpieza que incluyó la recodificación y eliminación de valores perdidos en las variables relevantes, resultando en una base final de 48.717 casos.</p>
+<p>Para la construcción del modelo se consideró como variable de anidación el país de residencia de las personas encuestadas.</p>
+<p>Respecto a la variable dependiente se elaboró una escala sumativa de actitudes hacia la migración a partir de 9 ítems, codificados en una escala de 0 a 18, donde el valor más alto (18) indica una actitud negativa hacia la migración y el valor más bajo (0) indica una actitud positiva frente a la migración. Los ítems considerados fueron: Q122. Ocupan vacantes laborales importantes; Q123. Enriquecen la diversidad cultural; Q124. Aumentan la tasa de criminalidad; Q125. Brindar asilo a personas refugiadas políticas perseguidas en otros países; Q126. Aumentan el riesgo de terrorismo; Q127. Ofrecen a personas de países pobres una mejor calidad de vida; Q128. Incrementan el desempleo; y Q129. Generan conflictos sociales. Cada uno de estos ítems tenían tres posibilidades de respuesta: De acuerdo (2); Difícil de decir (1); En desacuerdo (0). Para que todas las afirmaciones apuntaran en la misma dirección dentro de la escala, se recodificaron cuatro ítems (Q122; Q123; Q125; Q127) invirtiendo los valores de las categorías extremas: De acuerdo como 0 y En desacuerdo como 2. Finalmente, se incluyó el ítem Q121. ¿Cómo evaluaría el impacto de estas personas en el desarrollo de su país? Esta pregunta utiliza una escala Likert que va de Muy bueno (5) a Muy malo (1). Para mantener la coherencia con la dirección de la escala general, se recodificaron las categorías 1 y 2 como 2, la categoría 3 como 1, y las categorías 4 y 5 como 0.</p>
+<p>Las variables independientes a nivel individual son: el ingreso relativo del hogar (Q288) que consta de una escala de 1 a 10, siendo 1 el grupo más bajo y 10 el más alto; el sexo de la persona encuestada (Q260), variable que fue recodificada: 0 = Masculino y 1 = Femenino; y finalmente la autoubicación ideológica en el eje izquierda-derecha (Q240) que consta de una escala del 1 (más a la izquierda) al 10 (más a la derecha).</p>
+<p>Por otro lado, se consideró como variable independiente agregada el orgullo nacional (Q254) cuyas opciones de respuesta van desde Muy orgullosa/o (1) a No soy [nacionalidad del país] (5). Otra variable considerada fue el índice de democracia institucionalizada que va de 0 a 10, según datos de Polity V de 2018. También se consideró la variable de años promedio de escolaridad proveniente de datos de la UNESCO de 2018. Finalmente se consideró el Índice de Desarrollo Humano (IDH) como una medida agregada del nivel de desarrollo de cada país.&nbsp;Finalmente, se utilizó el índice de Gini como indicador de desigualdad en la distribución del ingreso (2012-2019), según el Banco Mundial.</p>
+<p>En cuanto a los datos estadísticos descriptivos, la escala de actitudes hacia la migración (perc_mig) tiene una media de 8,58 puntos y su desviación estándar de 3,81, en un rango de 0 a 18, lo que sugiere una distribución amplia de opiniones frente a la migración. En cuanto a las variables de nivel individual, el ingreso del hogar (personal_income) muestra una media de 5,02 (s = 2,11) en una escala de 1 a 10; la autoubicación ideológica (pos_pol) tiene una media de 5,75 (s = 2,45), también en escala de 1 a 10; y la variable sexo presenta una media de 0,51, lo que indica una distribución relativamente equilibrada. Sobre las variables agregada, el orgullo nacional (nacionalismo) tiene una media de 1,61 (s = 0,84) en una escala de 1 a 5, mientras que el índice de democracia institucionalizada presenta un promedio de 7,37 (s = 3,01), con valores entre 0 y 10. El promedio de años de escolaridad (meanschooling) es de 10,03 años (s = 2,56), y el Índice de Desarrollo Humano (IDH) tiene una media de 0,79 (s = 0,11), con una amplitud de valores del 0,47 a 0,94. Finalmente, el índice de Gini tineun promedio de 38,29, con valores entre 24,90 y 53,90.</p>
 <div id="tbl-desc" class="cell quarto-float anchored" data-tbl-cap-location="top">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-desc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -164,13 +161,13 @@ Max
 perc_mig
 </td>
 <td>
-48,717
+54,110
 </td>
 <td>
-8.584
+8.536
 </td>
 <td>
-3.807
+3.800
 </td>
 <td>
 0
@@ -181,13 +178,13 @@ perc_mig
 </tr>
 <tr>
 <td style="text-align:left">
-sexo
+female
 </td>
 <td>
-48,717
+54,110
 </td>
 <td>
-0.507
+0.508
 </td>
 <td>
 0.500
@@ -204,13 +201,13 @@ sexo
 nacionalismo
 </td>
 <td>
-48,717
+54,110
 </td>
 <td>
-1.608
+1.606
 </td>
 <td>
-0.839
+0.844
 </td>
 <td>
 1
@@ -224,13 +221,13 @@ nacionalismo
 democ
 </td>
 <td>
-48,717
+54,110
 </td>
 <td>
-7.370
+7.154
 </td>
 <td>
-3.011
+3.180
 </td>
 <td>
 0
@@ -244,13 +241,13 @@ democ
 pos_pol
 </td>
 <td>
-48,717
+54,110
 </td>
 <td>
-5.746
+5.736
 </td>
 <td>
-2.453
+2.450
 </td>
 <td>
 1
@@ -264,13 +261,13 @@ pos_pol
 meanschooling
 </td>
 <td>
-48,717
+54,110
 </td>
 <td>
-10.029
+10.100
 </td>
 <td>
-2.560
+2.526
 </td>
 <td>
 2.800
@@ -284,13 +281,13 @@ meanschooling
 hdi
 </td>
 <td>
-48,717
+54,110
 </td>
 <td>
-0.790
+0.791
 </td>
 <td>
-0.111
+0.115
 </td>
 <td>
 0.470
@@ -301,36 +298,16 @@ hdi
 </tr>
 <tr>
 <td style="text-align:left">
-giniWB
-</td>
-<td>
-48,717
-</td>
-<td>
-38.294
-</td>
-<td>
-6.006
-</td>
-<td>
-24.900
-</td>
-<td>
-53.900
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
 personal_income
 </td>
 <td>
-48,717
+54,110
 </td>
 <td>
-5.023
+5.017
 </td>
 <td>
-2.107
+2.101
 </td>
 <td>
 1
@@ -348,10 +325,11 @@ personal_income
 </figure>
 </div>
 <p>En la <a href="#tbl-desc" class="quarto-xref">Tabla&nbsp;1</a></p>
+<p>Para el análisis de los datos se estimaron modelos multinivel con intercepto aleatorio por país en cada caso. Para esto, en primer lugar se estimó un modelo nulo que permite calcular la correlación intra-clase, la cual justifica la necesidad de este tipo de modelo. Luego, se estimó un modelo con las variables del nivel 1 para observar su relación con las actitudes hacia la migración. Posteriormente se repitió este proceso con las variables de nivel 2 con el mismo objetivo. Finalmente se estimó un modelo multinivel completo con predictores de ambos niveles para dar cuenta de los efectos del nivel 1 y el nivel 2 sobre las actitudes hacia la migración. Se calculó la correlación intra-clase con el fin de evaluar el efecto de la inclusión de los predictores de cada nivel en la proporción de varianza explicada entre países.</p>
 </section>
 <section id="análisis" class="level1">
 <h1>Análisis</h1>
-<p>Nuestra correlación intraclase calculada a partir del modelo nulo es de 0.1517897 , lo que nos indica que un 15% de la varianza puede verse representada por</p>
+<p>Nuestra correlación intraclase calculada a partir del modelo nulo es de 0.1599211 , lo que nos indica que un 15% de la varianza puede verse representada por</p>
 <div id="tbl-modelos" class="cell quarto-float anchored" data-tbl-cap-location="top">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-modelos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -365,6 +343,7 @@ Tabla&nbsp;2: Comparación Modelos
 <th colspan="3" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">Individual</th>
 <th colspan="3" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">Agregado</th>
 <th colspan="3" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">Multinivel</th>
+<th colspan="3" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">Pendiente aleatoria nacionalismo</th>
 </tr>
 <tr>
 <td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  text-align:left; ">Predictors</td>
@@ -380,187 +359,221 @@ Tabla&nbsp;2: Comparación Modelos
 <td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  1">Estimates</td>
 <td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  2">std. Error</td>
 <td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  3">p</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  4">Estimates</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  5">std. Error</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  6">p</td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">(Intercept)</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">8.88</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.23</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "><strong>&lt;0.001</strong></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">9.74</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">8.77</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.22</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "><strong>&lt;0.001</strong></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">10.83</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.14</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7"><strong>&lt;0.001</strong></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">12.18</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">6.72</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">0.079</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">10.03</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2">2.43</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">10.67</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">5.59</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">0.064</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">10.34</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2">1.56</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  3"><strong>&lt;0.001</strong></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  4">10.65</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  5">1.52</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  6"><strong>&lt;0.001</strong></td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">democ</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">-0.15</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">-0.12</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.01</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7"><strong>&lt;0.001</strong></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">-0.12</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">0.09</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">0.229</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">-0.11</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2">0.08</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  3">0.191</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">-0.09</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">0.08</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">0.284</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">-0.09</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2">0.07</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  3">0.220</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  4">-0.08</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  5">0.07</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  6">0.244</td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">hdi</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">2.54</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.30</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">2.37</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.27</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7"><strong>&lt;0.001</strong></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">1.64</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">4.20</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">0.699</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">2.03</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2">3.73</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  3">0.586</td>
-</tr>
-<tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">giniWB</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.02</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.00</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7"><strong>&lt;0.001</strong></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">0.00</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">0.04</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">0.993</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">0.00</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2">0.04</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  3">0.995</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">1.66</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">3.92</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">0.675</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">1.56</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2">3.44</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  3">0.649</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  4">0.26</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  5">3.35</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  6">0.938</td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">meanschooling</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">-0.31</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">-0.34</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.01</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7"><strong>&lt;0.001</strong></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">-0.18</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">0.19</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">0.332</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">-0.21</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">0.17</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">0.220</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">-0.21</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2">0.18</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  3">0.239</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2">0.16</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  3">0.185</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  4">-0.15</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  5">0.16</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  6">0.324</td>
 </tr>
 <tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">sexo</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">female</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">-0.08</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">-0.09</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.03</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7"><strong>0.021</strong></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">-4.87</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">4.62</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">0.300</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">-0.05</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7"><strong>0.005</strong></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">-4.59</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">4.63</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">0.327</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">-0.06</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2">0.03</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  3">0.129</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  3"><strong>0.046</strong></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  4">-0.04</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  5">0.03</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  6">0.129</td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">pos pol</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.16</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.14</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.01</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7"><strong>&lt;0.001</strong></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">0.18</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">0.58</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">0.760</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">0.15</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">0.38</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">0.55</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">0.490</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">0.14</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2">0.01</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  3"><strong>&lt;0.001</strong></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  4">0.13</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  5">0.01</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  6"><strong>&lt;0.001</strong></td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">nacionalismo</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">-0.07</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">-0.06</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.02</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7"><strong>0.001</strong></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">0.32</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">0.98</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">0.751</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">0.78</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">0.95</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">0.417</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">-0.16</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2">0.02</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  3"><strong>&lt;0.001</strong></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  4">-0.10</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  5">0.07</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  6">0.153</td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">personal income</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">-0.10</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">-0.12</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.01</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7"><strong>&lt;0.001</strong></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">-0.20</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">0.46</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">0.671</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">-0.10</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">-0.32</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">0.43</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">0.465</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">-0.11</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2">0.01</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  3"><strong>&lt;0.001</strong></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  4">-0.11</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  5">0.01</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  6"><strong>&lt;0.001</strong></td>
 </tr>
 <tr>
-<td colspan="13" style="font-weight:bold; text-align:left; padding-top:.8em;">Random Effects</td>
+<td colspan="16" style="font-weight:bold; text-align:left; padding-top:.8em;">Random Effects</td>
 </tr>
 
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">σ<sup>2</sup></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">11.59</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">11.63</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">&nbsp;</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">&nbsp;</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">11.41</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">11.46</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">11.30</td>
 </tr>
 
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">τ<sub>00</sub></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">2.07 <sub>pais</sub></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">2.21 <sub>pais</sub></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">&nbsp;</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">&nbsp;</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">1.82 <sub>pais</sub></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">1.92 <sub>pais</sub></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">2.55 <sub>pais</sub></td>
+
+</tr><tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">τ<sub>11</sub></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">&nbsp;</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">&nbsp;</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">&nbsp;</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">&nbsp;</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.19 <sub>pais.nacionalismo</sub></td>
+
+</tr><tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">ρ<sub>01</sub></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">&nbsp;</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">&nbsp;</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">&nbsp;</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">&nbsp;</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">-0.54 <sub>pais</sub></td>
 
 </tr><tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">ICC</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.15</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.16</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">&nbsp;</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">&nbsp;</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.14</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.15</td>
 
 </tr><tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">N</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">41 <sub>pais</sub></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">46 <sub>pais</sub></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">&nbsp;</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">&nbsp;</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">41 <sub>pais</sub></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">46 <sub>pais</sub></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">46 <sub>pais</sub></td>
 </tr><tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm; border-top:1px solid;">Observations</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">48717</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">48717</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">41</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">48717</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">54110</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">54110</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">46</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">54110</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">54110</td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">Marginal R<sup>2</sup> / Conditional R<sup>2</sup></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.000 / 0.152</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.082 / 0.082</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.246 / 0.058</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.046 / 0.177</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.000 / 0.160</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.072 / 0.072</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.243 / 0.103</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.043 / 0.180</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.037 / 0.180</td>
 </tr>
 
 </tbody></table>
@@ -569,16 +582,6 @@ Tabla&nbsp;2: Comparación Modelos
 </figure>
 </div>
 <p>En la <a href="#tbl-modelos" class="quarto-xref">Tabla&nbsp;2</a> es posible apreciar</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>reg_mlm0<span class="ot">=</span><span class="fu">lmer</span>(perc_mig <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> ( <span class="dv">1</span> <span class="sc">|</span> pais), <span class="at">data =</span> data)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>reg_mlm1<span class="ot">=</span><span class="fu">lmer</span>(perc_mig <span class="sc">~</span> <span class="sc">+</span> sexo <span class="sc">+</span> pos_pol <span class="sc">+</span> nacionalismo <span class="sc">+</span> personal_income <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> pais), <span class="at">data =</span> data)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>mlm1 <span class="ot">&lt;-</span> <span class="fu">predict</span>(reg_mlm1)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>pred_fijo <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span>  </span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(pos_pol, mlm1, <span class="at">color =</span> pais, <span class="at">group =</span> pais)) <span class="sc">+</span> </span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">se =</span> F, <span class="at">method =</span> lm) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 </section>
 <section id="conclusiones" class="level1">
 <h1>Conclusiones</h1>

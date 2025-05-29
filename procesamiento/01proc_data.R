@@ -16,7 +16,7 @@ rm(list = ls()) # para limpiar el entorno de trabajo
 
 # Carga datos ------------------------------------------------------------------
 
-load("Github/trabajo1-grupo-4/input/data/WVS_Cross-National_Wave_7_Rdata_v6_0.RData")
+load("input/data/WVS_Cross-National_Wave_7_Rdata_v6_0.RData")
 
 
 # Limpieza de datos ------------------------------------------------------------
@@ -24,8 +24,8 @@ load("Github/trabajo1-grupo-4/input/data/WVS_Cross-National_Wave_7_Rdata_v6_0.RD
 
 ## Filtrar y seleccionar -------------------------------------------------------
 data <- `WVS_Cross-National_Wave_7_v6_0` %>% 
-  select(pais=B_COUNTRY, sexo=Q260, nacionalismo=Q254, democ, meanschooling, 
-         hdi, giniWB,  Q121, Q122, Q123, Q124, Q125, Q126, Q127, Q128, 
+  select(pais=B_COUNTRY, female=Q260, nacionalismo=Q254, democ, meanschooling, 
+         hdi, Q121, Q122, Q123, Q124, Q125, Q126, Q127, Q128, 
          Q129, pos_pol=Q240, personal_income=Q288) #con variables contextuales, sin alfabetismo 
 ## Remover NA's ----------------------------------------------------------------
 
@@ -45,7 +45,7 @@ data <- data %>%
   ))) #recodificado para mantener sentido
 
 data <- data %>%
-  mutate(across(c(sexo), ~ case_when(
+  mutate(across(c(female), ~ case_when(
     .x == 1 ~ 0,
     .x == 2 ~ 1,
     TRUE ~ .x
@@ -65,4 +65,4 @@ data <- data %>%
   ungroup() #Escala sumativa percepción de migración
 
 # Guardar datos ----sum()# Guardar datos ----------------------------------------------------------------
-save(data, file="Github/trabajo1-grupo-4/output/data.RData")
+save(data, file="output/data.rdata")
