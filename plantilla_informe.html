@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -35,35 +69,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="plantilla_informe_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="plantilla_informe_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -119,7 +124,6 @@ window.Quarto = {
 <p>Respecto a la variable dependiente se elaboró una escala sumativa de actitudes hacia la migración a partir de 9 ítems, codificados en una escala de 0 a 18, donde el valor más alto (18) indica una actitud negativa hacia la migración y el valor más bajo (0) indica una actitud positiva frente a la migración. Los ítems considerados fueron: Q122. Ocupan vacantes laborales importantes; Q123. Enriquecen la diversidad cultural; Q124. Aumentan la tasa de criminalidad; Q125. Brindar asilo a personas refugiadas políticas perseguidas en otros países; Q126. Aumentan el riesgo de terrorismo ; Q127. Ofrecen a personas de países pobres una mejor calidad de vida; Q128. Incrementan el desempleo; y Q129. Generan conflictos sociales. Cada uno de estos ítems tenían tres posibilidades de respuesta: De acuerdo (2); Difícil de decir (1); En desacuerdo (0). Para que todas las afirmaciones apuntaran en la misma dirección dentro de la escala, se recodificaron cuatro ítems (Q122; Q123; Q125; Q127) invirtiendo los valores de las categorías extremas: De acuerdo como 0 y En desacuerdo como 2. Finalmente, se incluyó el ítem Q121. ¿Cómo evaluaría el impacto de estas personas en el desarrollo de su país? Esta pregunta utiliza una escala Likert que va de Muy bueno (5) a Muy malo (1). Para mantener la coherencia con la dirección de la escala general, se recodificaron las categorías 1 y 2 como 2, la categoría 3 como 1, y las categorías 4 y 5 como 0.&nbsp;</p>
 <p>Las variables independientes a nivel individual son: el ingreso relativo del hogar (Q288) que consta de una escala de 1 a 10, siendo 1 el grupo más bajo y 10 el más alto; el sexo de la persona encuestada (Q260), variable que fue recodificada: 0 = Masculino y 1 = Femenino; y finalmente la autoubicación ideológica en el eje izquierda-derecha (Q240) que consta de una escala del 1 (más a la izquierda) al 10 (más a la derecha).&nbsp;</p>
 <p>Por otro lado, se consideró como variable independiente agregada el orgullo nacional (Q254) cuyas opciones de respuesta van desde Muy orgullosa/o (1) a No soy [nacionalidad del país] (5). Otra variable considerada fue el índice de democracia institucionalizada que va de 0 a 10, según datos de Polity V de 2018. También se consideró la variable de años promedio de escolaridad proveniente de datos de la UNESCO de 2018. Finalmente se consideró el Índice de Desarrollo Humano (IDH) como una medida agregada del nivel de desarrollo de cada país.</p>
-<p>En la <a href="#tbl-desc" class="quarto-xref">Tabla&nbsp;1</a></p>
 <div id="tbl-desc" class="cell quarto-float anchored" data-tbl-cap-location="top">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-desc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -343,428 +347,238 @@ personal_income
 </div>
 </figure>
 </div>
+<p>En la <a href="#tbl-desc" class="quarto-xref">Tabla&nbsp;1</a></p>
 </section>
 <section id="análisis" class="level1">
 <h1>Análisis</h1>
-<p>Nuestra correlación intraclase calculada a partir del modelo nulo es de 0.1517897</p>
+<p>Nuestra correlación intraclase calculada a partir del modelo nulo es de 0.1517897 , lo que nos indica que un 15% de la varianza puede verse representada por</p>
 <div id="tbl-modelos" class="cell quarto-float anchored" data-tbl-cap-location="top">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-modelos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Tabla&nbsp;2: Comparación Modelos
 </figcaption>
 <div aria-describedby="tbl-modelos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="texreg" style="margin: 10px auto;border-collapse: collapse;border-spacing: 0px;color: #000000;border-top: 2px solid #000000;">
-<caption>
-Comparación de modelos Individual, Agregado y Multinivel
-</caption>
-<thead>
-<tr>
-<th style="padding-left: 5px;padding-right: 5px;">
-&nbsp;
-</th>
-<th style="padding-left: 5px;padding-right: 5px;">
-Individual
-</th>
-<th style="padding-left: 5px;padding-right: 5px;">
-Agregado
-</th>
-<th style="padding-left: 5px;padding-right: 5px;">
-Multinivel
-</th>
-</tr>
-</thead>
-<tbody>
-<tr style="border-top: 1px solid #000000;">
-<td style="padding-left: 5px;padding-right: 5px;">
-Intercepto
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-9.74<sup>***</sup>
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-12.18
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-10.03<sup>***</sup>
-</td>
+<table style="border-collapse:collapse; border:none;">
+<tbody><tr>
+<th style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm;  text-align:left; ">&nbsp;</th>
+<th colspan="3" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">Nulo</th>
+<th colspan="3" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">Individual</th>
+<th colspan="3" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">Agregado</th>
+<th colspan="3" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">Multinivel</th>
 </tr>
 <tr>
-<td style="padding-left: 5px;padding-right: 5px;">
-&nbsp;
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.22)
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(6.72)
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(2.43)
-</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  text-align:left; ">Predictors</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">Estimates</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">std. Error</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">p</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">Estimates</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">std. Error</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  col7">p</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  col8">Estimates</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  col9">std. Error</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  0">p</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  1">Estimates</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  2">std. Error</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  3">p</td>
 </tr>
 <tr>
-<td style="padding-left: 5px;padding-right: 5px;">
-<span class="math inline">\(democ_{ij}\)</span>
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
--0.15<sup>***</sup>
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
--0.12
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
--0.11
-</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">(Intercept)</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">8.88</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.23</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "><strong>&lt;0.001</strong></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">9.74</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.22</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7"><strong>&lt;0.001</strong></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">12.18</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">6.72</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">0.079</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">10.03</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2">2.43</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  3"><strong>&lt;0.001</strong></td>
 </tr>
 <tr>
-<td style="padding-left: 5px;padding-right: 5px;">
-&nbsp;
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.01)
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.09)
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.08)
-</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">democ</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">-0.15</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.01</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7"><strong>&lt;0.001</strong></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">-0.12</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">0.09</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">0.229</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">-0.11</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2">0.08</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  3">0.191</td>
 </tr>
 <tr>
-<td style="padding-left: 5px;padding-right: 5px;">
-<span class="math inline">\(hdi_{ij}\)</span>
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-2.54<sup>***</sup>
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-1.64
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-2.03
-</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">hdi</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">2.54</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.30</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7"><strong>&lt;0.001</strong></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">1.64</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">4.20</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">0.699</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">2.03</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2">3.73</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  3">0.586</td>
 </tr>
 <tr>
-<td style="padding-left: 5px;padding-right: 5px;">
-&nbsp;
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.30)
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(4.20)
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(3.73)
-</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">giniWB</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.02</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.00</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7"><strong>&lt;0.001</strong></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">0.00</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">0.04</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">0.993</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">0.00</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2">0.04</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  3">0.995</td>
 </tr>
 <tr>
-<td style="padding-left: 5px;padding-right: 5px;">
-<span class="math inline">\(giniWB_{j}\)</span>
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-0.02<sup>***</sup>
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-0.00
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-0.00
-</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">meanschooling</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">-0.31</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.01</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7"><strong>&lt;0.001</strong></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">-0.18</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">0.19</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">0.332</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">-0.21</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2">0.18</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  3">0.239</td>
 </tr>
 <tr>
-<td style="padding-left: 5px;padding-right: 5px;">
-&nbsp;
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.00)
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.04)
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.04)
-</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">sexo</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">-0.08</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.03</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7"><strong>0.021</strong></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">-4.87</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">4.62</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">0.300</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">-0.05</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2">0.03</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  3">0.129</td>
 </tr>
 <tr>
-<td style="padding-left: 5px;padding-right: 5px;">
-<span class="math inline">\(meanschooling_{j}\)</span>
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
--0.31<sup>***</sup>
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
--0.18
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
--0.21
-</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">pos pol</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.16</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.01</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7"><strong>&lt;0.001</strong></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">0.18</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">0.58</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">0.760</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">0.15</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2">0.01</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  3"><strong>&lt;0.001</strong></td>
 </tr>
 <tr>
-<td style="padding-left: 5px;padding-right: 5px;">
-&nbsp;
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.01)
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.19)
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.18)
-</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">nacionalismo</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">-0.07</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.02</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7"><strong>0.001</strong></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">0.32</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">0.98</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">0.751</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">-0.16</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2">0.02</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  3"><strong>&lt;0.001</strong></td>
 </tr>
 <tr>
-<td style="padding-left: 5px;padding-right: 5px;">
-<span class="math inline">\(sexo_{j}\)</span>
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
--0.08<sup>*</sup>
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
--4.87
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
--0.05
-</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">personal income</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">-0.10</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.01</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7"><strong>&lt;0.001</strong></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">-0.20</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">0.46</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">0.671</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">-0.10</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2">0.01</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  3"><strong>&lt;0.001</strong></td>
 </tr>
 <tr>
-<td style="padding-left: 5px;padding-right: 5px;">
-&nbsp;
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.03)
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(4.62)
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.03)
-</td>
+<td colspan="13" style="font-weight:bold; text-align:left; padding-top:.8em;">Random Effects</td>
+</tr>
+
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">σ<sup>2</sup></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">11.59</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">&nbsp;</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">&nbsp;</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">11.41</td>
+</tr>
+
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">τ<sub>00</sub></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">2.07 <sub>pais</sub></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">&nbsp;</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">&nbsp;</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">1.82 <sub>pais</sub></td>
+
+</tr><tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">ICC</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.15</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">&nbsp;</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">&nbsp;</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.14</td>
+
+</tr><tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">N</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">41 <sub>pais</sub></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">&nbsp;</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">&nbsp;</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">41 <sub>pais</sub></td>
+</tr><tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm; border-top:1px solid;">Observations</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">48717</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">48717</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">41</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">48717</td>
 </tr>
 <tr>
-<td style="padding-left: 5px;padding-right: 5px;">
-<span class="math inline">\(pos_pol_{j}\)</span>
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-0.16<sup>***</sup>
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-0.18
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-0.15<sup>***</sup>
-</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">Marginal R<sup>2</sup> / Conditional R<sup>2</sup></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.000 / 0.152</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.082 / 0.082</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.246 / 0.058</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.046 / 0.177</td>
 </tr>
-<tr>
-<td style="padding-left: 5px;padding-right: 5px;">
-&nbsp;
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.01)
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.58)
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.01)
-</td>
-</tr>
-<tr>
-<td style="padding-left: 5px;padding-right: 5px;">
-<span class="math inline">\(nacionalismo_{j}\)</span>
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
--0.07<sup>***</sup>
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-0.32
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
--0.16<sup>***</sup>
-</td>
-</tr>
-<tr>
-<td style="padding-left: 5px;padding-right: 5px;">
-&nbsp;
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.02)
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.98)
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.02)
-</td>
-</tr>
-<tr>
-<td style="padding-left: 5px;padding-right: 5px;">
-<span class="math inline">\(personal_incomel_{j}\)</span>
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
--0.10<sup>***</sup>
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
--0.20
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
--0.10<sup>***</sup>
-</td>
-</tr>
-<tr>
-<td style="padding-left: 5px;padding-right: 5px;">
-&nbsp;
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.01)
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.46)
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-(0.01)
-</td>
-</tr>
-<tr style="border-top: 1px solid #000000;">
-<td style="padding-left: 5px;padding-right: 5px;">
-R<sup>2</sup>
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-0.08
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-0.25
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-&nbsp;
-</td>
-</tr>
-<tr>
-<td style="padding-left: 5px;padding-right: 5px;">
-Adj. R<sup>2</sup>
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-0.08
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-0.06
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-&nbsp;
-</td>
-</tr>
-<tr>
-<td style="padding-left: 5px;padding-right: 5px;">
-Num. obs.
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-48717
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-41
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-48717
-</td>
-</tr>
-<tr>
-<td style="padding-left: 5px;padding-right: 5px;">
-AIC
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-&nbsp;
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-&nbsp;
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-257101.41
-</td>
-</tr>
-<tr>
-<td style="padding-left: 5px;padding-right: 5px;">
-BIC
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-&nbsp;
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-&nbsp;
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-257198.14
-</td>
-</tr>
-<tr>
-<td style="padding-left: 5px;padding-right: 5px;">
-Log Likelihood
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-&nbsp;
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-&nbsp;
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
--128539.70
-</td>
-</tr>
-<tr>
-<td style="padding-left: 5px;padding-right: 5px;">
-Num. groups: pais
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-&nbsp;
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-&nbsp;
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-41
-</td>
-</tr>
-<tr>
-<td style="padding-left: 5px;padding-right: 5px;">
-Var:id (<span class="math inline">\(\tau_{00}\)</span>)
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-&nbsp;
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-&nbsp;
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-1.82
-</td>
-</tr>
-<tr style="border-bottom: 2px solid #000000;">
-<td style="padding-left: 5px;padding-right: 5px;">
-Var: Residual (<span class="math inline">\(\sigma^2\)</span>)
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-&nbsp;
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-&nbsp;
-</td>
-<td style="padding-left: 5px;padding-right: 5px;">
-11.41
-</td>
-</tr>
-</tbody>
-<tfoot>
-<tr>
-<td style="font-size: 0.8em;" colspan="4">
-<sup>***</sup>p &lt; 0.001; <sup>**</sup>p &lt; 0.01; <sup>*</sup>p &lt; 0.05. Errores estándar en paréntesis
-</td>
-</tr>
-</tfoot>
-</table>
+
+</tbody></table>
+
 </div>
 </figure>
 </div>
 <p>En la <a href="#tbl-modelos" class="quarto-xref">Tabla&nbsp;2</a> es posible apreciar</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>reg_mlm0<span class="ot">=</span><span class="fu">lmer</span>(perc_mig <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> ( <span class="dv">1</span> <span class="sc">|</span> pais), <span class="at">data =</span> data)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>reg_mlm1<span class="ot">=</span><span class="fu">lmer</span>(perc_mig <span class="sc">~</span> <span class="sc">+</span> sexo <span class="sc">+</span> pos_pol <span class="sc">+</span> nacionalismo <span class="sc">+</span> personal_income <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> pais), <span class="at">data =</span> data)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>mlm1 <span class="ot">&lt;-</span> <span class="fu">predict</span>(reg_mlm1)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>pred_fijo <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span>  </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(pos_pol, mlm1, <span class="at">color =</span> pais, <span class="at">group =</span> pais)) <span class="sc">+</span> </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">se =</span> F, <span class="at">method =</span> lm) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="conclusiones" class="level1">
 <h1>Conclusiones</h1>
