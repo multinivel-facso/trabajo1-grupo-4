@@ -1,5 +1,5 @@
 ---
-title: "Título del trabajo grupal"
+title: "Estudio sobre las percepciones hacia la migración desde un análisis multinivel: análisis según país"
 subtitle: "Análisis de Datos Multinivel"
 author: "Paula Córdova, Jesús Díaz Molina, Benjamín Zavala"
 date: "2025-05-28"
@@ -10,63 +10,55 @@ editor: visual
 
 # Introducción
 
-La migración es hoy en día uno de los fenómenos más contingentes a nivel mundial, de acuerdo a la ONU (s.f.) el número de migrantes a nivel internacional corresponde a 304 millones de personas aproximadamente, un número que se ha duplicado desde 1990. Estos procesos migratorios pueden explicarse por diversos factores, como lo pueden ser los económicos, sociales, políticos, demográficos y ecológicos (Armijos-Orellana et al, 2022), por lo que debe comprenderse como un fenómeno multicausal en el que influyen cuestiones no solo individuales, sino también contextuales, como lo pueden ser una crisis económica a nivel nacional, crisis políticas, conflictos bélicos, desplazamiento por riesgos socionaturales, etc. 
+La migración es hoy en día como uno de los fenómenos más contingentes a nivel mundial, de acuerdo con la ONU (2025) el número de migrantes a nivel internacional corresponde a 304 millones de personas aproximadamente, un número que se ha duplicado desde 1990. Estos procesos migratorios pueden explicarse por diversos factores, como lo pueden ser los económicos, sociales, políticos, demográficos y ecológicos (Armijos-Orellana et al, 2022), por lo que debe comprenderse como un fenómeno multicausal en el que influyen cuestiones no solo individuales, sino también contextuales, como lo pueden ser una crisis económica a nivel nacional, crisis políticas, conflictos bélicos, desplazamiento por riesgos socionaturales, etc. 
 
-Ante el aumento de los flujos migratorios, han aparecido también discursos que presentan una mala percepción hacia las personas migrantes, cayendo directamente en posiciones anti migrantes y discriminatorias que se pueden ver reflejadas en fenómenos políticos de nivel global como lo es el auge de la extrema derecha. Diversos estudios han dado cuenta de que existe una relación entre las posiciones de derecha más extremas y una mala percepción hacia la migración (Servicio Jesuita a Migrantes, 2020; Akkerman, 2018) en conjunto a una tendencia hacia posiciones más nacionalistas o bajo discursos, denominados por las mismas personas, "patriotas" que suelen ir de la mano con una negatividad hacia la migración (Akkerman, 2018; Buraschi y Aguilar-Idañez, 2023), estas posiciones, también suelen manifestarse más en hombres (SJM, 2020). La percepción hacia la migración también se puede ver influida por cuestiones como un régimen más democrático o liberal respecto a políticas de migración (Romero, 2021), donde en aquellos países con una política más democrática presentan una mejor percepción de las personas migrantes.
+Ante el aumento de los flujos migratorios, han aparecido también discursos que presentan una mala percepción hacia las personas migrantes, cayendo directamente en posiciones anti migrantes y discriminatorias que se pueden ver reflejadas en fenómenos políticos de nivel global como lo es el auge de la extrema derecha. Diversos estudios han dado cuenta de que existe una relación entre las posiciones de derecha más extremas y una mala percepción hacia la migración (Servicio Jesuita a Migrantes, 2020; Akkerman, 2018) en conjunto a una tendencia hacia posiciones más nacionalistas o bajo discursos, denominados por las mismas personas, “patriotas” que suelen ir de la mano con una negatividad hacia la migración (Akkerman, 2018; Buraschi y Aguilar-Idañez, 2023), estas posiciones, también suelen manifestarse más en hombres (SJM, 2020). La percepción hacia la migración también se puede ver influida por cuestiones como un régimen más democrático o liberal respecto a políticas de migración (Romero, 2021), donde en aquellos países con una política más democrática presentan una mejor percepción de las personas migrantes.
 
 Por otro lado, factores individuales como lo pueden ser el nivel educativo o el nivel socioeconómico pueden influir en una percepción negativa hacia la migración, producto de que existiría una posible competencia entre las personas migrantes y las personas de menor nivel educacional o bajos ingresos por aquellas ocupaciones de menor complejización (Romero, 2021; Emmenegger y Klemmensen, 2013). Los países que suelen tener un mayor nivel de desarrollo en diversos indicadores como el índice de desarrollo humano, o mayores niveles de educación, suelen recibir mayor migración. como lo muestran los informes OCDE (2024) que dan cuenta de cómo existe un aumento de la migración hacia gran parte de los países pertenecientes a este, por lo que la percepción hacia la migración puede verse afectada por el desarrollo de un país al existir una mayor migración ante un mayor nivel de desarrollo.
 
-Como se muestra con lo comentado anteriormente, vemos como el fenómeno migratorio y las percepciones hacia este constituyen una cuestión fundamental a nivel global, en tanto la migración así como la oposición a esta van en aumento durante los últimos años por lo que el estudio de la percepción hacia la migración se vuelve contingente. Para estudiar esto se debe analizar cuestiones contextuales y factores individuales que darían cuenta de una mayor apreciación u oposición hacia la migración, y al transformarse en un fenómeno global, se vuelve interesante el análisis desde una perspectiva multinivel que considere factores contextuales de cada país que permita conocer cómo varían las percepciones sobre migración no solo considerando cuestiones individuales.
+Como se muestra con lo comentado anteriormente, vemos como el fenómeno migratorio y las percepciones hacia este constituyen una cuestión fundamental a nivel global, en tanto la migración, así como la oposición a esta van en aumento durante los últimos años por lo que el estudio de la percepción hacia la migración se vuelve contingente. Para estudiar esto se debe analizar cuestiones contextuales y factores individuales que darían cuenta de una mayor apreciación u oposición hacia la migración, y al transformarse en un fenómeno global, se vuelve interesante el análisis desde una perspectiva multinivel que considere factores contextuales de cada país que permita conocer cómo varían las percepciones sobre migración no solo considerando cuestiones individuales. 
 
 # Objetivos
 
-En este estudio se pretende abordar las actitudes hacia la migración en distintos países a través de un enfoque multinivel, en el cual se consideran tanto factores individuales como contextuales, para determinar si existen patrones contextuales que puedan dar una explicación a posibles diferencias sistemáticas entre países. \
-
-**Objetivo general:** Identificar en qué medida las actitudes hacia la migración se ven influidas por el país de residencia. \
+**Objetivo general:** Identificar en qué medida las percepciones hacia la migración se ven influidas por el país de residencia. 
 
 **Objetivos específicos:**
 
--   Analizar el efecto de las variables individuales sobre las actitudes hacia la migración.
+-   Analizar el efecto de las variables individuales sobre las percepciones hacia la migración.
 
--   Analizar el efecto de las variables agregadas sobre las actitudes hacia la migración.
+-   Analizar el efecto de las variables agregadas sobre las percepciones hacia la migración.
 
--   Explorar las posibles diferencias en las relaciones entre las variables individuales y las actitudes hacia la migración según el contexto nacional.
+-   Explorar las posibles diferencias en las relaciones entre las variables individuales y las percepciones hacia la migración según el contexto nacional.
 
-# Hipótesis
-
-**Hipótesis:**
+[**Hipótesis:**]{.underline}
 
 **Nivel 1 (individual):**
 
--   Personas que se identifican con posiciones políticas inclinadas a la derecha tenderán hacia una actitud más negativa hacia la migración. 
+-   Personas que se identifican con posiciones políticas inclinadas a la derecha tenderán hacia una percepción más negativa hacia la migración.
 
--   Personas con mayores niveles de ingresos tenderán hacia una actitud más negativa hacia la migración. 
+-   Personas con menores niveles de ingresos tenderán hacia una percepción más negativa hacia la migración. 
 
--   Las actitudes hacia la migración difieren según el sexo de la persona.
+-   Las percepciones hacia la migración difieren según el sexo de la persona.
+
+-   Los mayores niveles de nacionalismo presentan percepciones negativas hacia la migración.
 
 **Nivel 2: (país):**
 
--   Un mayor nivel de desarrollo humano se asociará con actitudes más positivas hacia la migración.
+-   Un mayor nivel de desarrollo humano se asociará con percepciones más positivas hacia la migración.
 
--   Países con mayores niveles de nacionalismo presentan actitudes más negativas hacia la migración. 
+-   Países con menores promedios de años de escolaridad tenderán hacia percepciones más negativas hacia la migración.
 
--   Países con menores promedios de años de escolaridad tenderán hacia actitudes más negativas hacia la migración.
-
--   Países con menores niveles de democracia institucionalizada se asociarán con actitudes más negativas hacia la migración. 
+-   Países con menores niveles de democracia institucionalizada se asociarán con percepciones más negativas hacia la migración.
 
 # Datos, variables y método
 
-Para esta investigación se utilizarán datos rescatados de la séptima ola del World Values Survey (WVS), recolectados entre 2017 y 2022. Esta base de datos incluye aproximadamente 80.000 casos distribuidos en 66 países. Con esto, es posible construir una estructura de datos de dos niveles: nivel 1 (personas) y nivel 2 (países). Para preparar los datos, se aplicó un proceso de limpieza que incluyó la recodificación y eliminación de valores perdidos en las variables relevantes, resultando en una base final de 48.717 casos.
+La base utilizada es la séptima ola del World Values Survey (WVS), con datos recolectados entre 2017 y 2022. Con esto, es posible construir una estructura de datos de dos niveles: nivel 1 (personas) y nivel 2 (países), anidados en la variable país. Para preparar los datos, se aplicó un proceso de limpieza que incluyó recodificación y eliminación de valores perdidos por listwise, con una base final de 54.110 casos en 46 países. 
 
-Para la construcción del modelo se consideró como variable de anidación el país de residencia de las personas encuestadas.
+Para la variable dependiente se elaboró una escala sumativa de percepciones hacia la migración a partir de 9 ítems, con valores de 0 a 18, donde el valor más alto indica una percepción negativa hacia la migración y el más bajo (0) una percepción positiva. Los ítems considerados fueron las variables Q122 a Q129, que expresan opiniones respecto a la migración, estos ítems tenían tres posibilidades de respuesta: De acuerdo (2); Difícil de decir (1); En desacuerdo (0). Para que todas las afirmaciones apuntaran en la misma dirección, se recodificaron cuatro ítems (Q122; Q123; Q125; Q127) invirtiendo los valores de 2 y 0. Finalmente, se incluyó el ítem Q121. ¿Cómo evaluaría el impacto de estas personas en el desarrollo de su país? Siendo una escala Likert que va de Muy bueno (5) a Muy malo (1). Para mantener la coherencia con la dirección de la escala general, se recodificaron las categorías 1 y 2 como 2, la categoría 3 como 1, y las categorías 4 y 5 como 0. 
 
-Respecto a la variable dependiente se elaboró una escala sumativa de actitudes hacia la migración a partir de 9 ítems, codificados en una escala de 0 a 18, donde el valor más alto (18) indica una actitud negativa hacia la migración y el valor más bajo (0) indica una actitud positiva frente a la migración. Los ítems considerados fueron: Q122. Ocupan vacantes laborales importantes; Q123. Enriquecen la diversidad cultural; Q124. Aumentan la tasa de criminalidad; Q125. Brindar asilo a personas refugiadas políticas perseguidas en otros países; Q126. Aumentan el riesgo de terrorismo; Q127. Ofrecen a personas de países pobres una mejor calidad de vida; Q128. Incrementan el desempleo; y Q129. Generan conflictos sociales. Cada uno de estos ítems tenían tres posibilidades de respuesta: De acuerdo (2); Difícil de decir (1); En desacuerdo (0). Para que todas las afirmaciones apuntaran en la misma dirección dentro de la escala, se recodificaron cuatro ítems (Q122; Q123; Q125; Q127) invirtiendo los valores de las categorías extremas: De acuerdo como 0 y En desacuerdo como 2. Finalmente, se incluyó el ítem Q121. ¿Cómo evaluaría el impacto de estas personas en el desarrollo de su país? Esta pregunta utiliza una escala Likert que va de Muy bueno (5) a Muy malo (1). Para mantener la coherencia con la dirección de la escala general, se recodificaron las categorías 1 y 2 como 2, la categoría 3 como 1, y las categorías 4 y 5 como 0.
+Las variables independientes a nivel individual son: son el nacionalismo (Q254) cuyas opciones de respuesta van desde Muy orgullosa/o (1) a No soy \[nacionalidad del país\] (5); el ingreso relativo del hogar (Q288) que consta de una escala de 1 a 10, siendo 1 el grupo más bajo y 10 el más alto; la variable sexo (Q260), que fue renombrada a female y recodificada: 0 = Masculino y 1 = Femenino; y la auto ubicación ideológica en el eje izquierda-derecha (Q240) en  una escala del 1 (izquierda) al 10 (derecha). 
 
-Las variables independientes a nivel individual son: el ingreso relativo del hogar (Q288) que consta de una escala de 1 a 10, siendo 1 el grupo más bajo y 10 el más alto; el sexo de la persona encuestada (Q260), variable que fue recodificada: 0 = Masculino y 1 = Femenino; y finalmente la autoubicación ideológica en el eje izquierda-derecha (Q240) que consta de una escala del 1 (más a la izquierda) al 10 (más a la derecha).
-
-Por otro lado, se consideró como variable independiente agregada el orgullo nacional (Q254) cuyas opciones de respuesta van desde Muy orgullosa/o (1) a No soy \[nacionalidad del país\] (5). Otra variable considerada fue el índice de democracia institucionalizada que va de 0 a 10, según datos de Polity V de 2018. También se consideró la variable de años promedio de escolaridad proveniente de datos de la UNESCO de 2018. Finalmente se consideró el Índice de Desarrollo Humano (IDH) como una medida agregada del nivel de desarrollo de cada país. Finalmente, se utilizó el índice de Gini como indicador de desigualdad en la distribución del ingreso (2012-2019), según el Banco Mundial.
-
-En cuanto a los datos estadísticos descriptivos, la escala de actitudes hacia la migración (perc_mig) tiene una media de 8,58 puntos y su desviación estándar de 3,81, en un rango de 0 a 18, lo que sugiere una distribución amplia de opiniones frente a la migración. En cuanto a las variables de nivel individual, el ingreso del hogar (personal_income) muestra una media de 5,02 (s = 2,11) en una escala de 1 a 10; la autoubicación ideológica (pos_pol) tiene una media de 5,75 (s = 2,45), también en escala de 1 a 10; y la variable sexo presenta una media de 0,51, lo que indica una distribución relativamente equilibrada. Sobre las variables agregada, el orgullo nacional (nacionalismo) tiene una media de 1,61 (s = 0,84) en una escala de 1 a 5, mientras que el índice de democracia institucionalizada presenta un promedio de 7,37 (s = 3,01), con valores entre 0 y 10. El promedio de años de escolaridad (meanschooling) es de 10,03 años (s = 2,56), y el Índice de Desarrollo Humano (IDH) tiene una media de 0,79 (s = 0,11), con una amplitud de valores del 0,47 a 0,94. Finalmente, el índice de Gini tineun promedio de 38,29, con valores entre 24,90 y 53,90.
+Las variables independientes agregadas son: el índice de democracia institucionalizada que va de 0 a 10, según datos de Polity V de 2018, la variable de años promedio de escolaridad proveniente de datos de la UNESCO de 2018 y finalmente el Índice de Desarrollo Humano (IDH) como una medida agregada.
 
 ```{r librerias, echo=FALSE, warning=FALSE, message=FALSE, collapse=TRUE}
 if (!require("pacman")) install.packages("pacman") # solo la primera vez
@@ -102,9 +94,9 @@ table_1 <- stargazer(data_desc, type = "html", out = "tabla_descriptivos.html")
 cat(table_1, sep = "\n")
 ```
 
-En la @tbl-desc
+Viendo la @tbl-desc destacan: la escala de actitudes hacia la migración (perc_mig) con una media de 8.58 (sd = 3.81), sugiriendo una tendencia hacia la neutralidad; la auto ubicación ideológica (pos_pol) con una media de 5.5 (sd = 2.45), indicando una orientación hacia el centro político; y el nacionalismo con una media de 1.61 (sd = 0.84), sugiriendo un alto orgullo nacional. 
 
-Para el análisis de los datos se estimaron modelos multinivel con intercepto aleatorio por país en cada caso. Para esto, en primer lugar se estimó un modelo nulo que permite calcular la correlación intra-clase, la cual justifica la necesidad de este tipo de modelo. Luego, se estimó un modelo con las variables del nivel 1 para observar su relación con las actitudes hacia la migración. Posteriormente se repitió este proceso con las variables de nivel 2 con el mismo objetivo. Finalmente se estimó un modelo multinivel completo con predictores de ambos niveles para dar cuenta de los efectos del nivel 1 y el nivel 2 sobre las actitudes hacia la migración. Se calculó la correlación intra-clase con el fin de evaluar el efecto de la inclusión de los predictores de cada nivel en la proporción de varianza explicada entre países.
+Para el análisis se estimó un modelo nulo para calcular la correlación intra-clase, la cual justifica la necesidad de este tipo de modelo. Luego, un modelo con las variables del nivel 1 para observar su relación con las actitudes hacia la migración, posteriormente un modelo con las variables de nivel 2 y, finalmente, un modelo multinivel completo con predictores de ambos niveles, incluyendo en estos la correlación intra-clase con el fin de evaluar el efecto de la inclusión de los predictores en la proporción de varianza explicada entre países.
 
 # Análisis
 
@@ -113,8 +105,6 @@ results_0 = lmer(perc_mig ~ 1 + (1 | pais), data = data)
 Null_model <- summary(results_0)
 ICC <- reghelper::ICC(results_0)
 ```
-
-Nuestra correlación intraclase calculada a partir del modelo nulo es de `r ICC` , lo que nos indica que un 15% de la varianza puede verse representada por
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
 results_1 = lmer(perc_mig ~ 1 + female + pos_pol + nacionalismo + personal_income + (1 | pais), data = data)
@@ -168,12 +158,38 @@ tab_modelos <- tab_model(results_0, reg_ind, reg_agg, results_3, reg_pend_aleato
 tab_modelos
 ```
 
-En la @tbl-modelos es posible apreciar
+Todos los modelos dentro de la tabla cuentan con intercepto aleatorio. Como se observa en la @tbl-modelos el modelo Nulo presenta un beta de 8.77, al no tener ningún predictor se presenta como el promedio de la variable dependiente percepción frente a los migrantes. En este modelo también se observa un `r ICC`, por lo que este es el porcentaje de varianza explicada por la diferencia entre grupos. 
 
-# Conclusiones
+El modelo individual cuenta con estimaciones considerando el n total de la muestra. Se visualiza que la mayoría de las variables tienen un efecto significativo con un p menor a 0.001. Sin embargo, la variable (female) cuenta con un valor p 0.005, lo cual involucra un 95% de confianza, a su vez que la variable nacionalismo presenta un valor p 0.001, siendo estas las únicas de estas variables que no presentan p \< 0.001. Por parte de las variables individuales, se observa que la pendiente más grande está en la variable (pos_pol) con un 0.14 y la más pequeña en la variable (nacionalismo) con un -0.06.
 
-Aqui redactamos algunas conclusiones, de acuerdo con la [pauta](https://correlacional.netlify.app/trabajos).
+En cuanto al modelo agregado, ninguna de las variables se presenta como significativa. La que presenta un valor p más alto es la variable (hdi), que en el anterior modelo contaba con menos de 0.001. Este problema se debe a colapsar la base en la variable de anidación (país). Dentro del modelo, también podemos observar que las variables de tipo individual (pos_pol, nacionalismo y personal income) pierden de manera importante significación estadística con valores p muy superiores a los del modelo anterior, pero se ve un aumento en la pendiente de estas variables.
+
+En el modelo multinivel, los principales predictores significativos de las percepción hacia la migración fueron la auto ubicación política (pos_pol), el orgullo nacional (nacionalismo), y el ingreso relativo del hogar (personal_income). En síntesis, una mayor inclinación hacia la derecha política, niveles más altos de nacionalismo y menores ingresos se asocian con percepciones más negativas hacia la migración. En contraste, variables agregadas como índice de democracia institucionalizada, el Índice de Desarrollo Humano y el promedio de años de escolaridad no mostraron efectos significativos. El modelo muestra un ICC de 0.14, lo que significa que un 14% de la varianza en las percepciones se explica por diferencias entre países.
+
+El modelo con pendiente aleatoria para nacionalismo muestra que las percepciones hacia la migración se explican en parte por diferencias entre países, tal como lo indica el ICC de 0.15, lo que sugiere que un 15% de la varianza total se debe al contexto nacional. Destacan como predictores individuales, tanto la auto ubicación política (coef. = .13, p \< .001), asociada a una mayor percepción negativa hacia la migración a medida que se ubican más hacia la derecha, como el ingreso relativo del hogar (coef. = .11, p \< 0.001), relacionado con una percepción más negativa hacia la migración mientras menor sea este. La inclusión del nacionalismo como pendiente aleatoria muestra que su efecto varía entre países (τ₁₁ = .19). Además, la correlación negativa entre el intercepto y la pendiente de nacionalismo (ρ₀₁ = -.54) muestra que en países donde hay un rechazo promedio más alto, el efecto del nacionalismo sobre estas percepciones tiende a ser menor. 
+
+A modo general, vemos que los interceptos no presentan una gran variabilidad al cambiar los modelos, estando todos entre el valor 10 y 11, siendo el modelo multinivel el que tiene un intercepto más bajo con 10.34. El modelo agregado, presenta el mayor error estándar dentro de cada uno de los modelos y a su vez, es el único con un valor p \>0.001, con una baja significancia estadística.
+
+# Conclusiones preliminares
+
+De momento, con los modelos preliminares, se puede plantear que, en las hipótesis de primer nivel, la primera de nuestras hipótesis se estaría cumpliendo, ya que aquellas personas con tendencias políticas hacia la derecha presentan una percepción negativa hacia las personas migrantes. Respecto a la segunda hipótesis, también se cumple, puesto que, a menor nivel de ingreso, mayor percepción negativa hacia los migrantes, siendo significativa en todos los modelos excepto el agregado. La tercera hipótesis, se cumple parcialmente al existir diferencias, pero no tan importantes, y existir un p \> 0.001, teniendo significancia solo al 95%. Respecto a la cuarta hipótesis, vemos que existe una variabilidad entre países respecto a la influencia del nacionalismo en la percepción de migrantes producto de lo visto en la pendiente aleatoria de esta variable.
+
+Respecto a las hipótesis de segundo nivel, podemos concluir que no se cumplirían ya que ninguna de estas variables presenta niveles de significancia estadística p \< 0.001, pero, no se puede dejar de lado que variables como HDI, a mayor nivel de desarrollo humano, presentan un aumento importante de la percepción negativa respecto a los migrantes, esto puede relacionarse con la bibliografía citada ya que los países OCDE, por ejemplo, son aquellos que mayor nivel de migrantes han recibido durante los últimos años (2024).
 
 # Biliografía
 
--   
+-   Akkerman, T. (2024). Inmigración y redistribución en Europa: ¿a favor o en contra del Estado del bienestar? Revista CIDOB d’Afers Internacionals, (137), 47–62.[ https://www.cidob.org/sites/default/files/2024-09/47-62_TJITSKE%20AKKERMAN.pdf](https://www.cidob.org/sites/default/files/2024-09/47-62_TJITSKE%20AKKERMAN.pdf)
+
+-   Armijos-Orellana, Ana Carolina, Maldonado-Matute, Juan Manuel, González-Calle, María José, & Guerrero-Maxi, Pedro Fernando. (2022). Los motivos de la migración. Una breve revisión bibliográfica. Universitas-XXI, Revista de Ciencias Sociales y Humanas, (37), 223-246. <https://doi.org/10.17163/uni.n37.2022.09>
+
+-   Buraschi, D., & Aguilar-Idañez, M. J. (2023). La amenaza percibida y la redistribución: actitudes de los españoles hacia el gasto público destinado a los inmigrantes. Migraciones. Publicación del Instituto Universitario de Estudios sobre Migraciones, (60), 77–105.[ https://revistas.comillas.edu/index.php/revistamigraciones/article/view/18461/17228](https://revistas.comillas.edu/index.php/revistamigraciones/article/view/18461/17228)
+
+-   Emmenegger, P., & Klemmensen, R. (2013). Immigration and redistribution revisited: How different motivations can offset each other. Journal of European Social Policy, 23(4), 406–422. https://doi.org/10.1177/0958928713492773
+
+-   OCDE (2024). International Migration Outlook 2024. OCDE Publishing. <https://doi.org/10.1787/50b0353e-en>.
+
+-   Organización de las Naciones Unidas. (s.f.). Migración.[ https://www.un.org/es/global-issues/migration](https://www.un.org/es/global-issues/migration)
+
+-   Romero Montero, A. (2021). Actitudes hacia la inmigración y preferencias redistributivas en España. Universitat Autònoma de Barcelona.[ https://ddd.uab.cat/pub/tfg/2021/tfg_375812/TFG_aromeromontero2.pdf](https://ddd.uab.cat/pub/tfg/2021/tfg_375812/TFG_aromeromontero2.pdf)
+
+-   Servicio Jesuita a Migrantes (SJM Chile). (2020). Barómetro de percepción de la migración 2018-2020. Actividad en redes sociales y su contexto. [ https://sjmchile.org/wp-content/uploads/2024/01/barometrofinal.pdf](https://sjmchile.org/wp-content/uploads/2024/01/barometrofinal.pdf)
