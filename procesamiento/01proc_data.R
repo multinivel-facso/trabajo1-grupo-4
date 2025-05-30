@@ -1,14 +1,3 @@
-# ******************************************************************************
-# 
-#                         Universidad de Chile
-#                     Facultad de Ciencias Sociales
-#                    Estadística Correlacional 2023
-#
-#             Plantilla procesamiento trabajo final curso
-#
-# ******************************************************************************
-
-
 # Carga Librerías --------------------------------------------------------------
 
 library(pacman)
@@ -27,31 +16,53 @@ rm(list = ls()) # para limpiar el entorno de trabajo
 
 # Carga datos ------------------------------------------------------------------
 
-load("input/data/ELSOC_Long.RData")
+load("input/data/WVS_Cross-National_Wave_7_Rdata_v6_0.RData")
 
 
 # Limpieza de datos ------------------------------------------------------------
 
 
 ## Filtrar y seleccionar -------------------------------------------------------
-data <- elsoc_long_2016_2022 %>% 
-  filter(ola==1) %>%
-  select(sexo=m0_sexo,edad=m0_edad,nedu=m01,
-         s11_01,s11_02,s11_03,s11_04,s11_05,s11_06,s11_07,s11_08,s11_09)
-
-
+data <- `WVS_Cross-National_Wave_7_v6_0` %>% 
+  select(pais=B_COUNTRY, female=Q260, nacionalismo=Q254, democ, meanschooling, 
+         hdi, Q121, Q122, Q123, Q124, Q125, Q126, Q127, Q128, 
+         Q129, pos_pol=Q240, personal_income=Q288) #con variables contextuales, sin alfabetismo 
 ## Remover NA's ----------------------------------------------------------------
+
 data <- data %>% 
-  set_na(., na = c(-888, -999)) %>% 
-  na.omit()
+  set_na(., na = c(-1, -2, -3, -4, -5, -999, -9999)) #Recodificamos variables a NA
 
+colSums(is.na(data))
 
-## Crear variable nueva --------------------------------------------------------
+data <- na.omit(data)
+## Recodificar y crear variables --------------------------------------------------------
+
+data <- data %>%
+  mutate(across(c(Q122, Q123, Q125, Q127), ~ case_when(
+    .x == 2 ~ 0,
+    .x == 0 ~ 2,
+    TRUE ~ .x
+  ))) #recodificado para mantener sentido
+
+data <- data %>%
+  mutate(across(c(female), ~ case_when(
+    .x == 1 ~ 0,
+    .x == 2 ~ 1,
+    TRUE ~ .x
+  )))
+
+data <- data %>%
+  mutate(across(c(Q121), ~ case_when(
+    .x %in% c(1,2) ~ 2,
+    .x == 3 ~ 1,
+    .x %in% c(4, 5) ~ 0,
+    TRUE ~ .x
+  )))
+
 data <- data %>% 
   rowwise() %>%
-  mutate(sint_depresivos = mean(c(s11_01,s11_02,s11_03,s11_04,s11_05,s11_06,s11_07,s11_08,s11_09))) %>% 
-  ungroup()
+  mutate(perc_mig = sum(c(Q121, Q122, Q123, Q124, Q125, Q126, Q127, Q128,Q129))) %>% 
+  ungroup() #Escala sumativa percepción de migración
 
-
-# Guardar datos ----------------------------------------------------------------
-save(data,file="output/data.RData")
+# Guardar datos ----sum()# Guardar datos ----------------------------------------------------------------
+save(data, file="output/data.rdata")
