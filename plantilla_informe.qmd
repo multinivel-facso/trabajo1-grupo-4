@@ -10,7 +10,7 @@ editor: visual
 
 ```{r librerias, echo=FALSE, warning=FALSE, message=FALSE, collapse=TRUE}
 if (!require("pacman")) install.packages("pacman") # solo la primera vez
-pacman::p_load(lme4,haven,foreign, stargazer, texreg, lattice, sjPlot, dplyr, ggplot2, ggeffects, parameters) # paquetes a cargar # manipulacion de datos
+pacman::p_load(lme4,haven,foreign, stargazer, texreg, lattice, sjPlot, dplyr, ggplot2, ggeffects, parameters, stargazer, influence.ME) # paquetes a cargar # manipulacion de datos
            
 
 options(scipen = 999) # para desactivar notacion cientifica
@@ -116,11 +116,10 @@ results_1 = lmer(perc_mig ~ 1 + female + pos_pol + nacionalismo + personal_incom
 modelo_1 <- screenreg(results_1, naive=TRUE) #Modelo 1, variables individuales
 
 ICC_1 <- reghelper::ICC(results_1)
-
 ```
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
-results_2 = lmer(perc_mig ~ 1 + democ + hdi + meanschooling + (1 | pais), data = data)
+results_2 = lmer(perc_mig ~ 1 + meanschooling + democ + (1 | pais), data = data)
 modelo_2 <- screenreg(results_2)#Modelo 2, variables contextuales
 
 ICC_2 <- reghelper::ICC(results_2)
@@ -128,7 +127,7 @@ ICC_2 <- reghelper::ICC(results_2)
 ```
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
-results_3 = lmer(perc_mig ~ 1 + democ + hdi + meanschooling + female + pos_pol + nacionalismo + personal_income + (1 | pais), data = data)
+results_3 = lmer(perc_mig ~ 1 + meanschooling + democ + female + pos_pol + nacionalismo + personal_income + (1 | pais), data = data)
 modelo_3 <- screenreg(results_3) #Modelo 3 multinivel
 
 ICC_3 <- reghelper::ICC(results_3)
@@ -136,18 +135,16 @@ ICC_3 <- reghelper::ICC(results_3)
 ```
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
-reg_ind=lm(perc_mig ~ democ + hdi + meanschooling + female +
-             pos_pol + nacionalismo + personal_income, data=data)
 
 agg_mlm=data %>% group_by(pais) %>% summarise_all(funs(mean))
 
-reg_agg=lm(perc_mig ~ + democ + hdi+ meanschooling + female + pos_pol + nacionalismo + personal_income, data=agg_mlm)
+reg_agg=lm(perc_mig ~ + democ + meanschooling, data=agg_mlm)
 
-reg_pend_aleatoria=lmer(perc_mig ~ 1 + democ + hdi + meanschooling + female + pos_pol + nacionalismo + personal_income +( 1 + nacionalismo | pais), data = data)
+reg_pend_aleatoria=lmer(perc_mig ~ 1 + meanschooling + democ + female + pos_pol + nacionalismo + personal_income +( 1 + nacionalismo | pais), data = data)
 ```
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE, results='asis'}
-tab_modelos <- tab_model(results_0, reg_ind, reg_agg, results_3, reg_pend_aleatoria, 
+tab_modelos <- tab_model(results_0, results_1, reg_agg, results_3, reg_pend_aleatoria, 
   show.ci = FALSE, 
   show.se = TRUE,
   dv.labels = c("Nulo","Individual", "Agregado", "Multinivel", "Pendiente aleatoria nacionalismo"))
@@ -180,6 +177,72 @@ A modo general, vemos que los interceptos no presentan una gran variabilidad al 
 De momento, con los modelos preliminares, se puede plantear que, en las hipótesis de primer nivel, la primera de nuestras hipótesis se estaría cumpliendo, ya que aquellas personas con tendencias políticas hacia la derecha presentan una percepción negativa hacia las personas migrantes. Respecto a la segunda hipótesis, también se cumple, puesto que, a menor nivel de ingreso, mayor percepción negativa hacia los migrantes, siendo significativa en todos los modelos excepto el agregado. La tercera hipótesis, se cumple parcialmente al existir diferencias, pero no tan importantes, y existir un p \> 0.001, teniendo significancia solo al 95%. Respecto a la cuarta hipótesis, vemos que existe una variabilidad entre países respecto a la influencia del nacionalismo en la percepción de migrantes producto de lo visto en la pendiente aleatoria de esta variable.
 
 Respecto a las hipótesis de segundo nivel, podemos concluir que no se cumplirían ya que ninguna de estas variables presenta niveles de significancia estadística p \< 0.001, pero, no se puede dejar de lado que variables como HDI, a mayor nivel de desarrollo humano, presentan un aumento importante de la percepción negativa respecto a los migrantes, esto puede relacionarse con la bibliografía citada ya que los países OCDE, por ejemplo, son aquellos que mayor nivel de migrantes han recibido durante los últimos años (2024).
+
+```{r}
+reg_4= lmer(perc_mig ~ democ + meanschooling + female + pos_pol + nacionalismo + personal_income + (1 | pais), data = data)
+
+inf_reg_4 <- influence(reg_4, "pais")
+
+cook <- cooks.distance(inf_reg_4, sort = TRUE)
+
+corte <- 4/46 # cut point
+
+inluyentes <- names(cook)[!is.na(cook) & cook > corte] 
+
+cat("Países influyentes (cook > ", round(corte, 3), "):\n") 
+
+plot(inf_reg_4, which="cook",
+     cutoff=corte, sort=TRUE,
+     xlab="Cooks Distance",
+     ylab="Pais")
+
+sigtest(inf_reg_4, test=-1.96)$meanschooling[1:46,]
+```
+
+```{r}
+library(dplyr)
+
+data <- data %>%
+  mutate(hdi = hdi * 10)
+
+
+data=filter(data,!pais %in% c(124, 608, 554,360, 858, 792))
+table(data$perc_mig)
+
+results_2b = lmer(perc_mig ~ 1 + meanschooling + hdi + unemploytotal + democ + (1 | pais), data = data)
+results_2b
+
+hdi = lmer(perc_mig ~ 1 + mean_income_pais + (1 | pais), data = data)
+table(data$Q121)
+tab_modelosb <- tab_model(hdi, 
+  show.ci = FALSE, 
+  show.se = TRUE,
+  dv.labels = c( "Agregado"))
+tab_modelosb
+M <- cor(data, use = "complete.obs")
+M
+sjPlot::plot_scatter(data = agg_mlm, 
+                     x = mean_income_pais,
+                     y = perc_mig,
+                     fit.line = "lm",
+                     label.var = agg_mlm$pais)
+scater <- ggplot(agg_mlm, aes(x = female, y = perc_mig, label = pais)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE, color = "blue") +
+  geom_text(vjust = -0.5, size = 3) +
+  theme_minimal() +
+  labs(x = "Ingreso promedio por país",
+       y = "Porcentaje de migrantes",
+       title = "Relación entre ingreso promedio y migración")
+
+scater
+
+
+agg_mlm <- agg_mlm %>%
+  group_by(pais) %>%
+  mutate(mean_income_pais = mean(personal_income, na.rm = TRUE)) %>%
+  ungroup()
+```
 
 # Biliografía
 

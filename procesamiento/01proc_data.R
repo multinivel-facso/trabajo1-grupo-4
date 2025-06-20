@@ -25,8 +25,8 @@ load("input/data/WVS_Cross-National_Wave_7_Rdata_v6_0.RData")
 ## Filtrar y seleccionar -------------------------------------------------------
 data <- `WVS_Cross-National_Wave_7_v6_0` %>% 
   select(pais=B_COUNTRY, female=Q260, nacionalismo=Q254, democ, meanschooling, 
-         hdi, Q121, Q122, Q123, Q124, Q125, Q126, Q127, Q128, 
-         Q129, pos_pol=Q240, personal_income=Q288) #con variables contextuales, sin alfabetismo 
+         hdi, Q121, Q124, Q126, Q128, Q129, pos_pol=Q240, personal_income=Q288, unemploytotal) #con variables contextuales, sin alfabetismo 
+
 ## Remover NA's ----------------------------------------------------------------
 
 data <- data %>% 
@@ -38,18 +38,23 @@ data <- na.omit(data)
 ## Recodificar y crear variables --------------------------------------------------------
 
 data <- data %>%
-  mutate(across(c(Q122, Q123, Q125, Q127), ~ case_when(
-    .x == 2 ~ 0,
-    .x == 0 ~ 2,
-    TRUE ~ .x
-  ))) #recodificado para mantener sentido
-
-data <- data %>%
   mutate(across(c(female), ~ case_when(
     .x == 1 ~ 0,
     .x == 2 ~ 1,
     TRUE ~ .x
   )))
+
+data <- data %>%
+  mutate(nacionalismo = case_when(
+    nacionalismo == 1 ~ 4,
+    nacionalismo == 2 ~ 3,
+    nacionalismo == 3 ~ 2,
+    nacionalismo == 4 ~ 1,
+    nacionalismo == 5 ~ NA_real_,  # Borra la respuesta 5
+    TRUE ~ NA_real_        # Por si hay otros valores inesperados
+  ))
+
+data <- na.omit(data)
 
 data <- data %>%
   mutate(across(c(Q121), ~ case_when(
@@ -59,10 +64,17 @@ data <- data %>%
     TRUE ~ .x
   )))
 
+
+
+dataescala <- data %>% select(Q121, Q124, Q126, Q128, Q129) #Escala migración
+
+psych::alpha(dataescala) #Alfa de Cronbach = 0.7
+
 data <- data %>% 
   rowwise() %>%
-  mutate(perc_mig = sum(c(Q121, Q122, Q123, Q124, Q125, Q126, Q127, Q128,Q129))) %>% 
+  mutate(perc_mig = sum(c(Q121, Q124, Q126, Q128, Q129))) %>% 
   ungroup() #Escala sumativa percepción de migración
 
 # Guardar datos ----sum()# Guardar datos ----------------------------------------------------------------
 save(data, file="output/data.rdata")
+
