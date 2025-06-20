@@ -119,7 +119,7 @@ ICC_1 <- reghelper::ICC(results_1)
 ```
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
-results_2 = lmer(perc_mig ~ 1 + meanschooling + democ + (1 | pais), data = data)
+results_2 = lmer(perc_mig ~ 1 + meanschooling + (1 | pais), data = data)
 modelo_2 <- screenreg(results_2)#Modelo 2, variables contextuales
 
 ICC_2 <- reghelper::ICC(results_2)
@@ -127,7 +127,7 @@ ICC_2 <- reghelper::ICC(results_2)
 ```
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
-results_3 = lmer(perc_mig ~ 1 + meanschooling + democ + female + pos_pol + nacionalismo + personal_income + (1 | pais), data = data)
+results_3 = lmer(perc_mig ~ 1 + meanschooling + female + pos_pol + nacionalismo + personal_income + (1 | pais), data = data)
 modelo_3 <- screenreg(results_3) #Modelo 3 multinivel
 
 ICC_3 <- reghelper::ICC(results_3)
@@ -138,13 +138,13 @@ ICC_3 <- reghelper::ICC(results_3)
 
 agg_mlm=data %>% group_by(pais) %>% summarise_all(funs(mean))
 
-reg_agg=lm(perc_mig ~ + democ + meanschooling, data=agg_mlm)
+reg_agg=lm(perc_mig ~ + migrationrate + meanschooling, data=agg_mlm)
 
-reg_pend_aleatoria=lmer(perc_mig ~ 1 + meanschooling + democ + female + pos_pol + nacionalismo + personal_income +( 1 + nacionalismo | pais), data = data)
+reg_pend_aleatoria=lmer(perc_mig ~ 1 + meanschooling + female + pos_pol + nacionalismo + personal_income +( 1 + nacionalismo | pais), data = data)
 ```
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE, results='asis'}
-tab_modelos <- tab_model(results_0, results_1, reg_agg, results_3, reg_pend_aleatoria, 
+tab_modelos <- tab_model(results_0, results_1, results_2, results_3, reg_pend_aleatoria, 
   show.ci = FALSE, 
   show.se = TRUE,
   dv.labels = c("Nulo","Individual", "Agregado", "Multinivel", "Pendiente aleatoria nacionalismo"))
@@ -212,7 +212,7 @@ table(data$perc_mig)
 results_2b = lmer(perc_mig ~ 1 + meanschooling + hdi + unemploytotal + democ + (1 | pais), data = data)
 results_2b
 
-hdi = lmer(perc_mig ~ 1 + mean_income_pais + (1 | pais), data = data)
+hdi = lmer(perc_mig ~ 1 + migrationrate + (1 | pais), data = data)
 table(data$Q121)
 tab_modelosb <- tab_model(hdi, 
   show.ci = FALSE, 
@@ -226,7 +226,7 @@ sjPlot::plot_scatter(data = agg_mlm,
                      y = perc_mig,
                      fit.line = "lm",
                      label.var = agg_mlm$pais)
-scater <- ggplot(agg_mlm, aes(x = female, y = perc_mig, label = pais)) +
+scater <- ggplot(agg_mlm, aes(x = migrationrate, y = perc_mig, label = pais)) +
   geom_point() +
   geom_smooth(method = "lm", se = FALSE, color = "blue") +
   geom_text(vjust = -0.5, size = 3) +

@@ -25,7 +25,7 @@ load("input/data/WVS_Cross-National_Wave_7_Rdata_v6_0.RData")
 ## Filtrar y seleccionar -------------------------------------------------------
 data <- `WVS_Cross-National_Wave_7_v6_0` %>% 
   select(pais=B_COUNTRY, female=Q260, nacionalismo=Q254, democ, meanschooling, 
-         hdi, Q121, Q124, Q126, Q128, Q129, pos_pol=Q240, personal_income=Q288, unemploytotal) #con variables contextuales, sin alfabetismo 
+         hdi, Q121, Q124, migrationrate, Q126, Q128, Q129, pos_pol=Q240, personal_income=Q288, unemploytotal) #con variables contextuales, sin alfabetismo 
 
 ## Remover NA's ----------------------------------------------------------------
 
@@ -76,5 +76,5 @@ data <- data %>%
   ungroup() #Escala sumativa percepción de migración
 
 # Guardar datos ----sum()# Guardar datos ----------------------------------------------------------------
-save(data, file="output/data.rdata")
+save(data, file="Github/trabajo1-grupo-4/output/data.rdata")
 
