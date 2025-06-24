@@ -18,7 +18,9 @@ rm(list = ls()) # para limpiar el entorno de trabajo
 ```
 
 ```{r datos, echo=FALSE, warning=FALSE, message=FALSE}
-load(file="output/data.RData")
+load(file="output/data3.RData")
+
+data<-data3
 ```
 
 # Introducción
@@ -119,15 +121,15 @@ ICC_1 <- reghelper::ICC(results_1)
 ```
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
-results_2 = lmer(perc_mig ~ 1 + meanschooling + democ + (1 | pais), data = data)
+results_2 = lmer(perc_mig ~ 1 + happines_promedio_pais + meanschooling + (1 | pais), data = data)
 modelo_2 <- screenreg(results_2)#Modelo 2, variables contextuales
 
 ICC_2 <- reghelper::ICC(results_2)
-
+screenreg(results_2)
 ```
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
-results_3 = lmer(perc_mig ~ 1 + meanschooling + female + pos_pol + nacionalismo + personal_income + (1 | pais), data = data)
+results_3 = lmer(perc_mig ~ 1 + happines_promedio_pais + meanschooling + female + pos_pol + nacionalismo + personal_income + (1 | pais), data = data)
 modelo_3 <- screenreg(results_3) #Modelo 3 multinivel
 
 ICC_3 <- reghelper::ICC(results_3)
