@@ -72,7 +72,7 @@ Aquí mis notas
 
 # Introducción
 
-Objeto de estudio
+## Objeto de estudio
 
 -   Opiniones negativas hacia la migración y sus cambios según país.
 
@@ -115,9 +115,9 @@ Nivel 1:
 
 ## Nivel 2
 
--   $H_3$: Países con menores promedios de años de escolaridad presentan opiniones más negativas hacia la migración.
+-   $H_5$: Países con menores promedios de años de escolaridad presentan opiniones más negativas hacia la migración.
 
--   $H_4$: Países con menores niveles de democracia institucionalizada tendrán opiniones más negativas hacia la migración.
+-   $H_6$: Países con menores niveles de democracia institucionalizada tendrán opiniones más negativas hacia la migración.
 
 Nivel 3
 
