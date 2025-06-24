@@ -1,0 +1,222 @@
+---
+format:
+  revealjs:
+    title-slide: false
+    logo: images/log.png
+    theme: multinivel.scss
+    incremental: true 
+    slideNumber: true
+    auto-stretch: false
+    transition: fade
+    transition-speed: slow
+editor: source
+---
+
+# 
+
+```{r}
+if (!require("pacman")) install.packages("pacman") # solo la primera vez
+pacman::p_load(lme4,
+               kableExtra,
+               haven,
+               car,
+               sjmisc,
+               sjPlot,
+               stargazer,
+               ggplot2, # gráficos
+               dplyr, # manipulacion de datos
+               equatiomatic,
+               htmltools) # paquetes a cargar
+
+options(scipen = 999) # para desactivar notacion cientifica
+rm(list = ls()) # para limpiar el entorno de trabajo
+
+load(file="~/GitHub/trabajo1-grupo-4/output/data.RData")
+
+
+
+results_0 = lmer(perc_mig ~ 1 + (1 | pais), data = data)
+results_1 = lmer(perc_mig ~ 1 + female + pos_pol + nacionalismo + personal_income + (1 | pais), data = data)
+results_2 = lmer(perc_mig ~ 1 + meanschooling + democ + (1 | pais), data = data)
+results_3 = lmer(perc_mig ~ 1 + meanschooling + democ + female + pos_pol + nacionalismo + personal_income + (1 | pais), data = data)
+results_4=lmer(perc_mig ~ 1 + meanschooling + democ + female + pos_pol + nacionalismo + personal_income +( 1 + nacionalismo | pais), data = data)
+results_5 = lmer(perc_mig ~ 1 + meanschooling + democ + female + pos_pol + nacionalismo + personal_income + meanschooling*nacionalismo + (1 | pais), data = data)
+```
+
+::: columns
+::: {.column width="20%"}
+:::
+
+::: {.column .column-right width="80%"}
+# **Opiniones negativas sobre la migración: la influencia del país y el contexto**
+
+------------------------------------------------------------------------
+
+**Paula Córdova, Jesús Díaz Molina & Benjamín Zavala**
+
+::: {.red2 .medium}
+**Análisis de datos multinivel - 2025**
+
+**Departamento de Sociología, Universidad de Chile**
+:::
+
+Santiago, 24 de Junio de 2025
+:::
+
+[Github repo](https://github.com/multinivel-facso/trabajo1-grupo-4)
+:::
+
+::: notes
+Aquí mis notas
+:::
+
+# Introducción
+
+-   \[problema, objeto de estudio\] Rendimiento en matemáticas decreciente y aumentan brechas por género
+
+-   \[factores asociados L1\] Nivel socioeconómico y género de estudiantes
+
+-   \[factores asociados L2\] Nivel socioeconómico de la escuela y composición de género de las salas de clases.
+
+##  {data-background-color="#5f5758"}
+
+::: {.center .middle}
+[¿En qué medida los factores contextuales de cada país, como su democracia y su promedio de escolaridad, y los factores individuales, como el ser mujer, la posición política, el nacionalismo, y el ingreso propio, influyen en tener una opinión negativa hacia las personas migrantes?]{style="font-size: 150%;"}
+:::
+
+# Hipótesis:
+
+Nivel 1:
+
+-   $H_1$: Personas que se identifican con posiciones políticas inclinadas a la derecha tenderán hacia opiniones más negativas respecto a la migración.
+
+-   $H_2$: Personas con menores niveles de ingresos tenderán hacia una opinión más negativa hacia la migración.
+
+-   $H_3$: Las mujeres tienen opiniones menos negativas hacia la migración que los hombres.
+
+-   $H_4$: A mayor nivel de nacionalismo se presenta una mayor opinión negativa hacia la migración.
+
+## Nivel 2
+
+-   $H_3$: Países con menores promedios de años de escolaridad presentan opiniones más negativas hacia la migración.
+
+-   $H_4$: Países con menores niveles de democracia institucionalizada tendrán opiniones más negativas hacia la migración.
+
+Nivel 3
+
+# Metodología {data-background-color="#5f5758"}
+
+## Datos
+
+-   Séptima ola del World Values Survey (WVS), con datos recolectados entre 2017 y 2022.
+
+-   Presenta datos individuales y contextuales por país, obtenidos de otras instituciones.
+
+-   Tras limpieza con listwise, 54984 casos y 46 países.
+
+## Variables {.scrollable .smaller}
+
+
+```{r tbl-1, results='hide'}
+
+#Variables nivel 1 individual
+
+nivel1 <- data %>%
+  select(perc_mig, female, nacionalismo, pos_pol, personal_income)
+
+desc_level_1 <- stargazer(as.data.frame(nivel1),
+          type = "html",
+          title = "Nivel 1 (individual)",
+          digits = 2, summary.stat = c("n","min", "p25", "median", "mean", "p75", "max", "sd"))
+
+# Variables de nivel 2 (contextual)
+nivel2 <- data %>%
+  select(pais, democ, meanschooling) %>%
+  distinct()  # evitar duplicados por comuna
+
+desc_level_2 <- stargazer(as.data.frame(nivel2),
+          type = "html",
+          title = "Nivel 2 (país)",
+          digits = 2, summary.stat = c("n", "min", "p25", "median", "mean", "p75", "max","sd"))
+
+```
+
+```{r, results='asis'}
+# Mostrar ambas tablas con títulos manuales
+cat("
+<h3><strong>Estadísticos descriptivos de Nivel 1 (individual)</strong></h3>
+", desc_level_1, "
+<br><br>
+<h3><strong>Estadísticos descriptivos de Nivel 2 (país)</strong></h3>
+", desc_level_2)
+```
+
+## Métodos
+
+... se estimó el siguiente modelo:
+
+$$
+y_{ij} = \gamma_{00} + \gamma_{01} \text{ses} + \gamma_{02} \text{female} + \gamma_{03} \text{sector} + \gamma_{04} \text{mnses} + u_{0j} + r_{ij}
+$$
+
+# Resultados {data-background-color="#5f5758"}
+
+## Descriptivos
+
+```{r}
+
+```
+
+## Modelos
+
+Los resultados de los modelos de regresión pueden ser presentados en un coefplot
+
+```{r}
+plot_model(results_3, 
+            title = "", #quitar titulo
+            show.values = TRUE, #mostrar valor de efectos
+            dot.size = 3, #tamaño circulos
+            line.size = 1, #tamaño CI
+            value.size = 4, #tamaño valor efectoss
+            spacing = 1, #espacio entre efectos
+            vline.color = "red", # linea roja en punto neutro (0)
+            axis.labels = rev(c("Ses",
+                              "Female", 
+                              "Sector", 
+                              "Mean sed")), #con rev porque automatico los tira en otro orden
+            show.legend = FALSE) + # variables dependientes
+  theme_bw()
+```
+
+## Resultados {.scrollable .smaller}
+
+```{r}
+tab_model(results_0, results_1, results_2, results_3, results_4, results_5, 
+  show.ci = FALSE, 
+  show.se = TRUE,
+  dv.labels = c("Nulo","Individual", "Agregado", "Multinivel", "Pendiente aleatoria nacionalismo", "Interacción entre niveles"))
+```
+
+## Interacción
+
+::: columns
+::: {.column width="70%"}
+```{r}
+
+```
+:::
+
+::: {.column width="30%"}
+La interacción muestra que...
+:::
+:::
+
+# Conclusiones {data-background-color="#5f5758"}
+
+::: incremental
+-   bla bla bla
+-   bla bla
+-   bla
+:::
+
+## Referencias

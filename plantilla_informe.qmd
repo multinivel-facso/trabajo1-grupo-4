@@ -94,7 +94,7 @@ nivel2 <- data %>%
 
 stargazer(as.data.frame(nivel2),
           type = "html",
-          title = "Estadísticos descriptivos - Nivel 2 (comunal)",
+          title = "Estadísticos descriptivos - Nivel 2 (país)",
           digits = 2, summary.stat = c("n", "min", "p25", "median", "mean", "p75", "max","sd"))
 
 ```
@@ -119,7 +119,7 @@ ICC_1 <- reghelper::ICC(results_1)
 ```
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
-results_2 = lmer(perc_mig ~ 1 + meanschooling + (1 | pais), data = data)
+results_2 = lmer(perc_mig ~ 1 + meanschooling + democ + (1 | pais), data = data)
 modelo_2 <- screenreg(results_2)#Modelo 2, variables contextuales
 
 ICC_2 <- reghelper::ICC(results_2)
