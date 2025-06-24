@@ -8,7 +8,7 @@
 <link href="presentacion_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="presentacion_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="presentacion_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.3.433">
+  <meta name="generator" content="quarto-1.4.555">
 
   <title>presentacion</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -155,7 +155,8 @@
   }
 
   .callout.callout-titled .callout-body > .callout-content > :last-child {
-    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
   }
 
   .callout.callout-titled .callout-icon::before {
@@ -428,13 +429,19 @@
 </section>
 <section id="variables" class="slide level2 scrollable smaller">
 <h2>Variables</h2>
-<div id="tbl-1" class="cell tbl-parent quarto-layout-panel">
+<div id="tbl-1" class="cell quarto-float">
+<figure class="quarto-float quarto-float-tbl">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl quarto-uncaptioned" id="tbl-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1
+</figcaption>
+<div aria-describedby="tbl-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 
+</div>
+</figure>
 </div>
 <h3>
 <strong>Estadísticos descriptivos de Nivel 1 (individual)</strong>
 </h3>
-
 <table style="text-align:center">
 <caption>
 <strong>Nivel 1 (individual)</strong>
@@ -481,7 +488,7 @@ St.&nbsp;Dev.
 perc_mig
 </td>
 <td>
-54,984
+54,716
 </td>
 <td>
 0
@@ -510,7 +517,7 @@ perc_mig
 female
 </td>
 <td>
-54,984
+54,716
 </td>
 <td>
 0
@@ -539,7 +546,7 @@ female
 nacionalismo
 </td>
 <td>
-54,984
+54,716
 </td>
 <td>
 1
@@ -568,7 +575,7 @@ nacionalismo
 pos_pol
 </td>
 <td>
-54,984
+54,716
 </td>
 <td>
 1
@@ -597,7 +604,7 @@ pos_pol
 personal_income
 </td>
 <td>
-54,984
+54,716
 </td>
 <td>
 1
@@ -625,13 +632,11 @@ personal_income
 <td colspan="9" style="border-bottom: 1px solid black">
 </td>
 </tr>
-
 </tbody></table>
 <br><br>
 <h3>
 <strong>Estadísticos descriptivos de Nivel 2 (país)</strong>
 </h3>
-
 <table style="text-align:center">
 <caption>
 <strong>Nivel 2 (país)</strong>
@@ -704,31 +709,31 @@ pais
 </tr>
 <tr>
 <td style="text-align:left">
-democ
+happines_promedio_pais
 </td>
 <td>
 46
 </td>
 <td>
-0
+1.43
 </td>
 <td>
-6.2
+1.74
 </td>
 <td>
-8
+1.85
 </td>
 <td>
-7.13
+1.86
 </td>
 <td>
-9.8
+1.99
 </td>
 <td>
-10
+2.45
 </td>
 <td>
-3.19
+0.21
 </td>
 </tr>
 <tr>
@@ -764,7 +769,6 @@ meanschooling
 <td colspan="9" style="border-bottom: 1px solid black">
 </td>
 </tr>
-
 </tbody></table>
 </section>
 <section id="métodos" class="slide level2">
@@ -787,7 +791,11 @@ y_{ij} = \gamma_{00} + \gamma_{01} \text{ses} + \gamma_{02} \text{female} + \gam
 <p>Los resultados de los modelos de regresión pueden ser presentados en un coefplot</p>
 <div class="cell">
 <div class="cell-output-display">
+<div>
+<figure>
 <p><img data-src="presentacion_files/figure-revealjs/unnamed-chunk-4-1.png" width="960"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -795,7 +803,6 @@ y_{ij} = \gamma_{00} + \gamma_{01} \text{ses} + \gamma_{02} \text{female} + \gam
 <h2>Resultados</h2>
 <div class="cell">
 <div class="cell-output-display">
-
 <table style="border-collapse:collapse; border:none;">
 <tbody><tr>
 <th style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm;  text-align:left; ">&nbsp;</th>
@@ -832,21 +839,21 @@ y_{ij} = \gamma_{00} + \gamma_{01} \text{ses} + \gamma_{02} \text{female} + \gam
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">5.79</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.17</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "><strong>&lt;0.001</strong></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">5.22</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">5.21</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.19</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7"><strong>&lt;0.001</strong></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">6.31</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">0.72</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0"><strong>&lt;0.001</strong></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">5.51</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2">0.73</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  3"><strong>&lt;0.001</strong></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  4">5.32</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  5">0.69</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  6"><strong>&lt;0.001</strong></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  7">5.45</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  8">0.77</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  9"><strong>&lt;0.001</strong></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">3.38</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">1.57</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0"><strong>0.032</strong></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">2.43</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2">1.58</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  3">0.125</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  4">2.67</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  5">1.49</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  6">0.073</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  7">2.39</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  8">1.60</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  9">0.136</td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">female</td>
@@ -855,19 +862,19 @@ y_{ij} = \gamma_{00} + \gamma_{01} \text{ses} + \gamma_{02} \text{female} + \gam
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">-0.02</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.02</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7">0.395</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7">0.445</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8"></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9"></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0"></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">-0.02</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2">0.02</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  3">0.396</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  4">-0.01</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  3">0.446</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  4">-0.00</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  5">0.02</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  6">0.771</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  6">0.844</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  7">-0.02</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  8">0.02</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  9">0.395</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  9">0.446</td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">pos pol</td>
@@ -906,10 +913,10 @@ y_{ij} = \gamma_{00} + \gamma_{01} \text{ses} + \gamma_{02} \text{female} + \gam
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  3"><strong>&lt;0.001</strong></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  4">0.12</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  5">0.06</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  6"><strong>0.032</strong></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  7">0.15</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  6"><strong>0.031</strong></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  7">0.14</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  8">0.07</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  9"><strong>0.038</strong></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  9"><strong>0.042</strong></td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">personal income</td>
@@ -940,39 +947,39 @@ y_{ij} = \gamma_{00} + \gamma_{01} \text{ses} + \gamma_{02} \text{female} + \gam
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7"></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">-0.02</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">0.08</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">0.754</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">-0.01</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2">0.08</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  3">0.925</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  4">0.01</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  5">0.07</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  6">0.911</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  7">-0.00</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  8">0.08</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  9">0.979</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">-0.07</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">0.07</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">0.301</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">-0.05</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2">0.07</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  3">0.458</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  4">-0.03</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  5">0.06</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  6">0.693</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  7">-0.05</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  8">0.07</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  9">0.518</td>
 </tr>
 <tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">democ</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">happines promedio pais</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7"></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">-0.04</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">0.06</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">0.521</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">-0.03</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2">0.06</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  3">0.617</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  4">-0.02</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  5">0.06</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  6">0.750</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  7">-0.03</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  8">0.06</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  9">0.617</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8">1.67</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9">0.83</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0"><strong>0.044</strong></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">1.76</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2">0.84</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  3"><strong>0.035</strong></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  4">1.53</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  5">0.78</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  6"><strong>0.049</strong></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  7">1.76</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  8">0.84</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  9"><strong>0.035</strong></td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">meanschooling ×<br>nacionalismo</td>
@@ -993,7 +1000,7 @@ y_{ij} = \gamma_{00} + \gamma_{01} \text{ses} + \gamma_{02} \text{female} + \gam
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  6"></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  7">-0.00</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  8">0.01</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  9">0.822</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  9">0.858</td>
 </tr>
 <tr>
 <td colspan="19" style="font-weight:bold; text-align:left; padding-top:.8em;">Random Effects</td>
@@ -1005,18 +1012,18 @@ y_{ij} = \gamma_{00} + \gamma_{01} \text{ses} + \gamma_{02} \text{female} + \gam
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">7.45</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">7.53</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">7.45</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">7.35</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">7.36</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">7.45</td>
 </tr>
 
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">τ<sub>00</sub></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">1.39 <sub>pais</sub></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">1.41 <sub>pais</sub></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">1.43 <sub>pais</sub></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">1.47 <sub>pais</sub></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">2.00 <sub>pais</sub></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">1.46 <sub>pais</sub></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">1.40 <sub>pais</sub></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">1.42 <sub>pais</sub></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">1.33 <sub>pais</sub></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">1.34 <sub>pais</sub></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">1.89 <sub>pais</sub></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">1.34 <sub>pais</sub></td>
 
 </tr><tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">τ<sub>11</sub></td>
@@ -1033,17 +1040,17 @@ y_{ij} = \gamma_{00} + \gamma_{01} \text{ses} + \gamma_{02} \text{female} + \gam
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">&nbsp;</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">&nbsp;</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">&nbsp;</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">-0.61 <sub>pais</sub></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">-0.63 <sub>pais</sub></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">&nbsp;</td>
 
 </tr><tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">ICC</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.16</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.16</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.15</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.15</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.16</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.16</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.17</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.16</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.15</td>
 
 </tr><tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">N</td>
@@ -1055,21 +1062,21 @@ y_{ij} = \gamma_{00} + \gamma_{01} \text{ses} + \gamma_{02} \text{female} + \gam
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">46 <sub>pais</sub></td>
 </tr><tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm; border-top:1px solid;">Observations</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">54984</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">54984</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">54984</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">54984</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">54984</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">54984</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">54716</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">54716</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">54716</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">54716</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">54716</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">54716</td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">Marginal R<sup>2</sup> / Conditional R<sup>2</sup></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.000 / 0.156</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.010 / 0.168</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.003 / 0.162</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.012 / 0.175</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.009 / 0.175</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.012 / 0.175</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.000 / 0.157</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.010 / 0.169</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.014 / 0.161</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.023 / 0.172</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.018 / 0.172</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.023 / 0.172</td>
 </tr>
 
 </tbody></table>
@@ -1100,9 +1107,11 @@ y_{ij} = \gamma_{00} + \gamma_{01} \text{ses} + \gamma_{02} \text{female} + \gam
 </section>
 <section id="referencias" class="slide level2">
 <h2>Referencias</h2>
+<div class="quarto-auto-generated-content">
 <p><img src="images/log.png" class="slide-logo"></p>
 <div class="footer footer-default">
 
+</div>
 </div>
 </section></section>
     </div>
@@ -1131,7 +1140,6 @@ y_{ij} = \gamma_{00} + \gamma_{01} \text{ses} + \gamma_{02} \text{female} + \gam
       Reveal.initialize({
 'controlsAuto': true,
 'previewLinksAuto': false,
-'smaller': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
@@ -1317,42 +1325,80 @@ y_{ij} = \gamma_{00} + \gamma_{01} \text{ses} + \gamma_{02} \text{female} + \gam
       });
     </script>
     
+
     <script>
+
       // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
       // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
       // slide changes (different for each slide format).
+
       (function () {
+
         // dispatch for htmlwidgets
+
         function fireSlideEnter() {
+
           const event = window.document.createEvent("Event");
+
           event.initEvent("slideenter", true, true);
+
           window.document.dispatchEvent(event);
+
         }
+
+    
 
         function fireSlideChanged(previousSlide, currentSlide) {
+
           fireSlideEnter();
 
+    
+
           // dispatch for shiny
+
           if (window.jQuery) {
+
             if (previousSlide) {
+
               window.jQuery(previousSlide).trigger("hidden");
+
             }
+
             if (currentSlide) {
+
               window.jQuery(currentSlide).trigger("shown");
+
             }
+
           }
+
         }
+
+    
 
         // hookup for slidy
+
         if (window.w3c_slidy) {
+
           window.w3c_slidy.add_observer(function (slide_num) {
+
             // slide_num starts at position 1
+
             fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
           });
+
         }
 
+    
+
       })();
+
     </script>
+
+    
 
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -1430,10 +1476,27 @@ y_{ij} = \gamma_{00} + \gamma_{01} \text{ses} + \gamma_{02} \text{female} + \gam
         // clear code selection
         e.clearSelection();
       });
-      function tippyHover(el, contentFn) {
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,
-          content: contentFn,
           maxWidth: 500,
           delay: 100,
           arrow: false,
@@ -1443,8 +1506,17 @@ y_{ij} = \gamma_{00} + \gamma_{01} \text{ses} + \gamma_{02} \text{female} + \gam
           interactive: true,
           interactiveBorder: 10,
           theme: 'light-border',
-          placement: 'bottom-start'
+          placement: 'bottom-start',
         };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
           config['offset'] = [0,0];
           config['maxWidth'] = 700;
         window.tippy(el, config); 
@@ -1458,7 +1530,11 @@ y_{ij} = \gamma_{00} + \gamma_{01} \text{ses} + \gamma_{02} \text{female} + \gam
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
-          return note.innerHTML;
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
         });
       }
       const findCites = (el) => {

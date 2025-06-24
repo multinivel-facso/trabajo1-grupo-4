@@ -31,16 +31,16 @@ pacman::p_load(lme4,
 options(scipen = 999) # para desactivar notacion cientifica
 rm(list = ls()) # para limpiar el entorno de trabajo
 
-load(file="~/GitHub/trabajo1-grupo-4/output/data.RData")
+load("~/GitHub/trabajo1-grupo-4/output/data.Rdata")
 
-
+data <- data3
 
 results_0 = lmer(perc_mig ~ 1 + (1 | pais), data = data)
 results_1 = lmer(perc_mig ~ 1 + female + pos_pol + nacionalismo + personal_income + (1 | pais), data = data)
-results_2 = lmer(perc_mig ~ 1 + meanschooling + democ + (1 | pais), data = data)
-results_3 = lmer(perc_mig ~ 1 + meanschooling + democ + female + pos_pol + nacionalismo + personal_income + (1 | pais), data = data)
-results_4=lmer(perc_mig ~ 1 + meanschooling + democ + female + pos_pol + nacionalismo + personal_income +( 1 + nacionalismo | pais), data = data)
-results_5 = lmer(perc_mig ~ 1 + meanschooling + democ + female + pos_pol + nacionalismo + personal_income + meanschooling*nacionalismo + (1 | pais), data = data)
+results_2 = lmer(perc_mig ~ 1 + meanschooling + happines_promedio_pais + (1 | pais), data = data)
+results_3 = lmer(perc_mig ~ 1 + meanschooling + happines_promedio_pais + female + pos_pol + nacionalismo + personal_income + (1 | pais), data = data)
+results_4=lmer(perc_mig ~ 1 + meanschooling + happines_promedio_pais + female + pos_pol + nacionalismo + personal_income +( 1 + nacionalismo | pais), data = data)
+results_5 = lmer(perc_mig ~ 1 + meanschooling + happines_promedio_pais + female + pos_pol + nacionalismo + personal_income + meanschooling*nacionalismo + (1 | pais), data = data)
 ```
 
 ::: columns
@@ -147,7 +147,7 @@ desc_level_1 <- stargazer(as.data.frame(nivel1),
 
 # Variables de nivel 2 (contextual)
 nivel2 <- data %>%
-  select(pais, democ, meanschooling) %>%
+  select(pais, happines_promedio_pais, meanschooling) %>%
   distinct()  # evitar duplicados por comuna
 
 desc_level_2 <- stargazer(as.data.frame(nivel2),
