@@ -23,6 +23,48 @@ load(file="output/data3.RData")
 data<-data3
 ```
 
+
+```{r centrado, echo=FALSE, warning=FALSE, message=FALSE}
+
+ # Centrado a nivel 2 (GMC)-----------
+
+#centrado happiness--------------------------------------------------------
+
+data <- data %>%
+  mutate(happines_promedio_pais_gm = mean(happines_promedio_pais),                
+         # Media general (nivel 2)
+         happiness_gmc = happines_promedio_pais - happines_promedio_pais_gm)  
+
+#centrado meanschooling---------------------------------------------------
+
+data <- data %>%
+  mutate(meanschooling_gm = mean(meanschooling),                
+         # Media general (nivel 2)
+         meanschooling_gmc = meanschooling - meanschooling_gm)
+
+ #Centrado a la media del grupo Nivel 1---------
+
+#centrado meanschooling---------------------------------------------------
+data <- data %>%
+  group_by(pais) %>%
+  mutate(pos_pol_cmc = pos_pol - mean(pos_pol, na.rm = TRUE)) %>%
+  ungroup()
+#centrado meanschooling---------------------------------------------------
+
+data <- data %>%
+  group_by(pais) %>%
+  mutate(personal_income_cmc = personal_income - mean(personal_income, na.rm = TRUE)) %>%
+  ungroup()
+
+#centrado meanschooling---------------------------------------------------
+
+data <- data %>%
+  group_by(pais) %>%
+  mutate(nacionalismo_cmc = nacionalismo - mean(nacionalismo, na.rm = TRUE)) %>%
+  ungroup()
+
+```
+
 # Introducción
 
 La migración es hoy en día como uno de los fenómenos más contingentes a nivel mundial, de acuerdo con la ONU (2025) el número de migrantes a nivel internacional corresponde a 304 millones de personas aproximadamente, un número que se ha duplicado desde 1990. Estos procesos migratorios pueden explicarse por diversos factores, como lo pueden ser los económicos, sociales, políticos, demográficos y ecológicos (Armijos-Orellana et al, 2022), por lo que debe comprenderse como un fenómeno multicausal en el que influyen cuestiones no solo individuales, sino también contextuales, como lo pueden ser una crisis económica a nivel nacional, crisis políticas, conflictos bélicos, desplazamiento por riesgos socionaturales, etc. 
@@ -91,7 +133,7 @@ Las variables independientes agregadas son: el índice de democracia institucion
 ```{r descriptivos nivel2, echo=FALSE, results='asis'}
 # Variables de nivel 2 (contextual)
 nivel2 <- data %>%
-  select(pais, democ, hdi, meanschooling) %>%
+  select(pais, happines_promedio_pais, meanschooling) %>%
   distinct()  # evitar duplicados por comuna
 
 stargazer(as.data.frame(nivel2),
@@ -114,14 +156,16 @@ ICC <- reghelper::ICC(results_0)
 ```
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
-results_1 = lmer(perc_mig ~ 1 + female + pos_pol + nacionalismo + personal_income + (1 | pais), data = data)
+results_1 = lmer(perc_mig ~ 1 + female + pos_pol_cmc + nacionalismo_cmc + personal_income_cmc + (1 | pais), data = data)
 modelo_1 <- screenreg(results_1, naive=TRUE) #Modelo 1, variables individuales
 
 ICC_1 <- reghelper::ICC(results_1)
+
+screenreg(results_1)
 ```
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
-results_2 = lmer(perc_mig ~ 1 + happines_promedio_pais + meanschooling + (1 | pais), data = data)
+results_2 = lmer(perc_mig ~ 1 + happiness_gmc + meanschooling_gmc + (1 | pais), data = data)
 modelo_2 <- screenreg(results_2)#Modelo 2, variables contextuales
 
 ICC_2 <- reghelper::ICC(results_2)
@@ -129,7 +173,7 @@ screenreg(results_2)
 ```
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
-results_3 = lmer(perc_mig ~ 1 + happines_promedio_pais + meanschooling + female + pos_pol + nacionalismo + personal_income + (1 | pais), data = data)
+results_3 = lmer(perc_mig ~ 1 + happiness_gmc + meanschooling_gmc + female + pos_pol_cmc + nacionalismo_cmc + personal_income_cmc + (1 | pais), data = data)
 modelo_3 <- screenreg(results_3) #Modelo 3 multinivel
 
 ICC_3 <- reghelper::ICC(results_3)
@@ -140,9 +184,9 @@ ICC_3 <- reghelper::ICC(results_3)
 
 agg_mlm=data %>% group_by(pais) %>% summarise_all(funs(mean))
 
-reg_agg=lm(perc_mig ~ + migrationrate + meanschooling, data=agg_mlm)
+reg_agg=lm(perc_mig ~ + happiness_gmc + meanschooling_gmc, data=agg_mlm)
 
-reg_pend_aleatoria=lmer(perc_mig ~ 1 + meanschooling + female + pos_pol + nacionalismo + personal_income +( 1 + nacionalismo | pais), data = data)
+reg_pend_aleatoria=lmer(perc_mig ~ 1 + happiness_gmc + meanschooling_gmc + female + pos_pol_cmc + nacionalismo_cmc + personal_income_cmc +( 1 + nacionalismo | pais), data = data)
 ```
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE, results='asis'}
