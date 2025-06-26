@@ -9,12 +9,17 @@ format:
     auto-stretch: false
     transition: fade
     transition-speed: slow
+    execute:
+      echo: false
+      warning: false
+      message: false
 editor: source
 ---
 
+
 # 
 
-```{r}
+```{r echo=FALSE, warning=FALSE, message=FALSE, results='hide'}
 if (!require("pacman")) install.packages("pacman") # solo la primera vez
 pacman::p_load(lme4,
                kableExtra,
@@ -52,11 +57,11 @@ model_4= lmer (op_mig ~ 1 + meanschooling_gmc + happiness_gmc + female + pos_pol
 model_5 = lmer(op_mig ~ 1 + meanschooling_gmc + happiness_gmc + female + pos_pol_cmc + nacionalismo_cmc + personal_income_cmc + happiness_gmc*nacionalismo_cmc + (1 | pais), data = data)
 ```
 
-::: columns
+:::::: columns
 ::: {.column width="20%"}
 :::
 
-::: {.column .column-right width="80%"}
+:::: {.column .column-right width="80%"}
 # **Opiniones negativas sobre la migración: la influencia del país y el contexto**
 
 ------------------------------------------------------------------------
@@ -70,10 +75,10 @@ model_5 = lmer(op_mig ~ 1 + meanschooling_gmc + happiness_gmc + female + pos_pol
 :::
 
 Santiago, 24 de Junio de 2025
-:::
+::::
 
 [Github repo](https://github.com/multinivel-facso/trabajo1-grupo-4)
-:::
+::::::
 
 ::: notes
 Aquí mis notas
@@ -131,7 +136,7 @@ Nivel 1:
 
 -   $H_6$: Países con mayor felicidad promedio tenderán hacia opiniones menos negativas respecto a las personas migrantes.
 
-Nivel 3
+Interacción entre niveles.
 
 -   $H_7$: El promedio de felicidad de un país atenúa el efecto del nacionalismo en la opinión frente a los migrantes.
 
@@ -348,9 +353,9 @@ plot_scatter(graf_scatt,
 
 ## Modelos
 
-```{r echo=FALSE, warning=FALSE, message=FALSE, results='asis'}
+```{r echo=FALSE, warning=FALSE, message=FALSE, results='hide'}
 #sin centrado
-mtabla_sc <-tab_model(results_0, results_1, results_2, results_3, results_4, results_5, 
+mtabla_sc <-tab_model(results_0, results_1, results_2, results_3, results_4, results_5,
   show.ci = FALSE, 
   show.se = TRUE,
   dv.labels = c("Nulo","Individual", "Agregado", "Multinivel", "Pendiente aleatoria nacionalismo", "Interacción entre niveles"),
@@ -375,8 +380,6 @@ knitr::asis_output(tabla_sc)
 invisible(NULL)      
 
 ```
-
-## Con centrado
 
 ```{r echo=FALSE, warning=FALSE, message=FALSE, results='asis'}
 #con centrado
@@ -411,8 +414,8 @@ invisible(NULL)
 t_devianza <- anova(model_4, model_5)%>%
   as.data.frame()
 
-row.names(t_devianza) <- c( "Modelo 3: Multinivel",
-                            "Modelo 4: Pendiente aleatoria")
+row.names(t_devianza) <- c( "Modelo 4: Pendiente aleatoria",
+                            "Modelo 5: Interacción entre niveles")
 
 t_devianza %>%
   kableExtra::kable(digits = 3, caption = "Comparación de modelos") %>%
@@ -425,7 +428,7 @@ t_devianza %>%
 
 ## Pendiente aleatoria
 
-```{r echo=FALSE, warning=FALSE, message=FALSE, results='asis'}
+```{r echo=FALSE, warning=FALSE, message=FALSE, results='hide'}
 graf_pendiente <- ggpredict(model_4,
                             terms = c("nacionalismo_cmc", "pais                               [152,276,410,554,566,124]"),
                             type = "random")
@@ -438,17 +441,26 @@ graf_pendiente$group <- recode(graf_pendiente$group,
                                `566` = "Nigeria",
                                `124` = "Canadá")
 #grafico
-plot(graf_pendiente) +
+graf<-plot(graf_pendiente) +
   labs(title = "Pendiente aleatoria de nacionalismo por país",
        x = "Nacionalismo centrado",
        y = "Opinión negativa sobre migración") +
   theme_minimal()
+
+
+```
+```{r, echo=FALSE, out.width="80%"}
+knitr::include_graphics("images/Captura.PNG")
 ```
 
+
+# Conclusiones {data-background-color="black"}
+
+::: incremental
 ## Interacción
 
-::: columns
-::: {.column width="60%"}
+::::: columns
+
 ```{r echo=FALSE, warning=FALSE, message=FALSE, results='asis'}
 
 plot_model(model_5,
@@ -468,11 +480,7 @@ plot_model(model_5,
 
 ```
 :::
-
-::: {.column width="40%"}
-La interacción muestra una pequeña variabilidad del efecto del nacionalismo respecto a la felicidad promedio del país, mostrando que en aquellos países más felices se atenua en comparativa a aquellos infelices el efecto de nacionalismo pero sin mucha diferencia.
-:::
-:::
+:::::
 
 ## Casos influyentes
 
@@ -555,6 +563,8 @@ Akkerman, T. (2024). *Inmigración y redistribución en Europa...* [link](https:
 Armijos-Orellana, A. C., et al. (2022). *Los motivos de la migración...* [link](https://doi.org/10.17163/uni.n37.2022.09)\
 Buraschi, D., & Aguilar-Idañez, M. J. (2023). *La amenaza percibida...* [link](https://revistas.comillas.edu/index.php/revistamigraciones/article/view/18461/17228)\
 Emmenegger, P., & Klemmensen, R. (2013). *Immigration and redistribution revisited...* [link](https://doi.org/10.1177/0958928713492773)\
+Espelt, E., Carballeira, A. R., Alvarez, J. M. C., & Mazón, F. J. (1998). *Felicidad y conducta prosocial: un estudio a partir de las encuestas del CIRES...*
+
 OCDE (2024). *International Migration Outlook 2024...* [link](https://doi.org/10.1787/50b0353e-en)\
 ONU (2025). *Migración*. [link](https://www.un.org/es/global-issues/migration)\
 Romero Montero, A. (2021). *Actitudes hacia la inmigración...* [link](https://ddd.uab.cat/pub/tfg/2021/tfg_375812/TFG_aromeromontero2.pdf)\
