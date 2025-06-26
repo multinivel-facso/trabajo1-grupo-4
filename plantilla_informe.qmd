@@ -44,24 +44,26 @@ data <- data %>%
 
  #Centrado a la media del grupo Nivel 1---------
 
-#centrado meanschooling---------------------------------------------------
+#centrado pos_pol---------------------------------------------------
 data <- data %>%
   group_by(pais) %>%
   mutate(pos_pol_cmc = pos_pol - mean(pos_pol, na.rm = TRUE)) %>%
   ungroup()
-#centrado meanschooling---------------------------------------------------
+#centrado personal_income---------------------------------------------------
 
 data <- data %>%
   group_by(pais) %>%
   mutate(personal_income_cmc = personal_income - mean(personal_income, na.rm = TRUE)) %>%
   ungroup()
 
-#centrado meanschooling---------------------------------------------------
+#centrado nacionalismo---------------------------------------------------
 
 data <- data %>%
   group_by(pais) %>%
   mutate(nacionalismo_cmc = nacionalismo - mean(nacionalismo, na.rm = TRUE)) %>%
   ungroup()
+
+save(data, file="~/Documents/GitHub/trabajo1-grupo-4/output/data3.rdata")
 
 ```
 
@@ -272,6 +274,7 @@ sjPlot::plot_scatter(data = agg_mlm,
                      y = perc_mig,
                      fit.line = "lm",
                      label.var = agg_mlm$pais)
+
 scater <- ggplot(agg_mlm, aes(x = migrationrate, y = perc_mig, label = pais)) +
   geom_point() +
   geom_smooth(method = "lm", se = FALSE, color = "blue") +

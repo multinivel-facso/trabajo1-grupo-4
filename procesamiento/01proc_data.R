@@ -16,7 +16,7 @@ rm(list = ls()) # para limpiar el entorno de trabajo
 
 # Carga datos ------------------------------------------------------------------
 
-load("input/WVS_Cross-National_Wave_7_Rdata_v6_0.RData")
+load("~/Documents/GitHub/trabajo1-grupo-4/input/data/WVS_Cross-National_Wave_7_Rdata_v6_0.RData")
 
 
 # Limpieza de datos ------------------------------------------------------------
@@ -55,6 +55,15 @@ data <- data %>%
     TRUE ~ NA_real_        # Por si hay otros valores inesperados
   ))
 
+data <- data %>%
+  mutate(across(c(happiness), ~ case_when(
+    .x == 1 ~ 4,
+    .x == 2 ~ 3,
+    .x == 3 ~ 2,
+    .x == 4 ~ 1,
+    TRUE ~ .x
+  )))
+
 data <- na.omit(data)
 
 data <- data %>%
@@ -64,7 +73,6 @@ data <- data %>%
     .x %in% c(4, 5) ~ 0,
     TRUE ~ .x
   )))
-
 
 
 dataescala <- data %>% select(Q121, Q124, Q126, Q128, Q129) #Escala migración
@@ -86,36 +94,6 @@ data3 <- data %>%
   mutate(Life_satisfaction_promedio = mean(Life_satisfaction, na.rm = TRUE)) %>%
   ungroup()
 
-#Centrado a la Gran Media--------------------------------------------
-
-install.packages("gt")
-
-pacman::p_load(tidyverse, lme4, texreg, gt)
-
-load(file="output/data3.RData")
-
-data3 %>% 
-  nest(-schnum) %>% 
-  mutate(fit = map(data3, ~ lm(perc_mig ~ meanschooling, data=.)),
-         fit.c = map(data3, ~ lm(perc_mig ~ happiness_promedio_pais, data=.)),
-         results = map(fit, broom::tidy),
-         results.c = map(fit.c, broom::tidy)) %>% 
-  unnest(results, results.c) %>% 
-  dplyr::select(schnum, term, estimate, term1, estimate1 ) %>% 
-  pivot_wider(id_cols = "schnum", 
-              values_from=c("estimate", "estimate1"), 
-              names_from=
-                "term") %>% 
-  rename(Intercept = "estimate_(Intercept)", Slope=estimate_homework,
-         Intercept.gmc = "estimate1_(Intercept)", Slope.gmc=estimate1_homework)%>%
-  unnest() %>% 
-  mutate_if(is.numeric, round, 2) %>% 
-  gt::gt()
-
-
 # Guardar datos ----sum()# Guardar datos ----------------------------------------------------------------
 save(data3, file="output/data3.rdata")
-
-getwd()
-ls()  # para ver los objetos disponibles
 
