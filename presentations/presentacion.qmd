@@ -435,7 +435,7 @@ plot(graf_pendiente) +
 ## Interacción
 
 ::: columns
-::: {.column width="80%"}
+::: {.column width="60%"}
 ```{r echo=FALSE, warning=FALSE, message=FALSE, results='asis'}
 
 plot_model(model_5,
@@ -456,8 +456,8 @@ plot_model(model_5,
 ```
 :::
 
-::: {.column width="20%"}
-La interacción muestra que...
+::: {.column width="40%"}
+La interacción muestra una pequeña variabilidad del efecto del nacionalismo respecto a la felicidad promedio del país, mostrando que en aquellos países más felices se atenua en comparativa a aquellos infelices el efecto de nacionalismo pero sin mucha diferencia.
 :::
 :::
 
@@ -521,9 +521,18 @@ invisible(NULL)
 # Conclusiones {data-background-color="#5f5758"}
 
 ::: incremental
--   bla bla bla
--   bla bla
--   bla
+- **Hipótesis 1:** Se comprueba con significancia estadística, aunque con un efecto muy bajo.
+- **Hipótesis 2:** Se comprueba con significancia estadística, aunque con un efecto muy bajo.
+- **Hipótesis 3:** Se comprueba con significancia estadística; el efecto es bajo, pero mayor que el de las demás variables.
+- **Hipótesis 4:** Aunque se observa un efecto negativo, este es casi nulo y sin significancia estadística. La diferencia entre hombres y mujeres respecto a las opiniones sobre la migración es prácticamente inexistente.
+:::
+
+# Conclusiones (cont.) {data-background-color="#5f5758"}
+
+::: incremental
+- **Hipótesis 5:** Se comprueba, pero con un efecto muy bajo y sin significancia estadística.
+- **Hipótesis 6:** Se comprueba con un efecto importante y con significancia estadística.
+- **Hipótesis 7:** El promedio de felicidad del país atenúa levemente el efecto del nacionalismo, según el gráfico de interacción, pero pierde significancia estadística.
 :::
 
 ## Referencias
