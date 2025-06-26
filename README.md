@@ -2,4 +2,4 @@
 
 Informe disponible acá: [https://multinivel-facso.github.io/trabajo1-grupo-4/plantilla_informe.html](https://multinivel-facso.github.io/trabajo1-grupo-4/plantilla_informe.html)
 
-Presentación disponible acá (aún en desarrollo): [https://multinivel-facso.github.io/trabajo1-grupo-4/presentations/presentacion.html](https://multinivel-facso.github.io/trabajo1-grupo-4/presentations/presentacion.html)
+Presentación disponible acá: [https://multinivel-facso.github.io/trabajo1-grupo-4/presentations/presentacion.html](https://multinivel-facso.github.io/trabajo1-grupo-4/presentations/presentacion.html)
