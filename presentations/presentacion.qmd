@@ -85,13 +85,11 @@ Aquí mis notas
 
 -   Lo que se busca estudiar son las opiniones negativas hacia la migración y sus cambios según país.
 
--  La migración como fenómeno global ha emergido en los últimos años, a día de hoy más de 304 millones de migrantes en el mundo (ONU, 2025)
+-   La migración como fenómeno global ha emergido en los últimos años, a día de hoy más de 304 millones de migrantes en el mundo (ONU, 2025)
 
 -   Ejemplo de esto es el aumento sostenido de la migración en países OCDE durante los últimos años (OCDE, 2024)
 
 -   Este fenómeno es multicausal, donde podemos encontrar causas económicas, políticas o sociales (Armijos-Orellana et al, 2022)
-
-
 
 ## Factores asociados de nivel 1
 
@@ -161,7 +159,7 @@ nivel1 <- data %>%
 desc_level_1 <- stargazer(as.data.frame(nivel1),
           type = "html",
           title = "Nivel 1 (individual)",
-          digits = 2, summary.stat = c("n","min", "p25", "median", "mean", "p75", "max", "sd"))
+          digits = 2, summary.stat = c("n","min", "median", "mean", "max", "sd"))
 
 # Variables de nivel 2 (contextual)
 nivel2 <- data %>%
@@ -171,7 +169,7 @@ nivel2 <- data %>%
 desc_level_2 <- stargazer(as.data.frame(nivel2),
           type = "html",
           title = "Nivel 2 (país)",
-          digits = 2, summary.stat = c("n", "min", "p25", "median", "mean", "p75", "max","sd"))
+          digits = 2, summary.stat = c("n", "min", "median", "mean", "max","sd"))
 
 ```
 
@@ -186,61 +184,73 @@ cat("
 ```
 
 ## Métodos {.smaller}
-<div style="font-size: 90%;">
+
+::: {style="font-size: 90%;"}
 Se estimaron un total de 6 modelos:
-</div>
-<div style="font-size: 90%;">
+:::
+
+::: {style="font-size: 90%;"}
 Modelo nulo
-</div>
-<div style="font-size: 80%;">
+:::
+
+::: {style="font-size: 80%;"}
 $$
 \text{op_mig}_{ij} = \gamma_{00} + u_{0j} + r_{ij}
 $$
-</div>
-<div style="font-size: 90%;">
+:::
+
+::: {style="font-size: 90%;"}
 Modelo 1: con variables individuales
-</div>
-<div style="font-size: 75%;">
+:::
+
+::: {style="font-size: 75%;"}
 $$
 \text{op_mig}_{ij} = \gamma_{00} + \gamma_{01} \text{female} + \gamma_{02} \text{pos_pol} + \gamma_{03} \text{nacionalismo} + \gamma_{04} \text{personal_income} + u_{0j} + r_{ij}
 $$
-</div>
-<div style="font-size: 90%;">
+:::
+
+::: {style="font-size: 90%;"}
 Modelo 2: con variables contextuales
-</div>
-<div style="font-size: 80%;">
+:::
+
+::: {style="font-size: 80%;"}
 $$
 \text{op_mig}_{ij} = \gamma_{00} + \gamma_{01} \text{meanschooling}+ \gamma_{02} \text{happiness_promedio_pais} + u_{0j} + r_{ij}
 $$
-</div>
-<div style="font-size: 90%;">
+:::
+
+::: {style="font-size: 90%;"}
 Modelo 3: multinivel
-</div>
-<div style="font-size: 80%;">
+:::
+
+::: {style="font-size: 80%;"}
 $$
 \begin{align*}
 \text{op_mig}_{ij} &= \gamma_{00} + \gamma_{01} \text{meanschooling} + \gamma_{02} \text{happiness_promedio_pais} + \gamma_{03} \text{female} + \gamma_{04} \text{pos_pol} + \gamma_{05} \text{nacionalismo} \\ + &\gamma_{06} \text{personal_income} + u_{0j} + r_{ij}\end{align*}
 $$
+:::
 
-</div>
-<div style="font-size: 90%;">
+::: {style="font-size: 90%;"}
 Modelo 4: con pendiente aleatoria
-</div>
-<div style="font-size: 80%;">
+:::
+
+::: {style="font-size: 80%;"}
 $$
 \begin{align*}
 \text{op_mig}_{ij} &= \gamma_{00} + \gamma_{01} \text{meanschooling} + \gamma_{02} \text{happiness_promedio_pais} + \gamma_{03} \text{female} + \gamma_{04} \text{pos_pol} + \gamma_{05} \text{nacionalismo} \\ + &\gamma_{06} \text{personal_income} + u_{0j} + u_{1j} \text{nacionalismo} + r_{ij} \end{align*}
 $$
-</div>
-<div style="font-size: 90%;">
+:::
+
+::: {style="font-size: 90%;"}
 Modelo 5: interacción entre niveles
-</div>
-<div style="font-size: 80%;">
+:::
+
+::: {style="font-size: 80%;"}
 $$
 \begin{align*}
 \text{op_mig}_{ij} &= \gamma_{00} + \gamma_{01} \text{meanschooling} + \gamma_{02} \text{happiness_promedio_pais} + \gamma_{03} \text{female} + \gamma_{04} \text{pos_pol} + \gamma_{05} \text{nacionalismo} \\ + &\gamma_{06} \text{personal_income} + \gamma_{07} \text{happiness_promedio_pais} \times \text{nacionalismo} + u_{0j} + r_{ij} \end{align*}
 $$
-</div>
+:::
 
 # Resultados {data-background-color="#5f5758"}
 
@@ -321,8 +331,8 @@ plot_scatter(graf_scatt,
        title = "Scatterplot: Relación entre escolaridad y opinión negativa sobre migración")
 ```
 
-
 ## Descriptivos
+
 ```{r echo=FALSE, warning=FALSE, message=FALSE, results='asis'}
 #cambiar nombres variables del gráfico
 plot_scatter(graf_scatt,
@@ -337,6 +347,7 @@ plot_scatter(graf_scatt,
 ```
 
 ## Modelos
+
 ```{r echo=FALSE, warning=FALSE, message=FALSE, results='asis'}
 #sin centrado
 mtabla_sc <-tab_model(results_0, results_1, results_2, results_3, results_4, results_5, 
@@ -366,6 +377,7 @@ invisible(NULL)
 ```
 
 ## Con centrado
+
 ```{r echo=FALSE, warning=FALSE, message=FALSE, results='asis'}
 #con centrado
 mtabla_cc <- tab_model(results_0, model_1, model_2, model_3, model_4, model_5, 
@@ -393,9 +405,10 @@ invisible(NULL)
 ```
 
 ## Test de devianza
+
 ```{r echo=FALSE, warning=FALSE, message=FALSE, results='asis'}
 
-t_devianza <- anova(model_3, model_4)%>%
+t_devianza <- anova(model_4, model_5)%>%
   as.data.frame()
 
 row.names(t_devianza) <- c( "Modelo 3: Multinivel",
@@ -461,8 +474,8 @@ La interacción muestra una pequeña variabilidad del efecto del nacionalismo re
 :::
 :::
 
-
 ## Casos influyentes
+
 ```{r echo=FALSE, warning=FALSE, message=FALSE, results='asis'}
 library(influence.ME)
 
@@ -521,31 +534,29 @@ invisible(NULL)
 # Conclusiones {data-background-color="#5f5758"}
 
 ::: incremental
-- **Hipótesis 1:** Se comprueba con significancia estadística, aunque con un efecto muy bajo.
-- **Hipótesis 2:** Se comprueba con significancia estadística, aunque con un efecto muy bajo.
-- **Hipótesis 3:** Se comprueba con significancia estadística; el efecto es bajo, pero mayor que el de las demás variables.
-- **Hipótesis 4:** Aunque se observa un efecto negativo, este es casi nulo y sin significancia estadística. La diferencia entre hombres y mujeres respecto a las opiniones sobre la migración es prácticamente inexistente.
+-   **Hipótesis 1:** Se comprueba con significancia estadística, aunque con un efecto muy bajo.
+-   **Hipótesis 2:** Se comprueba con significancia estadística, aunque con un efecto muy bajo.
+-   **Hipótesis 3:** Se comprueba con significancia estadística; el efecto es bajo, pero mayor que el de las demás variables.
+-   **Hipótesis 4:** Se rechaza con un efecto sin significancia estadística. No hay diferencia significativa entre hombres y mujeres respecto a las opiniones sobre la migración
 :::
 
 # Conclusiones (cont.) {data-background-color="#5f5758"}
 
 ::: incremental
-- **Hipótesis 5:** Se comprueba, pero con un efecto muy bajo y sin significancia estadística.
-- **Hipótesis 6:** Se comprueba con un efecto importante y con significancia estadística.
-- **Hipótesis 7:** El promedio de felicidad del país atenúa levemente el efecto del nacionalismo, según el gráfico de interacción, pero pierde significancia estadística.
+-   **Hipótesis 5:** Se rechaza con un efecto sin significancia estadística. El nivel educativo no tiene efecto significativo sobre la opinión a los migrantes.
+-   **Hipótesis 6:** Se comprueba con un efecto importante y con significancia estadística.
+-   **Hipótesis 7:** El promedio de felicidad del país atenúa levemente el efecto del nacionalismo, según el gráfico de interacción, pero pierde significancia estadística. Por ende se rechaza la hipótesis
 :::
 
 ## Referencias
 
-<div style="font-size: 80%; line-height: 1.2;">
-
-Akkerman, T. (2024). *Inmigración y redistribución en Europa...* [link](https://www.cidob.org/sites/default/files/2024-09/47-62_TJITSKE%20AKKERMAN.pdf)  
-Armijos-Orellana, A. C., et al. (2022). *Los motivos de la migración...* [link](https://doi.org/10.17163/uni.n37.2022.09)  
-Buraschi, D., & Aguilar-Idañez, M. J. (2023). *La amenaza percibida...* [link](https://revistas.comillas.edu/index.php/revistamigraciones/article/view/18461/17228)  
-Emmenegger, P., & Klemmensen, R. (2013). *Immigration and redistribution revisited...* [link](https://doi.org/10.1177/0958928713492773)  
-OCDE (2024). *International Migration Outlook 2024...* [link](https://doi.org/10.1787/50b0353e-en)  
-ONU (2025). *Migración*. [link](https://www.un.org/es/global-issues/migration)  
-Romero Montero, A. (2021). *Actitudes hacia la inmigración...* [link](https://ddd.uab.cat/pub/tfg/2021/tfg_375812/TFG_aromeromontero2.pdf)  
+::: {style="font-size: 80%; line-height: 1.2;"}
+Akkerman, T. (2024). *Inmigración y redistribución en Europa...* [link](https://www.cidob.org/sites/default/files/2024-09/47-62_TJITSKE%20AKKERMAN.pdf)\
+Armijos-Orellana, A. C., et al. (2022). *Los motivos de la migración...* [link](https://doi.org/10.17163/uni.n37.2022.09)\
+Buraschi, D., & Aguilar-Idañez, M. J. (2023). *La amenaza percibida...* [link](https://revistas.comillas.edu/index.php/revistamigraciones/article/view/18461/17228)\
+Emmenegger, P., & Klemmensen, R. (2013). *Immigration and redistribution revisited...* [link](https://doi.org/10.1177/0958928713492773)\
+OCDE (2024). *International Migration Outlook 2024...* [link](https://doi.org/10.1787/50b0353e-en)\
+ONU (2025). *Migración*. [link](https://www.un.org/es/global-issues/migration)\
+Romero Montero, A. (2021). *Actitudes hacia la inmigración...* [link](https://ddd.uab.cat/pub/tfg/2021/tfg_375812/TFG_aromeromontero2.pdf)\
 SJM Chile (2020). *Barómetro de percepción de la migración...* [link](https://sjmchile.org/wp-content/uploads/2024/01/barometrofinal.pdf)
-
-</div>
+:::
