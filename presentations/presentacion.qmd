@@ -24,6 +24,7 @@ pacman::p_load(lme4,
                sjPlot,
                stargazer,
                ggplot2,
+               ggrepel,
                ggeffects,# gráficos
                dplyr, # manipulacion de datos
                equatiomatic,
@@ -32,22 +33,23 @@ pacman::p_load(lme4,
 options(scipen = 999) # para desactivar notacion cientifica
 rm(list = ls()) # para limpiar el entorno de trabajo
 
-load("~/Documents/GitHub/trabajo1-grupo-4/output/data3.Rdata")
-
+load("~/GitHub/trabajo1-grupo-4/output/data3.Rdata")
+data <- data %>%
+  rename(op_mig = perc_mig)
 #modelos sin centrado
-results_0 = lmer(perc_mig ~ 1 + (1 | pais), data = data)
-results_1 = lmer(perc_mig ~ 1 + female + pos_pol + nacionalismo + personal_income + (1 | pais), data = data)
-results_2 = lmer(perc_mig ~ 1 + meanschooling + happines_promedio_pais + (1 | pais), data = data)
-results_3 = lmer(perc_mig ~ 1 + meanschooling + happines_promedio_pais + female + pos_pol + nacionalismo + personal_income + (1 | pais), data = data)
-results_4=lmer(perc_mig ~ 1 + meanschooling + happines_promedio_pais + female + pos_pol + nacionalismo + personal_income +( 1 + nacionalismo | pais), data = data)
-results_5 = lmer(perc_mig ~ 1 + meanschooling + happines_promedio_pais + female + pos_pol + nacionalismo + personal_income + happines_promedio_pais*nacionalismo + (1 | pais), data = data)
+results_0 = lmer(op_mig ~ 1 + (1 | pais), data = data)
+results_1 = lmer(op_mig ~ 1 + female + pos_pol + nacionalismo + personal_income + (1 | pais), data = data)
+results_2 = lmer(op_mig ~ 1 + meanschooling + happines_promedio_pais + (1 | pais), data = data)
+results_3 = lmer(op_mig ~ 1 + meanschooling + happines_promedio_pais + female + pos_pol + nacionalismo + personal_income + (1 | pais), data = data)
+results_4=lmer(op_mig ~ 1 + meanschooling + happines_promedio_pais + female + pos_pol + nacionalismo + personal_income +( 1 + nacionalismo | pais), data = data)
+results_5 = lmer(op_mig ~ 1 + meanschooling + happines_promedio_pais + female + pos_pol + nacionalismo + personal_income + happines_promedio_pais*nacionalismo + (1 | pais), data = data)
 
 #modelos con centrado
-model_1= lmer(perc_mig ~ 1 + female + pos_pol_cmc + nacionalismo_cmc + personal_income_cmc + (1 | pais), data = data)
-model_2= lmer (perc_mig ~ 1 + meanschooling_gmc + happiness_gmc + (1 | pais), data = data)
-model_3= lmer (perc_mig ~ 1 + meanschooling_gmc + happiness_gmc + female + pos_pol_cmc + nacionalismo_cmc + personal_income_cmc + (1 | pais), data = data)
-model_4= lmer (perc_mig ~ 1 + meanschooling_gmc + happiness_gmc + female + pos_pol_cmc + nacionalismo_cmc + personal_income_cmc + (1 + nacionalismo_cmc | pais), data = data)
-model_5 = lmer(perc_mig ~ 1 + meanschooling_gmc + happiness_gmc + female + pos_pol_cmc + nacionalismo_cmc + personal_income_cmc + happiness_gmc*nacionalismo_cmc + (1 | pais), data = data)
+model_1= lmer(op_mig ~ 1 + female + pos_pol_cmc + nacionalismo_cmc + personal_income_cmc + (1 | pais), data = data)
+model_2= lmer (op_mig ~ 1 + meanschooling_gmc + happiness_gmc + (1 | pais), data = data)
+model_3= lmer (op_mig ~ 1 + meanschooling_gmc + happiness_gmc + female + pos_pol_cmc + nacionalismo_cmc + personal_income_cmc + (1 | pais), data = data)
+model_4= lmer (op_mig ~ 1 + meanschooling_gmc + happiness_gmc + female + pos_pol_cmc + nacionalismo_cmc + personal_income_cmc + (1 + nacionalismo_cmc | pais), data = data)
+model_5 = lmer(op_mig ~ 1 + meanschooling_gmc + happiness_gmc + female + pos_pol_cmc + nacionalismo_cmc + personal_income_cmc + happiness_gmc*nacionalismo_cmc + (1 | pais), data = data)
 ```
 
 ::: columns
@@ -81,11 +83,15 @@ Aquí mis notas
 
 ## Objeto de estudio
 
--   Opiniones negativas hacia la migración y sus cambios según país.
+-   Lo que se busca estudiar son las opiniones negativas hacia la migración y sus cambios según país.
 
--   Migración como fenómeno global, más de 304 millones de migrantes en el mundo (ONU, 2025)
+-  La migración como fenómeno global ha emergido en los últimos años, a día de hoy más de 304 millones de migrantes en el mundo (ONU, 2025)
 
--   Fenómeno multicausal, encontramos causas económicas, políticas o sociales (Armijos-Orellana et al, 2022)
+-   Ejemplo de esto es el aumento sostenido de la migración en países OCDE durante los últimos años (OCDE, 2024)
+
+-   Este fenómeno es multicausal, donde podemos encontrar causas económicas, políticas o sociales (Armijos-Orellana et al, 2022)
+
+
 
 ## Factores asociados de nivel 1
 
@@ -99,13 +105,14 @@ Aquí mis notas
 
 ## Factores asociados de nivel 2
 
--   Los regímenes más democráticos, usualmente relacionados a la socialdemocracia o los Estados de Bienestar, suelen presentar una opinión más positiva respecto a los migrantes (Romero, 2021)
+-   Desde la teoría psicosocial se plantea cómo las emociones pueden influir en una conducta prosocial, la cual vincula el trato y opinión frente a los migrantes. Un mayor bienestar emocional y sentimiento de felicidad tiene una asociación positiva con comportamientos prosociales (Espelt et al, 1998)
+
 -   El nivel de escolaridad medio influye en las opiniones hacia los migrantes por un motivo parecido al de los sectores de menor ingreso, y es que se forma competencia por aquellos trabajos no especializados que no requieren escolaridad de más años (Emmenegger y Klemmensen, 2013)
 
 ##  {data-background-color="#5f5758"}
 
 ::: {.center .middle}
-[¿En qué medida los factores contextuales de cada país, como su democracia y su promedio de escolaridad, y los factores individuales, como el ser mujer, la posición política, el nacionalismo, y el ingreso propio, influyen en tener una opinión negativa hacia las personas migrantes?]{style="font-size: 150%;"}
+[¿En qué medida los factores contextuales de cada país, como su felicidad promedio y su promedio de escolaridad, y los factores individuales, como el ser mujer, la posición política, el nacionalismo, y el ingreso propio, influyen en tener una opinión negativa hacia las personas migrantes?]{style="font-size: 150%;"}
 :::
 
 # Hipótesis:
@@ -124,7 +131,7 @@ Nivel 1:
 
 -   $H_5$: Países con menores promedios de años de escolaridad presentan opiniones más negativas hacia la migración.
 
--   $H_6$: Países con menores niveles de democracia institucionalizada tendrán opiniones más negativas hacia la migración.
+-   $H_6$: Países con mayor felicidad promedio tenderán hacia opiniones menos negativas respecto a las personas migrantes.
 
 Nivel 3
 
@@ -138,7 +145,9 @@ Nivel 3
 
 -   Presenta datos individuales y contextuales por país, obtenidos de otras instituciones.
 
--   Tras limpieza con listwise, 54984 casos y 46 países.
+-   Tras limpieza con listwise, 54716 casos y 46 países.
+
+-   Construcción de una escala de opiniones negativas sobre la migración con 5 variables de la base, obteniendo un alfa de cronbach .77.
 
 ## Variables {.scrollable .smaller}
 
@@ -147,7 +156,7 @@ Nivel 3
 #Variables nivel 1 individual
 
 nivel1 <- data %>%
-  select(perc_mig, female, nacionalismo, pos_pol, personal_income)
+  select(op_mig, female, nacionalismo, pos_pol, personal_income)
 
 desc_level_1 <- stargazer(as.data.frame(nivel1),
           type = "html",
@@ -185,15 +194,15 @@ Modelo nulo
 </div>
 <div style="font-size: 80%;">
 $$
-\text{perc_mig}_{ij} = \gamma_{00} + u_{0j} + r_{ij}
+\text{op_mig}_{ij} = \gamma_{00} + u_{0j} + r_{ij}
 $$
 </div>
 <div style="font-size: 90%;">
 Modelo 1: con variables individuales
 </div>
-<div style="font-size: 80%;">
+<div style="font-size: 75%;">
 $$
-\text{perc_mig}_{ij} = \gamma_{00} + \gamma_{01} \text{female} + \gamma_{02} \text{pos_pol} + \gamma_{03} \text{nacionalismo} + \gamma_{04} \text{personal_income} + u_{0j} + r_{ij}
+\text{op_mig}_{ij} = \gamma_{00} + \gamma_{01} \text{female} + \gamma_{02} \text{pos_pol} + \gamma_{03} \text{nacionalismo} + \gamma_{04} \text{personal_income} + u_{0j} + r_{ij}
 $$
 </div>
 <div style="font-size: 90%;">
@@ -201,7 +210,7 @@ Modelo 2: con variables contextuales
 </div>
 <div style="font-size: 80%;">
 $$
-\text{perc_mig}_{ij} = \gamma_{00} + \gamma_{01} \text{meanschooling}+ \gamma_{02} \text{happiness_promedio_pais} + u_{0j} + r_{ij}
+\text{op_mig}_{ij} = \gamma_{00} + \gamma_{01} \text{meanschooling}+ \gamma_{02} \text{happiness_promedio_pais} + u_{0j} + r_{ij}
 $$
 </div>
 <div style="font-size: 90%;">
@@ -210,8 +219,9 @@ Modelo 3: multinivel
 <div style="font-size: 80%;">
 $$
 \begin{align*}
-\text{perc_mig}_{ij} &= \gamma_{00} + \gamma_{01} \text{meanschooling} + \gamma_{02} \text{happiness_promedio_pais} + \gamma_{03} \text{female} + \gamma_{04} \text{pos_pol} + \gamma_{05} \text{nacionalismo} \\ + &\gamma_{06} \text{personal_income} + u_{0j} + r_{ij}\end{align*}
+\text{op_mig}_{ij} &= \gamma_{00} + \gamma_{01} \text{meanschooling} + \gamma_{02} \text{happiness_promedio_pais} + \gamma_{03} \text{female} + \gamma_{04} \text{pos_pol} + \gamma_{05} \text{nacionalismo} \\ + &\gamma_{06} \text{personal_income} + u_{0j} + r_{ij}\end{align*}
 $$
+
 </div>
 <div style="font-size: 90%;">
 Modelo 4: con pendiente aleatoria
@@ -219,7 +229,7 @@ Modelo 4: con pendiente aleatoria
 <div style="font-size: 80%;">
 $$
 \begin{align*}
-\text{perc_mig}_{ij} &= \gamma_{00} + \gamma_{01} \text{meanschooling} + \gamma_{02} \text{happiness_promedio_pais} + \gamma_{03} \text{female} + \gamma_{04} \text{pos_pol} + \gamma_{05} \text{nacionalismo} \\ + &\gamma_{06} \text{personal_income} + u_{0j} + u_{1j} \text{nacionalismo} + r_{ij} \end{align*}
+\text{op_mig}_{ij} &= \gamma_{00} + \gamma_{01} \text{meanschooling} + \gamma_{02} \text{happiness_promedio_pais} + \gamma_{03} \text{female} + \gamma_{04} \text{pos_pol} + \gamma_{05} \text{nacionalismo} \\ + &\gamma_{06} \text{personal_income} + u_{0j} + u_{1j} \text{nacionalismo} + r_{ij} \end{align*}
 $$
 </div>
 <div style="font-size: 90%;">
@@ -228,7 +238,7 @@ Modelo 5: interacción entre niveles
 <div style="font-size: 80%;">
 $$
 \begin{align*}
-\text{perc_mig}_{ij} &= \gamma_{00} + \gamma_{01} \text{meanschooling} + \gamma_{02} \text{happiness_promedio_pais} + \gamma_{03} \text{female} + \gamma_{04} \text{pos_pol} + \gamma_{05} \text{nacionalismo} \\ + &\gamma_{06} \text{personal_income} + \gamma_{07} \text{happiness_promedio_pais} \times \text{nacionalismo} + u_{0j} + r_{ij} \end{align*}
+\text{op_mig}_{ij} &= \gamma_{00} + \gamma_{01} \text{meanschooling} + \gamma_{02} \text{happiness_promedio_pais} + \gamma_{03} \text{female} + \gamma_{04} \text{pos_pol} + \gamma_{05} \text{nacionalismo} \\ + &\gamma_{06} \text{personal_income} + \gamma_{07} \text{happiness_promedio_pais} \times \text{nacionalismo} + u_{0j} + r_{ij} \end{align*}
 $$
 </div>
 
@@ -242,18 +252,67 @@ $$
 graf_scatt <- data %>%
   group_by(pais) %>%
   summarise(
-    perc_mig_prom = mean(perc_mig, na.rm = TRUE),
+    op_mig_prom = mean(op_mig, na.rm = TRUE),
     happiness_prom = mean(happines_promedio_pais, na.rm = TRUE),
     meanschooling_prom = mean(meanschooling, na.rm = TRUE)
   ) %>%
   na.omit()
+
+graf_scatt$pais <- recode(graf_scatt$pais,
+  `32` = "Argentina",
+  `36` = "Australia",
+  `50` = "Bangladés",
+  `51` = "Armenia",
+  `68` = "Bolivia",
+  `76` = "Brasil",
+  `124` = "Canadá",
+  `152` = "Chile",
+  `170` = "Colombia",
+  `196` = "Chipre",
+  `203` = "Chequia",
+  `218` = "Ecuador",
+  `231` = "Etiopía",
+  `276` = "Alemania",
+  `300` = "Grecia",
+  `320` = "Guatemala",
+  `356` = "India",
+  `360` = "Indonesia",
+  `392` = "Japón",
+  `404` = "Kenia",
+  `410` = "Corea del Sur",
+  `458` = "Malasia",
+  `484` = "México",
+  `496` = "Mongolia",
+  `504` = "Marruecos",
+  `528` = "Países Bajos",
+  `554` = "Nueva Zelanda",
+  `558` = "Nicaragua",
+  `566` = "Nigeria",
+  `604` = "Perú",
+  `608` = "Filipinas",
+  `642` = "Rumania",
+  `643` = "Rusia",
+  `688` = "Serbia",
+  `702` = "Singapur",
+  `703` = "Eslovaquia",
+  `716` = "Zimbabue",
+  `762` = "Tayikistán",
+  `764` = "Tailandia",
+  `788` = "Túnez",
+  `792` = "Turquía",
+  `804` = "Ucrania",
+  `826` = "Reino Unido",
+  `840` = "Estados Unidos",
+  `858` = "Uruguay",
+  `862` = "Venezuela"
+)
 ```
 
 ```{r echo=FALSE, warning=FALSE, message=FALSE, results='asis'}
 #cambiar nombres variables del gráfico
 plot_scatter(graf_scatt,
              x = meanschooling_prom, 
-             y = perc_mig_prom,
+             y = op_mig_prom,
              dot.labels = graf_scatt$pais,
              fit.line = "lm",
              show.ci = TRUE) + 
@@ -268,7 +327,7 @@ plot_scatter(graf_scatt,
 #cambiar nombres variables del gráfico
 plot_scatter(graf_scatt,
              x = happiness_prom, 
-             y = perc_mig_prom,
+             y = op_mig_prom,
              dot.labels = graf_scatt$pais,
              fit.line = "lm",
              show.ci = TRUE) + 
@@ -329,7 +388,6 @@ tabla_cc <- paste0(
   '<div class="hscroll-cc small-table-cc">',
   mtabla_cc$page.content,
   "</div>")
-
 knitr::asis_output(tabla_cc)
 invisible(NULL)  
 ```
@@ -356,9 +414,16 @@ t_devianza %>%
 
 ```{r echo=FALSE, warning=FALSE, message=FALSE, results='asis'}
 graf_pendiente <- ggpredict(model_4,
-                            terms = c("nacionalismo_cmc", "pais [sample=8]"),
+                            terms = c("nacionalismo_cmc", "pais                               [152,276,410,554,566,124]"),
                             type = "random")
 
+graf_pendiente$group <- recode(graf_pendiente$group,
+                               `152` = "Chile",
+                               `276` = "Alemania",
+                               `410` = "Corea del Sur",
+                               `554` = "Nueva Zelanda",
+                               `566` = "Nigeria",
+                               `124` = "Canadá")
 #grafico
 plot(graf_pendiente) +
   labs(title = "Pendiente aleatoria de nacionalismo por país",
@@ -370,7 +435,7 @@ plot(graf_pendiente) +
 ## Interacción
 
 ::: columns
-::: {.column width="70%"}
+::: {.column width="80%"}
 ```{r echo=FALSE, warning=FALSE, message=FALSE, results='asis'}
 
 plot_model(model_5,
@@ -391,7 +456,7 @@ plot_model(model_5,
 ```
 :::
 
-::: {.column width="30%"}
+::: {.column width="20%"}
 La interacción muestra que...
 :::
 :::
@@ -418,8 +483,39 @@ plot(inf_4, which="cook",
 ```
 
 ```{r echo=FALSE, warning=FALSE, message=FALSE, results='hide'}
-sigtest(inf_4, test=-1.96)$meanschooling[1:46,]
+sigtest(inf_4, test=-1.96)$happiness_gmc[1:46,]
 
+```
+
+## Modelo sin influyentes
+
+```{r echo=FALSE, warning=FALSE, message=FALSE, results='asis'}
+datab <- filter(data, !pais %in% c(50, 51, 68, 76, 124, 152, 170, 196, 203, 218, 231, 276, 320, 356, 392, 404, 496, 504, 528, 558, 566, 604, 702, 716, 764, 788, 862, 640))
+
+model_4b= lmer (op_mig ~ 1 + meanschooling_gmc + happiness_gmc + female + pos_pol_cmc + nacionalismo_cmc + personal_income_cmc + (1 + nacionalismo_cmc | pais), data = datab)
+
+
+tab_inf <- sjPlot::tab_model(model_4, model_4b, 
+                  show.ci = FALSE,
+                  dv.labels = c("Modelo original", "Modelo sin influyentes"))
+
+tablas_inf <- paste0(
+  "<style>",
+  ".hscroll-sc {",
+  "  overflow-x: auto;",
+  "  overflow-y: auto;",
+  "  max-width: 95vw;",
+  "  max-height: 600px;",
+  "  margin: 0 auto;",
+  "}",
+  ".small-table-sc {font-size: 0.5em;}",
+  "</style>",
+  '<div class="hscroll-sc small-table-sc">',
+  tab_inf$page.content,
+  "</div>")
+
+knitr::asis_output(tablas_inf)
+invisible(NULL)
 ```
 
 # Conclusiones {data-background-color="#5f5758"}
@@ -431,3 +527,16 @@ sigtest(inf_4, test=-1.96)$meanschooling[1:46,]
 :::
 
 ## Referencias
+
+<div style="font-size: 80%; line-height: 1.2;">
+
+Akkerman, T. (2024). *Inmigración y redistribución en Europa...* [link](https://www.cidob.org/sites/default/files/2024-09/47-62_TJITSKE%20AKKERMAN.pdf)  
+Armijos-Orellana, A. C., et al. (2022). *Los motivos de la migración...* [link](https://doi.org/10.17163/uni.n37.2022.09)  
+Buraschi, D., & Aguilar-Idañez, M. J. (2023). *La amenaza percibida...* [link](https://revistas.comillas.edu/index.php/revistamigraciones/article/view/18461/17228)  
+Emmenegger, P., & Klemmensen, R. (2013). *Immigration and redistribution revisited...* [link](https://doi.org/10.1177/0958928713492773)  
+OCDE (2024). *International Migration Outlook 2024...* [link](https://doi.org/10.1787/50b0353e-en)  
+ONU (2025). *Migración*. [link](https://www.un.org/es/global-issues/migration)  
+Romero Montero, A. (2021). *Actitudes hacia la inmigración...* [link](https://ddd.uab.cat/pub/tfg/2021/tfg_375812/TFG_aromeromontero2.pdf)  
+SJM Chile (2020). *Barómetro de percepción de la migración...* [link](https://sjmchile.org/wp-content/uploads/2024/01/barometrofinal.pdf)
+
+</div>

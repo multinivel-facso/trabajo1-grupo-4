@@ -8,7 +8,7 @@
 <link href="presentacion_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="presentacion_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="presentacion_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.3.353">
+  <meta name="generator" content="quarto-1.5.57">
 
   <title>presentacion</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -155,7 +155,8 @@
   }
 
   .callout.callout-titled .callout-body > .callout-content > :last-child {
-    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
   }
 
   .callout.callout-titled .callout-icon::before {
@@ -318,9 +319,10 @@
       margin-right: 0; 
     }
   </style>
-  
   <script src="presentacion_files/libs/kePrint-0.0.1/kePrint.js"></script>
+
   <link href="presentacion_files/libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -370,9 +372,10 @@
 <section id="objeto-de-estudio" class="slide level2">
 <h2>Objeto de estudio</h2>
 <ul>
-<li class="fragment"><p>Opiniones negativas hacia la migración y sus cambios según país.</p></li>
-<li class="fragment"><p>Migración como fenómeno global, más de 304 millones de migrantes en el mundo (ONU, 2025)</p></li>
-<li class="fragment"><p>Fenómeno multicausal, encontramos causas económicas, políticas o sociales (Armijos-Orellana et al, 2022)</p></li>
+<li class="fragment"><p>Lo que se busca estudiar son las opiniones negativas hacia la migración y sus cambios según país.</p></li>
+<li class="fragment"><p>La migración como fenómeno global ha emergido en los últimos años, a día de hoy más de 304 millones de migrantes en el mundo (ONU, 2025)</p></li>
+<li class="fragment"><p>Ejemplo de esto es el aumento sostenido de la migración en países OCDE durante los últimos años (OCDE, 2024)</p></li>
+<li class="fragment"><p>Este fenómeno es multicausal, donde podemos encontrar causas económicas, políticas o sociales (Armijos-Orellana et al, 2022)</p></li>
 </ul>
 </section>
 <section id="factores-asociados-de-nivel-1" class="slide level2">
@@ -387,14 +390,14 @@
 <section id="factores-asociados-de-nivel-2" class="slide level2">
 <h2>Factores asociados de nivel 2</h2>
 <ul>
-<li class="fragment">Los regímenes más democráticos, usualmente relacionados a la socialdemocracia o los Estados de Bienestar, suelen presentar una opinión más positiva respecto a los migrantes (Romero, 2021)</li>
-<li class="fragment">El nivel de escolaridad medio influye en las opiniones hacia los migrantes por un motivo parecido al de los sectores de menor ingreso, y es que se forma competencia por aquellos trabajos no especializados que no requieren escolaridad de más años (Emmenegger y Klemmensen, 2013)</li>
+<li class="fragment"><p>Desde la teoría psicosocial se plantea cómo las emociones pueden influir en una conducta prosocial, la cual vincula el trato y opinión frente a los migrantes. Un mayor bienestar emocional y sentimiento de felicidad tiene una asociación positiva con comportamientos prosociales (Espelt et al, 1998)</p></li>
+<li class="fragment"><p>El nivel de escolaridad medio influye en las opiniones hacia los migrantes por un motivo parecido al de los sectores de menor ingreso, y es que se forma competencia por aquellos trabajos no especializados que no requieren escolaridad de más años (Emmenegger y Klemmensen, 2013)</p></li>
 </ul>
 </section>
 <section id="section-1" class="slide level2" data-background-color="#5f5758">
 <h2></h2>
 <div class="center middle">
-<p><span style="font-size: 150%;">¿En qué medida los factores contextuales de cada país, como su democracia y su promedio de escolaridad, y los factores individuales, como el ser mujer, la posición política, el nacionalismo, y el ingreso propio, influyen en tener una opinión negativa hacia las personas migrantes?</span></p>
+<p><span style="font-size: 150%;">¿En qué medida los factores contextuales de cada país, como su felicidad promedio y su promedio de escolaridad, y los factores individuales, como el ser mujer, la posición política, el nacionalismo, y el ingreso propio, influyen en tener una opinión negativa hacia las personas migrantes?</span></p>
 </div>
 </section></section>
 <section>
@@ -412,7 +415,7 @@
 <h2>Nivel 2</h2>
 <ul>
 <li class="fragment"><p><span class="math inline">\(H_5\)</span>: Países con menores promedios de años de escolaridad presentan opiniones más negativas hacia la migración.</p></li>
-<li class="fragment"><p><span class="math inline">\(H_6\)</span>: Países con menores niveles de democracia institucionalizada tendrán opiniones más negativas hacia la migración.</p></li>
+<li class="fragment"><p><span class="math inline">\(H_6\)</span>: Países con mayor felicidad promedio tenderán hacia opiniones menos negativas respecto a las personas migrantes.</p></li>
 </ul>
 <p>Nivel 3</p>
 <ul>
@@ -429,18 +432,27 @@
 <ul>
 <li class="fragment"><p>Séptima ola del World Values Survey (WVS), con datos recolectados entre 2017 y 2022.</p></li>
 <li class="fragment"><p>Presenta datos individuales y contextuales por país, obtenidos de otras instituciones.</p></li>
-<li class="fragment"><p>Tras limpieza con listwise, 54984 casos y 46 países.</p></li>
+<li class="fragment"><p>Tras limpieza con listwise, 54716 casos y 46 países.</p></li>
+<li class="fragment"><p>Construcción de una escala de opiniones negativas sobre la migración con 5 variables de la base, obteniendo un alfa de cronbach .77.</p></li>
 </ul>
 </section>
 <section id="variables" class="slide level2 scrollable smaller">
 <h2>Variables</h2>
-<div id="tbl-1" class="cell tbl-parent quarto-layout-panel">
+<div id="tbl-1" class="cell quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-tbl">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl quarto-uncaptioned" id="tbl-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1
+</figcaption>
+<div aria-describedby="tbl-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
 
+</div>
+</div>
+</figure>
 </div>
 <h3>
 <strong>Estadísticos descriptivos de Nivel 1 (individual)</strong>
 </h3>
-
 <table style="text-align:center">
 <caption>
 <strong>Nivel 1 (individual)</strong>
@@ -484,7 +496,7 @@ St.&nbsp;Dev.
 </tr>
 <tr>
 <td style="text-align:left">
-perc_mig
+op_mig
 </td>
 <td>
 54,716
@@ -631,13 +643,11 @@ personal_income
 <td colspan="9" style="border-bottom: 1px solid black">
 </td>
 </tr>
-
 </tbody></table>
 <br><br>
 <h3>
 <strong>Estadísticos descriptivos de Nivel 2 (país)</strong>
 </h3>
-
 <table style="text-align:center">
 <caption>
 <strong>Nivel 2 (país)</strong>
@@ -770,7 +780,6 @@ meanschooling
 <td colspan="9" style="border-bottom: 1px solid black">
 </td>
 </tr>
-
 </tbody></table>
 </section>
 <section id="métodos" class="slide level2 smaller">
@@ -783,15 +792,15 @@ meanschooling
 </div>
 <div style="font-size: 80%;">
 <p><span class="math display">\[
-\text{perc_mig}_{ij} = \gamma_{00} + u_{0j} + r_{ij}
+\text{op_mig}_{ij} = \gamma_{00} + u_{0j} + r_{ij}
 \]</span></p>
 </div>
 <div style="font-size: 90%;">
 <p>Modelo 1: con variables individuales</p>
 </div>
-<div style="font-size: 80%;">
+<div style="font-size: 75%;">
 <p><span class="math display">\[
-\text{perc_mig}_{ij} = \gamma_{00} + \gamma_{01} \text{female} + \gamma_{02} \text{pos_pol} + \gamma_{03} \text{nacionalismo} + \gamma_{04} \text{personal_income} + u_{0j} + r_{ij}
+\text{op_mig}_{ij} = \gamma_{00} + \gamma_{01} \text{female} + \gamma_{02} \text{pos_pol} + \gamma_{03} \text{nacionalismo} + \gamma_{04} \text{personal_income} + u_{0j} + r_{ij}
 \]</span></p>
 </div>
 <div style="font-size: 90%;">
@@ -799,7 +808,7 @@ meanschooling
 </div>
 <div style="font-size: 80%;">
 <p><span class="math display">\[
-\text{perc_mig}_{ij} = \gamma_{00} + \gamma_{01} \text{meanschooling}+ \gamma_{02} \text{happiness_promedio_pais} + u_{0j} + r_{ij}
+\text{op_mig}_{ij} = \gamma_{00} + \gamma_{01} \text{meanschooling}+ \gamma_{02} \text{happiness_promedio_pais} + u_{0j} + r_{ij}
 \]</span></p>
 </div>
 <div style="font-size: 90%;">
@@ -808,7 +817,7 @@ meanschooling
 <div style="font-size: 80%;">
 <p><span class="math display">\[
 \begin{align*}
-\text{perc_mig}_{ij} &amp;= \gamma_{00} + \gamma_{01} \text{meanschooling} + \gamma_{02} \text{happiness_promedio_pais} + \gamma_{03} \text{female} + \gamma_{04} \text{pos_pol} + \gamma_{05} \text{nacionalismo} \\ + &amp;\gamma_{06} \text{personal_income} + u_{0j} + r_{ij}\end{align*}
+\text{op_mig}_{ij} &amp;= \gamma_{00} + \gamma_{01} \text{meanschooling} + \gamma_{02} \text{happiness_promedio_pais} + \gamma_{03} \text{female} + \gamma_{04} \text{pos_pol} + \gamma_{05} \text{nacionalismo} \\ + &amp;\gamma_{06} \text{personal_income} + u_{0j} + r_{ij}\end{align*}
 \]</span></p>
 </div>
 <div style="font-size: 90%;">
@@ -817,7 +826,7 @@ meanschooling
 <div style="font-size: 80%;">
 <p><span class="math display">\[
 \begin{align*}
-\text{perc_mig}_{ij} &amp;= \gamma_{00} + \gamma_{01} \text{meanschooling} + \gamma_{02} \text{happiness_promedio_pais} + \gamma_{03} \text{female} + \gamma_{04} \text{pos_pol} + \gamma_{05} \text{nacionalismo} \\ + &amp;\gamma_{06} \text{personal_income} + u_{0j} + u_{1j} \text{nacionalismo} + r_{ij} \end{align*}
+\text{op_mig}_{ij} &amp;= \gamma_{00} + \gamma_{01} \text{meanschooling} + \gamma_{02} \text{happiness_promedio_pais} + \gamma_{03} \text{female} + \gamma_{04} \text{pos_pol} + \gamma_{05} \text{nacionalismo} \\ + &amp;\gamma_{06} \text{personal_income} + u_{0j} + u_{1j} \text{nacionalismo} + r_{ij} \end{align*}
 \]</span></p>
 </div>
 <div style="font-size: 90%;">
@@ -826,7 +835,7 @@ meanschooling
 <div style="font-size: 80%;">
 <p><span class="math display">\[
 \begin{align*}
-\text{perc_mig}_{ij} &amp;= \gamma_{00} + \gamma_{01} \text{meanschooling} + \gamma_{02} \text{happiness_promedio_pais} + \gamma_{03} \text{female} + \gamma_{04} \text{pos_pol} + \gamma_{05} \text{nacionalismo} \\ + &amp;\gamma_{06} \text{personal_income} + \gamma_{07} \text{happiness_promedio_pais} \times \text{nacionalismo} + u_{0j} + r_{ij} \end{align*}
+\text{op_mig}_{ij} &amp;= \gamma_{00} + \gamma_{01} \text{meanschooling} + \gamma_{02} \text{happiness_promedio_pais} + \gamma_{03} \text{female} + \gamma_{04} \text{pos_pol} + \gamma_{05} \text{nacionalismo} \\ + &amp;\gamma_{06} \text{personal_income} + \gamma_{07} \text{happiness_promedio_pais} \times \text{nacionalismo} + u_{0j} + r_{ij} \end{align*}
 \]</span></p>
 </div>
 </section></section>
@@ -845,8 +854,6 @@ meanschooling
 </section>
 <section id="modelos" class="slide level2">
 <h2>Modelos</h2>
-<div class="cell-output-display">
-
 <style>.hscroll-sc {  overflow-x: auto;  overflow-y: auto;  max-width: 95vw;  max-height: 600px;  margin: 0 auto;}.small-table-sc {font-size: 0.5em;}</style><div class="hscroll-sc small-table-sc"><table>
 <tbody><tr>
 <th class="thead firsttablerow firsttablecol col1">&nbsp;</th>
@@ -1125,12 +1132,9 @@ meanschooling
 
 </tbody></table>
 </div>
-</div>
 </section>
 <section id="con-centrado" class="slide level2">
 <h2>Con centrado</h2>
-<div class="cell-output-display">
-
 <style>.hscroll-cc {  overflow-x: auto;  overflow-y: auto;  max-width: 95vw;  max-height: 600px;  margin: 0 auto;}.small-table-cc {font-size: 0.5em;}</style><div class="hscroll-cc small-table-cc"><table>
 <tbody><tr>
 <th class="thead firsttablerow firsttablecol col1">&nbsp;</th>
@@ -1409,12 +1413,10 @@ meanschooling
 
 </tbody></table>
 </div>
-</div>
 </section>
 <section id="test-de-devianza" class="slide level2">
 <h2>Test de devianza</h2>
-<div class="cell-output-display">
-<table class="table table-striped table-hover table-condensed" data-quarto-postprocess="true" style="font-size: 18px; width: auto !important; margin-left: auto; margin-right: auto;">
+<table class="table table-striped table-hover table-condensed caption-top" data-quarto-postprocess="true" style="font-size: 18px; width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>Comparación de modelos</caption>
 <thead>
 <tr class="header">
@@ -1456,7 +1458,6 @@ meanschooling
 </table>
 
 
-</div>
 </section>
 <section id="pendiente-aleatoria" class="slide level2">
 <h2>Pendiente aleatoria</h2>
@@ -1465,16 +1466,127 @@ meanschooling
 <section id="interacción" class="slide level2">
 <h2>Interacción</h2>
 <div class="columns">
-<div class="column" style="width:70%;">
+<div class="column" style="width:80%;">
 <p><img data-src="presentacion_files/figure-revealjs/unnamed-chunk-10-1.png" width="960"></p>
-</div><div class="column" style="width:30%;">
+</div><div class="column" style="width:20%;">
 <p>La interacción muestra que…</p>
-</div>
-</div>
+</div></div>
 </section>
 <section id="casos-influyentes" class="slide level2">
 <h2>Casos influyentes</h2>
 <p>Países influyentes (cook &gt; 0.087 ): <img data-src="presentacion_files/figure-revealjs/unnamed-chunk-11-1.png" width="960"></p>
+</section>
+<section id="modelo-sin-influyentes" class="slide level2">
+<h2>Modelo sin influyentes</h2>
+<style>.hscroll-sc {  overflow-x: auto;  overflow-y: auto;  max-width: 95vw;  max-height: 600px;  margin: 0 auto;}.small-table-sc {font-size: 0.5em;}</style><div class="hscroll-sc small-table-sc"><table>
+<tbody><tr>
+<th class="thead firsttablerow firsttablecol col1">&nbsp;</th>
+<th colspan="2" class="thead firsttablerow">Modelo original</th>
+<th colspan="2" class="thead firsttablerow">Modelo sin influyentes</th>
+</tr>
+<tr>
+<td class="depvarhead firsttablerow firsttablecol col1">Predictors</td>
+<td class="depvarhead firsttablerow col2">Estimates</td>
+<td class="depvarhead firsttablerow col3">p</td>
+<td class="depvarhead firsttablerow col4">Estimates</td>
+<td class="depvarhead firsttablerow col5">p</td>
+</tr>
+<tr>
+<td class="tdata firsttablecol col1">(Intercept)</td>
+<td class="tdata centeralign modelcolumn1 col2">5.77</td>
+<td class="tdata centeralign modelcolumn1 col3"><strong>&lt;0.001</strong></td>
+<td class="tdata centeralign modelcolumn2 col4">5.60</td>
+<td class="tdata centeralign modelcolumn2 col5"><strong>&lt;0.001</strong></td>
+</tr>
+<tr>
+<td class="tdata firsttablecol col1">meanschooling gmc</td>
+<td class="tdata centeralign modelcolumn1 col2">-0.06</td>
+<td class="tdata centeralign modelcolumn1 col3">0.392</td>
+<td class="tdata centeralign modelcolumn2 col4">-0.17</td>
+<td class="tdata centeralign modelcolumn2 col5">0.221</td>
+</tr>
+<tr>
+<td class="tdata firsttablecol col1">happiness gmc</td>
+<td class="tdata centeralign modelcolumn1 col2">-1.60</td>
+<td class="tdata centeralign modelcolumn1 col3"><strong>0.044</strong></td>
+<td class="tdata centeralign modelcolumn2 col4">-5.24</td>
+<td class="tdata centeralign modelcolumn2 col5"><strong>&lt;0.001</strong></td>
+</tr>
+<tr>
+<td class="tdata firsttablecol col1">female</td>
+<td class="tdata centeralign modelcolumn1 col2">-0.00</td>
+<td class="tdata centeralign modelcolumn1 col3">0.842</td>
+<td class="tdata centeralign modelcolumn2 col4">-0.01</td>
+<td class="tdata centeralign modelcolumn2 col5">0.797</td>
+</tr>
+<tr>
+<td class="tdata firsttablecol col1">pos pol cmc</td>
+<td class="tdata centeralign modelcolumn1 col2">0.08</td>
+<td class="tdata centeralign modelcolumn1 col3"><strong>&lt;0.001</strong></td>
+<td class="tdata centeralign modelcolumn2 col4">0.08</td>
+<td class="tdata centeralign modelcolumn2 col5"><strong>&lt;0.001</strong></td>
+</tr>
+<tr>
+<td class="tdata firsttablecol col1">nacionalismo cmc</td>
+<td class="tdata centeralign modelcolumn1 col2">0.12</td>
+<td class="tdata centeralign modelcolumn1 col3"><strong>0.029</strong></td>
+<td class="tdata centeralign modelcolumn2 col4">0.17</td>
+<td class="tdata centeralign modelcolumn2 col5">0.107</td>
+</tr>
+<tr>
+<td class="tdata firsttablecol col1">personal income cmc</td>
+<td class="tdata centeralign modelcolumn1 col2">-0.08</td>
+<td class="tdata centeralign modelcolumn1 col3"><strong>&lt;0.001</strong></td>
+<td class="tdata centeralign modelcolumn2 col4">-0.09</td>
+<td class="tdata centeralign modelcolumn2 col5"><strong>&lt;0.001</strong></td>
+</tr>
+<tr>
+<td colspan="5" class="randomparts">Random Effects</td>
+</tr>
+
+<tr>
+<td class="tdata leftalign summary">σ<sup>2</sup></td>
+<td class="tdata summary summarydata" colspan="2">7.36</td>
+<td class="tdata summary summarydata" colspan="2">7.59</td>
+</tr>
+
+<tr>
+<td class="tdata leftalign summary">τ<sub>00</sub></td>
+<td class="tdata summary summarydata" colspan="2">1.32 <sub>pais</sub></td>
+<td class="tdata summary summarydata" colspan="2">0.97 <sub>pais</sub></td>
+
+</tr><tr>
+<td class="tdata leftalign summary">τ<sub>11</sub></td>
+<td class="tdata summary summarydata" colspan="2">0.13 <sub>pais.nacionalismo_cmc</sub></td>
+<td class="tdata summary summarydata" colspan="2">0.20 <sub>pais.nacionalismo_cmc</sub></td>
+
+</tr><tr>
+<td class="tdata leftalign summary">ρ<sub>01</sub></td>
+<td class="tdata summary summarydata" colspan="2">0.31 <sub>pais</sub></td>
+<td class="tdata summary summarydata" colspan="2">0.36 <sub>pais</sub></td>
+
+</tr><tr>
+<td class="tdata leftalign summary">ICC</td>
+<td class="tdata summary summarydata" colspan="2">0.16</td>
+<td class="tdata summary summarydata" colspan="2">0.12</td>
+
+</tr><tr>
+<td class="tdata leftalign summary">N</td>
+<td class="tdata summary summarydata" colspan="2">46 <sub>pais</sub></td>
+<td class="tdata summary summarydata" colspan="2">19 <sub>pais</sub></td>
+</tr><tr>
+<td class="tdata leftalign summary firstsumrow">Observations</td>
+<td class="tdata summary summarydata firstsumrow" colspan="2">54716</td>
+<td class="tdata summary summarydata firstsumrow" colspan="2">23660</td>
+</tr>
+<tr>
+<td class="tdata leftalign summary">Marginal R<sup>2</sup> / Conditional R<sup>2</sup></td>
+<td class="tdata summary summarydata" colspan="2">0.020 / 0.175</td>
+<td class="tdata summary summarydata" colspan="2">0.125 / 0.233</td>
+</tr>
+
+</tbody></table>
+</div>
 </section></section>
 <section>
 <section id="conclusiones" class="title-slide slide level1 center" data-background-color="#5f5758">
@@ -1489,9 +1601,21 @@ meanschooling
 </section>
 <section id="referencias" class="slide level2">
 <h2>Referencias</h2>
+<div style="font-size: 80%; line-height: 1.2;">
+<p>Akkerman, T. (2024). <em>Inmigración y redistribución en Europa…</em> <a href="https://www.cidob.org/sites/default/files/2024-09/47-62_TJITSKE%20AKKERMAN.pdf">link</a><br>
+Armijos-Orellana, A. C., et al.&nbsp;(2022). <em>Los motivos de la migración…</em> <a href="https://doi.org/10.17163/uni.n37.2022.09">link</a><br>
+Buraschi, D., &amp; Aguilar-Idañez, M. J. (2023). <em>La amenaza percibida…</em> <a href="https://revistas.comillas.edu/index.php/revistamigraciones/article/view/18461/17228">link</a><br>
+Emmenegger, P., &amp; Klemmensen, R. (2013). <em>Immigration and redistribution revisited…</em> <a href="https://doi.org/10.1177/0958928713492773">link</a><br>
+OCDE (2024). <em>International Migration Outlook 2024…</em> <a href="https://doi.org/10.1787/50b0353e-en">link</a><br>
+ONU (2025). <em>Migración</em>. <a href="https://www.un.org/es/global-issues/migration">link</a><br>
+Romero Montero, A. (2021). <em>Actitudes hacia la inmigración…</em> <a href="https://ddd.uab.cat/pub/tfg/2021/tfg_375812/TFG_aromeromontero2.pdf">link</a><br>
+SJM Chile (2020). <em>Barómetro de percepción de la migración…</em> <a href="https://sjmchile.org/wp-content/uploads/2024/01/barometrofinal.pdf">link</a></p>
+</div>
+<div class="quarto-auto-generated-content">
 <p><img src="images/log.png" class="slide-logo"></p>
 <div class="footer footer-default">
 
+</div>
 </div>
 </section></section>
     </div>
@@ -1520,7 +1644,6 @@ meanschooling
       Reveal.initialize({
 'controlsAuto': true,
 'previewLinksAuto': false,
-'smaller': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
@@ -1706,42 +1829,80 @@ meanschooling
       });
     </script>
     
+
     <script>
+
       // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
       // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
       // slide changes (different for each slide format).
+
       (function () {
+
         // dispatch for htmlwidgets
+
         function fireSlideEnter() {
+
           const event = window.document.createEvent("Event");
+
           event.initEvent("slideenter", true, true);
+
           window.document.dispatchEvent(event);
+
         }
+
+    
 
         function fireSlideChanged(previousSlide, currentSlide) {
+
           fireSlideEnter();
 
+    
+
           // dispatch for shiny
+
           if (window.jQuery) {
+
             if (previousSlide) {
+
               window.jQuery(previousSlide).trigger("hidden");
+
             }
+
             if (currentSlide) {
+
               window.jQuery(currentSlide).trigger("shown");
+
             }
+
           }
+
         }
+
+    
 
         // hookup for slidy
+
         if (window.w3c_slidy) {
+
           window.w3c_slidy.add_observer(function (slide_num) {
+
             // slide_num starts at position 1
+
             fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
           });
+
         }
 
+    
+
       })();
+
     </script>
+
+    
 
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -1775,18 +1936,7 @@ meanschooling
         }
         return false;
       }
-      const clipboard = new window.ClipboardJS('.code-copy-button', {
-        text: function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-        }
-      });
-      clipboard.on('success', function(e) {
+      const onCopySuccess = function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -1818,11 +1968,50 @@ meanschooling
         }, 1000);
         // clear code selection
         e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
       });
-      function tippyHover(el, contentFn) {
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,
-          content: contentFn,
           maxWidth: 500,
           delay: 100,
           arrow: false,
@@ -1832,8 +2021,17 @@ meanschooling
           interactive: true,
           interactiveBorder: 10,
           theme: 'light-border',
-          placement: 'bottom-start'
+          placement: 'bottom-start',
         };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
           config['offset'] = [0,0];
           config['maxWidth'] = 700;
         window.tippy(el, config); 
@@ -1847,7 +2045,11 @@ meanschooling
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
-          return note.innerHTML;
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
         });
       }
       const findCites = (el) => {
