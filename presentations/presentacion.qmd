@@ -38,13 +38,12 @@ pacman::p_load(lme4,
 options(scipen = 999) # para desactivar notacion cientifica
 rm(list = ls()) # para limpiar el entorno de trabajo
 
-load("~/GitHub/trabajo1-grupo-4/output/data3.Rdata")
-data <- data %>%
-  rename(op_mig = perc_mig)
+load("~/GitHub/trabajo1-grupo-4/output/data.Rdata")
+
 #modelos sin centrado
 results_0 = lmer(op_mig ~ 1 + (1 | pais), data = data)
 results_1 = lmer(op_mig ~ 1 + female + pos_pol + nacionalismo + personal_income + (1 | pais), data = data)
-results_2 = lmer(op_mig ~ 1 + meanschooling + happines_promedio_pais + (1 | pais), data = data)
+results_2 = lmer(op_mig ~ 1 + meanschooling + happines_promedio_pais +  (1 | pais), data = data)
 results_3 = lmer(op_mig ~ 1 + meanschooling + happines_promedio_pais + female + pos_pol + nacionalismo + personal_income + (1 | pais), data = data)
 results_4=lmer(op_mig ~ 1 + meanschooling + happines_promedio_pais + female + pos_pol + nacionalismo + personal_income +( 1 + nacionalismo | pais), data = data)
 results_5 = lmer(op_mig ~ 1 + meanschooling + happines_promedio_pais + female + pos_pol + nacionalismo + personal_income + happines_promedio_pais*nacionalismo + (1 | pais), data = data)

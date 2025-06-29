@@ -18,11 +18,10 @@ rm(list = ls()) # para limpiar el entorno de trabajo
 ```
 
 ```{r datos, echo=FALSE, warning=FALSE, message=FALSE}
-load(file="output/data3.RData")
+load(file="output/data.RData")
 
-data<-data3
+
 ```
-
 
 ```{r centrado, echo=FALSE, warning=FALSE, message=FALSE}
 
@@ -41,6 +40,14 @@ data <- data %>%
   mutate(meanschooling_gm = mean(meanschooling),                
          # Media general (nivel 2)
          meanschooling_gmc = meanschooling - meanschooling_gm)
+
+#centrado seguridad---------------------------------------------------
+
+data <- data %>%
+  mutate(seguridad_gm = mean(seguridad),                
+         # Media general (nivel 2)
+         seguridad_gmc = seguridad - seguridad_gm)
+
 
  #Centrado a la media del grupo Nivel 1---------
 
@@ -63,7 +70,7 @@ data <- data %>%
   mutate(nacionalismo_cmc = nacionalismo - mean(nacionalismo, na.rm = TRUE)) %>%
   ungroup()
 
-save(data, file="~/Documents/GitHub/trabajo1-grupo-4/output/data3.rdata")
+save(data, file="~/GitHub/trabajo1-grupo-4/output/data.rdata")
 
 ```
 
@@ -117,35 +124,51 @@ Para la variable dependiente se elaboró una escala sumativa de percepciones hac
 
 Las variables independientes a nivel individual son: son el nacionalismo (Q254) cuyas opciones de respuesta van desde Muy orgullosa/o (1) a No soy \[nacionalidad del país\] (5); el ingreso relativo del hogar (Q288) que consta de una escala de 1 a 10, siendo 1 el grupo más bajo y 10 el más alto; la variable sexo (Q260), que fue renombrada a female y recodificada: 0 = Masculino y 1 = Femenino; y la auto ubicación ideológica en el eje izquierda-derecha (Q240) en  una escala del 1 (izquierda) al 10 (derecha). 
 
-```{r descriptivos nivel1, echo=FALSE, results='asis'}
+```{r descriptivos nivel1, echo=FALSE, results='hide'}
 library(stargazer)
 
 nivel1 <- data %>%
-  select(perc_mig, female, nacionalismo, pos_pol, personal_income)
+  select(op_mig, female, nacionalismo, pos_pol, personal_income)
 
-stargazer(as.data.frame(nivel1),
+tbl_1 <- stargazer(as.data.frame(nivel1),
           type = "html",
           title = "Estadísticos descriptivos de Nivel 1 (individual)",
           digits = 2, summary.stat = c("n","min", "p25", "median", "mean", "p75", "max", "sd"))
-
+cat(tbl_1, sep = "\n")
 ```
 
 Las variables independientes agregadas son: el índice de democracia institucionalizada que va de 0 a 10, según datos de Polity V de 2018, la variable de años promedio de escolaridad proveniente de datos de la UNESCO de 2018 y finalmente el Índice de Desarrollo Humano (IDH) como una medida agregada.
 
-```{r descriptivos nivel2, echo=FALSE, results='asis'}
+```{r descriptivos nivel2, echo=FALSE, results='hide'}
 # Variables de nivel 2 (contextual)
 nivel2 <- data %>%
-  select(pais, happines_promedio_pais, meanschooling) %>%
+  select(pais, happines_promedio_pais, seguridad_prom, meanschooling) %>%
   distinct()  # evitar duplicados por comuna
 
-stargazer(as.data.frame(nivel2),
+tbl_2 <- stargazer(as.data.frame(nivel2),
           type = "html",
           title = "Estadísticos descriptivos - Nivel 2 (país)",
           digits = 2, summary.stat = c("n", "min", "p25", "median", "mean", "p75", "max","sd"))
-
+cat(tbl_2, sep = "\n")
 ```
 
-Viendo la @tbl-desc destacan: la escala de actitudes hacia la migración (perc_mig) con una media de 8.58 (sd = 3.81), sugiriendo una tendencia hacia la neutralidad; la auto ubicación ideológica (pos_pol) con una media de 5.5 (sd = 2.45), indicando una orientación hacia el centro político; y el nacionalismo con una media de 1.61 (sd = 0.84), sugiriendo un alto orgullo nacional. 
+```{r tbl-1, echo=FALSE, message=FALSE, warning=FALSE, results='asis'}
+#| label: tbl-1
+#| tbl-cap: "Descriptivos nivel 1"
+#| tbl-cap-location: top
+#| warning: false
+cat(tbl_1, sep = "\n")
+```
+
+```{r tbl-2, echo=FALSE, message=FALSE, warning=FALSE, results='asis'}
+#| label: tbl-2
+#| tbl-cap: "Descriptivos nivel 2"
+#| tbl-cap-location: top
+#| warning: false
+cat(tbl_2, sep = "\n")
+```
+
+Viendo los @tbl-1 y los @tbl-2 destacan: la escala de opiniones hacia la migración (perc_mig) con una media de 8.58 (sd = 3.81), sugiriendo una tendencia hacia la neutralidad; la auto ubicación ideológica (pos_pol) con una media de 5.5 (sd = 2.45), indicando una orientación hacia el centro político; y el nacionalismo con una media de 1.61 (sd = 0.84), sugiriendo un alto orgullo nacional. 
 
 Para el análisis se estimó un modelo nulo para calcular la correlación intra-clase, la cual justifica la necesidad de este tipo de modelo. Luego, un modelo con las variables del nivel 1 para observar su relación con las actitudes hacia la migración, posteriormente un modelo con las variables de nivel 2 y, finalmente, un modelo multinivel completo con predictores de ambos niveles, incluyendo en estos la correlación intra-clase con el fin de evaluar el efecto de la inclusión de los predictores en la proporción de varianza explicada entre países.
 
@@ -163,19 +186,19 @@ modelo_1 <- screenreg(results_1, naive=TRUE) #Modelo 1, variables individuales
 
 ICC_1 <- reghelper::ICC(results_1)
 
-screenreg(results_1)
+
 ```
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
-results_2 = lmer(perc_mig ~ 1 + happiness_gmc + meanschooling_gmc + (1 | pais), data = data)
+results_2 = lmer(op_mig ~ 1 + happiness_gmc + seguridad_gmc + meanschooling_gmc + (1 | pais), data = data)
 modelo_2 <- screenreg(results_2)#Modelo 2, variables contextuales
 
 ICC_2 <- reghelper::ICC(results_2)
-screenreg(results_2)
+
 ```
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
-results_3 = lmer(perc_mig ~ 1 + happiness_gmc + meanschooling_gmc + female + pos_pol_cmc + nacionalismo_cmc + personal_income_cmc + (1 | pais), data = data)
+results_3 = lmer(op_mig ~ 1 + happiness_gmc + meanschooling_gmc + seguridad_gmc + female + pos_pol_cmc + nacionalismo_cmc + personal_income_cmc + (1 | pais), data = data)
 modelo_3 <- screenreg(results_3) #Modelo 3 multinivel
 
 ICC_3 <- reghelper::ICC(results_3)
@@ -184,18 +207,29 @@ ICC_3 <- reghelper::ICC(results_3)
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
 
-agg_mlm=data %>% group_by(pais) %>% summarise_all(funs(mean))
+results_4= lmer (op_mig ~ 1 + meanschooling_gmc + happiness_gmc + seguridad_gmc + female + pos_pol_cmc + nacionalismo_cmc + personal_income_cmc + (1 + nacionalismo_cmc | pais), data = data)
 
-reg_agg=lm(perc_mig ~ + happiness_gmc + meanschooling_gmc, data=agg_mlm)
+modelo_4 <- screenreg(results_4)#Modelo 3, pendiente aleatoria
 
-reg_pend_aleatoria=lmer(perc_mig ~ 1 + happiness_gmc + meanschooling_gmc + female + pos_pol_cmc + nacionalismo_cmc + personal_income_cmc +( 1 + nacionalismo | pais), data = data)
+ICC_4 <- reghelper::ICC(results_4)
+
+```
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+
+results_5 = lmer(op_mig ~ 1 + meanschooling_gmc + happiness_gmc + seguridad_gmc + female + pos_pol_cmc + nacionalismo_cmc + personal_income_cmc + happiness_gmc*nacionalismo_cmc + (1 | pais), data = data)
+
+modelo_5 <- screenreg(results_5)#Modelo 5, interacción entre niveles
+
+ICC_5 <- reghelper::ICC(results_5)
+
 ```
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE, results='asis'}
-tab_modelos <- tab_model(results_0, results_1, results_2, results_3, reg_pend_aleatoria, 
+tab_modelos <- tab_model(results_0, results_1, results_2, results_3, results_4, results_5,
   show.ci = FALSE, 
   show.se = TRUE,
-  dv.labels = c("Nulo","Individual", "Agregado", "Multinivel", "Pendiente aleatoria nacionalismo"))
+  dv.labels = c("Nulo","Nivel 1", "Nivel 2", "Nivel 1 y 2", "Pendiente aleatoria nacionalismo", "Interacción entre niveles"))
 
 
 ```
@@ -220,78 +254,235 @@ El modelo con pendiente aleatoria para nacionalismo muestra que las percepciones
 
 A modo general, vemos que los interceptos no presentan una gran variabilidad al cambiar los modelos, estando todos entre el valor 10 y 11, siendo el modelo multinivel el que tiene un intercepto más bajo con 10.34. El modelo agregado, presenta el mayor error estándar dentro de cada uno de los modelos y a su vez, es el único con un valor p \>0.001, con una baja significancia estadística.
 
+```{r echo=FALSE, warning=FALSE, message=FALSE, results='hide'}
+
+#datos scatterplot
+graf_scatt <- data %>%
+  group_by(pais) %>%
+  summarise(
+    op_mig_prom = mean(op_mig, na.rm = TRUE),
+    happiness_prom = mean(happines_promedio_pais, na.rm = TRUE),
+    meanschooling_prom = mean(meanschooling, na.rm = TRUE),
+    seguridad_prom = mean(seguridad, na.rm = TRUE)
+  ) %>%
+  na.omit()
+
+#cambiar nombres variables del gráfico
+
+table(data$pais)
+
+
+graf_scatt <- graf_scatt %>%
+  mutate(pais = dplyr::recode(as.character(pais),
+    "20" = "Andorra",
+    "32" = "Argentina",
+    "36" = "Australia",
+    "50" = "Bangladesh",
+    "51" = "Armenia",
+    "68" = "Bolivia",
+    "76" = "Brazil",
+    "124" = "Canada",
+    "152" = "Chile",
+    "170" = "Colombia",
+    "196" = "Cyprus",
+    "203" = "Czechia",
+    "218" = "Ecuador",
+    "231" = "Ethiopia",
+    "276" = "Germany",
+    "300" = "Greece",
+    "320" = "Guatemala",
+    "344" = "Hong Kong SAR",
+    "356" = "India",
+    "360" = "Indonesia",
+    "404" = "Kenya",
+    "410" = "South Korea",
+    "434" = "Libya",
+    "458" = "Malaysia",
+    "462" = "Maldives",
+    "484" = "Mexico",
+    "496" = "Mongolia",
+    "504" = "Morocco",
+    "528" = "Netherlands",
+    "554" = "New Zealand",
+    "558" = "Nicaragua",
+    "566" = "Nigeria",
+    "604" = "Peru",
+    "608" = "Philippines",
+    "642" = "Romania",
+    "643" = "Russia",
+    "688" = "Serbia",
+    "703" = "Slovakia",
+    "716" = "Zimbabwe",
+    "762" = "Tajikistan",
+    "764" = "Thailand",
+    "788" = "Tunisia",
+    "792" = "Turkey",
+    "804" = "Ukraine",
+    "840" = "United States",
+    "858" = "Uruguay",
+    "862" = "Venezuela"
+  ))
+
+#scatter
+
+scatter1 <- plot_scatter(graf_scatt,
+             x = meanschooling_prom, 
+             y = op_mig_prom,
+             dot.labels = graf_scatt$pais,
+             fit.line = "lm",
+             show.ci = TRUE) + 
+  labs(x = "Nivel promedio de escolaridad del país",
+       y = "Opinión promedio sobre migración",
+       title = "Scatterplot: Relación entre escolaridad y opinión sobre migración")
+
+scatter2 <- plot_scatter(graf_scatt,
+             x = happiness_prom, 
+             y = op_mig_prom,
+             dot.labels = graf_scatt$pais,
+             fit.line = "lm",
+             show.ci = TRUE) + 
+  labs(x = "Nivel promedio de felicidad del país",
+       y = "Opinión promedio sobre migración",
+       title = "Scatterplot: Relación entre felicidad y opinión sobre migración")
+
+
+```
+
+```{r fig-1, echo=FALSE, results='asis'}
+#| label: fig-1
+#| tbl-cap: "Relación entre escolaridad y opinión sobre migración"
+#| tbl-cap-location: top
+#| warning: false
+scatter1
+
+
+```
+
+```{r fig-2, echo=FALSE, results='asis'}
+#| label: fig-2
+#| tbl-cap: "Relación entre felicidad y opinión sobre migración"
+#| tbl-cap-location: top
+#| warning: false
+scatter2
+```
+
+Viendo el Scatterplot de la @fig-1
+
+Viendo el Scatterplot de la @fig-2
+
+```{r echo=FALSE, warning=FALSE, message=FALSE, results='hide'}
+
+t_devianza <- anova(results_4, results_5)%>%
+  as.data.frame()
+
+row.names(t_devianza) <- c( "Modelo 4: Pendiente aleatoria",
+                            "Modelo 5: Interacción entre niveles")
+
+devianza_table <- t_devianza %>%
+  kableExtra::kable(digits = 3, caption = "Comparación de modelos") %>%
+  kableExtra::kable_styling(
+    full_width = FALSE,
+    bootstrap_options = c("striped", "hover", "condensed"),
+    font_size = 18  # reduce tamaño fuente, default suele ser 14
+  )
+
+```
+
+```{r tbl-3, echo=FALSE, results='asis'}
+#| label: tbl-3
+#| tbl-cap: "Devianza"
+#| tbl-cap-location: top
+#| warning: false
+devianza_table
+```
+
+Viendo la Tabla de @tbl-3
+
+```{r echo=FALSE, warning=FALSE, message=FALSE, results='hide'}
+graf_pendiente <- ggpredict(results_4,
+                            terms = c("nacionalismo_cmc", "pais                               [152,276,410,554,566,124]"),
+                            type = "random")
+
+graf_pendiente$group <- dplyr::recode(as.character(graf_pendiente$group),
+  "152" = "Chile",
+  "276" = "Alemania",
+  "410" = "Corea del Sur",
+  "554" = "Nueva Zelanda",
+  "566" = "Nigeria",
+  "124" = "Canadá"
+)
+#grafico
+graf_pend<-plot(graf_pendiente) +
+  labs(title = "Pendiente aleatoria de nacionalismo por país",
+       x = "Nacionalismo centrado",
+       y = "Opinión negativa sobre migración") +
+  theme_minimal()
+
+```
+
+```{r echo=FALSE, warning=FALSE, message=FALSE, results='hide'}
+graf_interacción <- plot_model(results_5,
+           type = "int",
+           terms = c("nacionalismo_cmc", "happiness_gmc")) +
+  labs(
+    title  = "Interacción: Nacionalismo individual × Promedio de felicidad del país",
+    x      = "Nacionalismo (centrado)",
+    y      = "Opinión sobre migración",
+    colour = "Felicidad promedio del país"
+  ) +
+  scale_color_manual(values = c("#1b9e77", "#d95f02", "#7570b3")) +
+  theme_minimal(base_size = 12) +
+  theme(
+    plot.title = element_text(face = "bold", hjust = 0.5, margin = margin(b = 10)),
+    legend.position = "bottom",
+    plot.margin = margin(t = 20, r = 10, b = 10, l = 10)
+  )
+```
+
+```{r echo=FALSE, warning=FALSE, message=FALSE, results='asis'}
+#| label: fig-interaccion-nacionalismo
+#| fig-cap: "Interacción entre nacionalismo individual y felicidad promedio del país"
+#| fig-align: center
+#| fig-width: 8
+#| fig-height: 5
+#| echo: false
+
+graf_interacción
+
+```
+
+Como se muestra en la Figura @fig-interaccion-nacionalismo
+
+```{r echo=FALSE, warning=FALSE, message=FALSE, results='hide', fig.show='hide'}
+library(influence.ME)
+
+inf_5 <- influence(results_5, "pais")
+
+cook <- cooks.distance(inf_5, sort = TRUE)
+
+corte <- 4/47 # cut point
+
+influyentes <- names(cook)[!is.na(cook) & cook > corte] 
+
+invisible(capture.output(
+  cat("Países influyentes (cook > ", round(corte, 3), "):\n")
+))
+
+grafinf <- plot(inf_5, which="cook",
+     cutoff=corte, sort=TRUE,
+     xlab="Cooks Distance",
+     ylab="Pais")
+```
+
+```{r echo=FALSE, warning=FALSE, message=FALSE, results='hide'}
+sigtest(inf_5, test=-1.96)$happiness_gmc[1:47,]
+```
+
 # Conclusiones preliminares
 
 De momento, con los modelos preliminares, se puede plantear que, en las hipótesis de primer nivel, la primera de nuestras hipótesis se estaría cumpliendo, ya que aquellas personas con tendencias políticas hacia la derecha presentan una percepción negativa hacia las personas migrantes. Respecto a la segunda hipótesis, también se cumple, puesto que, a menor nivel de ingreso, mayor percepción negativa hacia los migrantes, siendo significativa en todos los modelos excepto el agregado. La tercera hipótesis, se cumple parcialmente al existir diferencias, pero no tan importantes, y existir un p \> 0.001, teniendo significancia solo al 95%. Respecto a la cuarta hipótesis, vemos que existe una variabilidad entre países respecto a la influencia del nacionalismo en la percepción de migrantes producto de lo visto en la pendiente aleatoria de esta variable.
 
 Respecto a las hipótesis de segundo nivel, podemos concluir que no se cumplirían ya que ninguna de estas variables presenta niveles de significancia estadística p \< 0.001, pero, no se puede dejar de lado que variables como HDI, a mayor nivel de desarrollo humano, presentan un aumento importante de la percepción negativa respecto a los migrantes, esto puede relacionarse con la bibliografía citada ya que los países OCDE, por ejemplo, son aquellos que mayor nivel de migrantes han recibido durante los últimos años (2024).
-
-```{r}
-reg_4= lmer(perc_mig ~ democ + meanschooling + female + pos_pol + nacionalismo + personal_income + (1 | pais), data = data)
-
-inf_reg_4 <- influence(reg_4, "pais")
-
-cook <- cooks.distance(inf_reg_4, sort = TRUE)
-
-corte <- 4/46 # cut point
-
-inluyentes <- names(cook)[!is.na(cook) & cook > corte] 
-
-cat("Países influyentes (cook > ", round(corte, 3), "):\n") 
-
-plot(inf_reg_4, which="cook",
-     cutoff=corte, sort=TRUE,
-     xlab="Cooks Distance",
-     ylab="Pais")
-
-sigtest(inf_reg_4, test=-1.96)$meanschooling[1:46,]
-```
-
-```{r}
-library(dplyr)
-
-data <- data %>%
-  mutate(hdi = hdi * 10)
-
-
-data=filter(data,!pais %in% c(124, 608, 554,360, 858, 792))
-table(data$perc_mig)
-
-results_2b = lmer(perc_mig ~ 1 + meanschooling + hdi + unemploytotal + democ + (1 | pais), data = data)
-results_2b
-
-hdi = lmer(perc_mig ~ 1 + migrationrate + (1 | pais), data = data)
-table(data$Q121)
-tab_modelosb <- tab_model(hdi, 
-  show.ci = FALSE, 
-  show.se = TRUE,
-  dv.labels = c( "Agregado"))
-tab_modelosb
-M <- cor(data, use = "complete.obs")
-M
-sjPlot::plot_scatter(data = agg_mlm, 
-                     x = mean_income_pais,
-                     y = perc_mig,
-                     fit.line = "lm",
-                     label.var = agg_mlm$pais)
-
-scater <- ggplot(agg_mlm, aes(x = migrationrate, y = perc_mig, label = pais)) +
-  geom_point() +
-  geom_smooth(method = "lm", se = FALSE, color = "blue") +
-  geom_text(vjust = -0.5, size = 3) +
-  theme_minimal() +
-  labs(x = "Ingreso promedio por país",
-       y = "Porcentaje de migrantes",
-       title = "Relación entre ingreso promedio y migración")
-
-scater
-
-
-agg_mlm <- agg_mlm %>%
-  group_by(pais) %>%
-  mutate(mean_income_pais = mean(personal_income, na.rm = TRUE)) %>%
-  ungroup()
-```
 
 # Biliografía
 

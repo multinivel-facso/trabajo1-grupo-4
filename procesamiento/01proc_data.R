@@ -16,7 +16,7 @@ rm(list = ls()) # para limpiar el entorno de trabajo
 
 # Carga datos ------------------------------------------------------------------
 
-load("~/Documents/GitHub/trabajo1-grupo-4/input/data/WVS_Cross-National_Wave_7_Rdata_v6_0.RData")
+load("~/GitHub/trabajo1-grupo-4/input/data/WVS_Cross-National_Wave_7_Rdata_v6_0.RData")
 
 
 # Limpieza de datos ------------------------------------------------------------
@@ -24,8 +24,8 @@ load("~/Documents/GitHub/trabajo1-grupo-4/input/data/WVS_Cross-National_Wave_7_R
 
 ## Filtrar y seleccionar -------------------------------------------------------
 data <- `WVS_Cross-National_Wave_7_v6_0` %>% 
-  select(pais=B_COUNTRY, female=Q260, nacionalismo=Q254, democ, meanschooling, 
-         hdi, Q121, Q124, migrationrate, Q126, Q128, Q129, pos_pol=Q240, personal_income=Q288, unemploytotal,
+  select(pais=B_COUNTRY, female=Q260, nacionalismo=Q254, meanschooling, Q121, 
+         Q124, Q126, Q128, Q129, pos_pol=Q240, seguridad=Q141, personal_income=Q288, 
          happiness=Q46, Life_satisfaction=Q49 ) #con variables contextuales, sin alfabetismo 
 
 ## Remover NA's ----------------------------------------------------------------
@@ -55,6 +55,8 @@ data <- data %>%
     TRUE ~ NA_real_        # Por si hay otros valores inesperados
   ))
 
+data <- na.omit(data)
+
 data <- data %>%
   mutate(across(c(happiness), ~ case_when(
     .x == 1 ~ 4,
@@ -64,24 +66,39 @@ data <- data %>%
     TRUE ~ .x
   )))
 
-data <- na.omit(data)
+data <- data %>%
+  mutate(across(c(seguridad), ~ case_when(
+    .x == 1 ~ 4,
+    .x == 2 ~ 3,
+    .x == 3 ~ 2,
+    .x == 4 ~ 1,
+    TRUE ~ .x
+  )))
+
+data <- data %>%
+  mutate(across(c(Q124, Q126, Q128, Q129), ~ case_when(
+    .x == 0 ~ 2,
+    .x == 2 ~ 0,
+    TRUE ~ .x  # para mantener los demás valores sin cambios
+  )))
+
 
 data <- data %>%
   mutate(across(c(Q121), ~ case_when(
-    .x %in% c(1,2) ~ 2,
+    .x %in% c(1,2) ~ 0,
     .x == 3 ~ 1,
-    .x %in% c(4, 5) ~ 0,
+    .x %in% c(4, 5) ~ 2,
     TRUE ~ .x
   )))
 
 
 dataescala <- data %>% select(Q121, Q124, Q126, Q128, Q129) #Escala migración
 
-psych::alpha(dataescala) #Alfa de Cronbach = 0.7
+psych::alpha(dataescala) #Alfa de Cronbach = 0.77
 
 data <- data %>% 
   rowwise() %>%
-  mutate(perc_mig = sum(c(Q121, Q124, Q126, Q128, Q129))) %>% 
+  mutate(op_mig = sum(c(Q121, Q124, Q126, Q128, Q129))) %>% 
   ungroup() #Escala sumativa percepción de migración
 
 data <- data %>%
@@ -89,11 +106,16 @@ data <- data %>%
   mutate(happines_promedio_pais = mean(happiness, na.rm = TRUE)) %>%
   ungroup()
 
-data3 <- data %>%
+data <- data %>%
   group_by(pais) %>%
   mutate(Life_satisfaction_promedio = mean(Life_satisfaction, na.rm = TRUE)) %>%
   ungroup()
 
+data <- data %>%
+  group_by(pais) %>%
+  mutate(seguridad_prom = mean(seguridad, na.rm = TRUE)) %>%
+  ungroup()
+
 # Guardar datos ----sum()# Guardar datos ----------------------------------------------------------------
-save(data3, file="output/data3.rdata")
+save(data, file="output/data.rdata")
 
