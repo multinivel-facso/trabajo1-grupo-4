@@ -55,6 +55,7 @@ data <- data %>%
     TRUE ~ NA_real_        # Por si hay otros valores inesperados
   ))
 
+
 data <- na.omit(data)
 
 data <- data %>%

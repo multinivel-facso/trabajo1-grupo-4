@@ -175,13 +175,13 @@ Para el análisis se estimó un modelo nulo para calcular la correlación intra-
 # Análisis
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
-results_0 = lmer(perc_mig ~ 1 + (1 | pais), data = data)
+results_0 = lmer(op_mig ~ 1 + (1 | pais), data = data)
 Null_model <- summary(results_0)
 ICC <- reghelper::ICC(results_0)
 ```
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
-results_1 = lmer(perc_mig ~ 1 + female + pos_pol_cmc + nacionalismo_cmc + personal_income_cmc + (1 | pais), data = data)
+results_1 = lmer(op_mig ~ 1 + female + pos_pol_cmc + nacionalismo_cmc + personal_income_cmc + (1 | pais), data = data)
 modelo_1 <- screenreg(results_1, naive=TRUE) #Modelo 1, variables individuales
 
 ICC_1 <- reghelper::ICC(results_1)
