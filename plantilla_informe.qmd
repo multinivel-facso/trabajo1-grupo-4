@@ -6,6 +6,9 @@ date: "2025-05-28"
 lang: es
 format: html
 editor: visual
+output: 
+  html_document:
+    mathjax: default
 ---
 
 ```{r librerias, echo=FALSE, warning=FALSE, message=FALSE, collapse=TRUE}
@@ -86,43 +89,45 @@ Como se muestra con lo comentado anteriormente, vemos como el fenómeno migrator
 
 # Objetivos
 
-**Objetivo general:** Identificar en qué medida las percepciones hacia la migración se ven influidas por el país de residencia. 
+**Objetivos**
 
-**Objetivos específicos:**
+En este estudio se pretende abordar las opiniones negativas hacia la migración en distintos países a través de un enfoque multinivel, en el cual se consideran tanto factores individuales como contextuales, para determinar si existen patrones contextuales que puedan dar una explicación a posibles diferencias sistemáticas entre países. 
 
--   Analizar el efecto de las variables individuales sobre las percepciones hacia la migración.
+**Objetivo general:** Identificar en qué medida las opiniones negativas hacia la migración se ven influidas por el país de residencia. 
 
--   Analizar el efecto de las variables agregadas sobre las percepciones hacia la migración.
-
--   Explorar las posibles diferencias en las relaciones entre las variables individuales y las percepciones hacia la migración según el contexto nacional.
-
-[**Hipótesis:**]{.underline}
+**Hipótesis:**
 
 **Nivel 1 (individual):**
 
--   Personas que se identifican con posiciones políticas inclinadas a la derecha tenderán hacia una percepción más negativa hacia la migración.
+-   Personas que se identifican con posiciones políticas inclinadas a la derecha tenderán hacia opiniones negativas respecto a la migración. 
 
--   Personas con menores niveles de ingresos tenderán hacia una percepción más negativa hacia la migración. 
+-   Personas con mayores niveles de ingresos tenderán hacia una opinión positiva hacia la migración. 
 
--   Las percepciones hacia la migración difieren según el sexo de la persona.
+-   Las mujeres tienen opiniones positivas hacia la migración en comparativa a los hombres.
 
--   Los mayores niveles de nacionalismo presentan percepciones negativas hacia la migración.
+-   Personas con tendencias más nacionalistas tenderán hacia una opinión negativa hacia la migración. 
 
 **Nivel 2: (país):**
 
--   Un mayor nivel de desarrollo humano se asociará con percepciones más positivas hacia la migración.
+-   Países con un mayor promedio de felicidad, presentan opiniones positivas hacia la migración.
 
--   Países con menores promedios de años de escolaridad tenderán hacia percepciones más negativas hacia la migración.
+-   Países con mayores promedios de años de escolaridad, presentan opiniones positivas hacia la migración.
 
--   Países con menores niveles de democracia institucionalizada se asociarán con percepciones más negativas hacia la migración.
+-   Países con una mayor percepción de inseguridad, presentan una opinión negativa hacia la migración.
+
+**Interacción entre niveles:**
+
+-   El promedio de felicidad de un país atenúa el efecto del nacionalismo en la opinión frente a los migrantes.
 
 # Datos, variables y método
 
-La base utilizada es la séptima ola del World Values Survey (WVS), con datos recolectados entre 2017 y 2022. Con esto, es posible construir una estructura de datos de dos niveles: nivel 1 (personas) y nivel 2 (países), anidados en la variable país. Para preparar los datos, se aplicó un proceso de limpieza que incluyó recodificación y eliminación de valores perdidos por listwise, con una base final de 54.110 casos en 46 países. 
+*Datos*
 
-Para la variable dependiente se elaboró una escala sumativa de percepciones hacia la migración a partir de 9 ítems, con valores de 0 a 18, donde el valor más alto indica una percepción negativa hacia la migración y el más bajo (0) una percepción positiva. Los ítems considerados fueron las variables Q122 a Q129, que expresan opiniones respecto a la migración, estos ítems tenían tres posibilidades de respuesta: De acuerdo (2); Difícil de decir (1); En desacuerdo (0). Para que todas las afirmaciones apuntaran en la misma dirección, se recodificaron cuatro ítems (Q122; Q123; Q125; Q127) invirtiendo los valores de 2 y 0. Finalmente, se incluyó el ítem Q121. ¿Cómo evaluaría el impacto de estas personas en el desarrollo de su país? Siendo una escala Likert que va de Muy bueno (5) a Muy malo (1). Para mantener la coherencia con la dirección de la escala general, se recodificaron las categorías 1 y 2 como 2, la categoría 3 como 1, y las categorías 4 y 5 como 0. 
+La base utilizada es la séptima ola del World Values Survey (WVS), con datos recolectados entre 2017 y 2022. Con esto, es posible construir una estructura de datos de dos niveles: nivel 1 (personas) y nivel 2 (países), anidados en la variable país. Para preparar los datos, se aplicó un proceso de limpieza que incluyó la recodificación y eliminación de valores perdidos por listwise, resultando en una base final de 53.696 casos en 47 países. 
 
-Las variables independientes a nivel individual son: son el nacionalismo (Q254) cuyas opciones de respuesta van desde Muy orgullosa/o (1) a No soy \[nacionalidad del país\] (5); el ingreso relativo del hogar (Q288) que consta de una escala de 1 a 10, siendo 1 el grupo más bajo y 10 el más alto; la variable sexo (Q260), que fue renombrada a female y recodificada: 0 = Masculino y 1 = Femenino; y la auto ubicación ideológica en el eje izquierda-derecha (Q240) en  una escala del 1 (izquierda) al 10 (derecha). 
+*Variable dependiente.*
+
+Respecto a la variable dependiente se elaboró una escala sumativa de opiniones hacia la migración (op_mig) a partir de 5 ítems, codificados en una escala de 0 a 10, donde el valor más alto (10) indica una opinión positiva hacia la migración y el valor más bajo (0) indica una opinión  negativa frente a la migración. Los ítems considerados fueron de las variables Q124, Q126, Q128 y Q129, que expresan opiniones respecto a la migración bajo la consigna “Desde su punto de vista, ¿cuáles han sido los efectos de los inmigrantes en el desarrollo de este país?”, los efectos que se consultaban eran “aumentan la criminalidad” (Q124), “aumentan el riesgo de terrorismo” (Q126), “aumentan el desempleo” (Q128) y por último “llevan al conflicto social” (Q129). Estos ítems tenían tres posibilidades de respuesta: De acuerdo (2); Difícil de decir (1); En desacuerdo (0). Se invirtieron los valores de 2 y 0, para poder tener resultados de a mayor puntaje en la escala, mejor opinión hacia migrantes. Finalmente, se incluyó el ítem Q121 (Ahora nos gustaría saber su opinión sobre las personas de otros países que vienen a vivir a este país: los inmigrantes. ¿Cómo evaluaría el impacto de estas personas en el desarrollo del país?), pregunta que utiliza una escala Likert que va de Muy bueno (5) a Muy malo (1). Para mantener la coherencia con la dirección de la escala general, se recodificaron las categorías 1 y 2 como 0, la categoría 3 como 1, y las categorías 4 y 5 como 2. Esta escala presenta un alfa cronbach de 0.77 dando cuenta de una consistencia interna suficiente para el análisis estadístico, con una mediana de 4, y un promedio de 4,25 (sd=3.03), indicando una leve tendencia hacia opiniones positivas.
 
 ```{r descriptivos nivel1, echo=FALSE, results='hide'}
 library(stargazer)
@@ -136,8 +141,6 @@ tbl_1 <- stargazer(as.data.frame(nivel1),
           digits = 2, summary.stat = c("n","min", "p25", "median", "mean", "p75", "max", "sd"))
 cat(tbl_1, sep = "\n")
 ```
-
-Las variables independientes agregadas son: el índice de democracia institucionalizada que va de 0 a 10, según datos de Polity V de 2018, la variable de años promedio de escolaridad proveniente de datos de la UNESCO de 2018 y finalmente el Índice de Desarrollo Humano (IDH) como una medida agregada.
 
 ```{r descriptivos nivel2, echo=FALSE, results='hide'}
 # Variables de nivel 2 (contextual)
@@ -160,6 +163,10 @@ cat(tbl_2, sep = "\n")
 cat(tbl_1, sep = "\n")
 ```
 
+*Variables independientes de nivel 1*
+
+Las variables independientes a nivel individual son: nacionalismo (Q254),  cuyas opciones de respuesta van desde Muy orgullosa/o (1) a Para nada orgullosa/o (4). Luego se encuentra la variable ingreso relativo del hogar (personal income, Q288)  que consta de una escala de 1 (ingreso más bajo) a 10 (ingreso más alto). Tambien se incluyó la variable female (Q260), y recodificada: 0 = Masculino y 1 = Femenino. Por último, se utilizó la variable autoubicación ideológica en el eje izquierda-derecha (pos_pol), que se encuentra en la pregunta Q240, que consiste en  una escala del 1 (izquierda) al 10 (derecha). Los principales estadísticos descriptivos pueden ser encontrados en la \@tbl-1, destacamos los resultados de pos_pol, donde se tiende al centro con una mediana 5 y promedio de 5.79 (sd=2.46), también vemos que nacionalismo tiende a que la mayoría presenta un mayor orgullo con promedio 3.44 y mediana 4.
+
 ```{r tbl-2, echo=FALSE, message=FALSE, warning=FALSE, results='asis'}
 #| label: tbl-2
 #| tbl-cap: "Descriptivos nivel 2"
@@ -168,91 +175,77 @@ cat(tbl_1, sep = "\n")
 cat(tbl_2, sep = "\n")
 ```
 
-Viendo los @tbl-1 y los @tbl-2 destacan: la escala de opiniones hacia la migración (perc_mig) con una media de 8.58 (sd = 3.81), sugiriendo una tendencia hacia la neutralidad; la auto ubicación ideológica (pos_pol) con una media de 5.5 (sd = 2.45), indicando una orientación hacia el centro político; y el nacionalismo con una media de 1.61 (sd = 0.84), sugiriendo un alto orgullo nacional. 
+*Variables independientes de nivel 2*
 
-Para el análisis se estimó un modelo nulo para calcular la correlación intra-clase, la cual justifica la necesidad de este tipo de modelo. Luego, un modelo con las variables del nivel 1 para observar su relación con las actitudes hacia la migración, posteriormente un modelo con las variables de nivel 2 y, finalmente, un modelo multinivel completo con predictores de ambos niveles, incluyendo en estos la correlación intra-clase con el fin de evaluar el efecto de la inclusión de los predictores en la proporción de varianza explicada entre países.
+Las variables independientes de nivel 2 son: el promedio de felicidad por país (Q46, “qué tan feliz te sientes en general") con valores del 1 al 4, la cual se invirtió para que a mayor puntaje mayor felicidad promedio, la variable de años promedio de escolaridad (meanschooling) proveniente de datos de la UNESCO de 2018, y el promedio de sensación de seguridad por país (Q131, qué tan seguro te sientes en tu barrio) con valores del 1 al 4, invertidos para que a mayor seguridad un mayor número promedio. Los principales estadísticos descriptivos pueden ser encontrados en la \@tbl-2, destacando que existe una alta sensación de seguridad con valores sobre 3 en promedio, mediana y en sus rangos, así como una alta sensación de felicidad promedio, nuevamente con valores rondando el 3 en todos sus descriptivos.
 
+**Métodos**
+
+Los métodos utilizados fueron la estimación de distintos modelos bajo una lógica de carácter multinivel, obteniendo un total de 6 modelos utilizando el programa Rstudio y la librería lmer. Se estimaron un modelo nulo para ver la variabilidad según país que se comentará más adelante, modelos con variables de nivel 1, nivel 2, nivel 1 + nivel 2, uno con pendiente aleatoria en nacionalismo, y uno para ver la interacción entre nacionalismo y felicidad promedio por país. Las fórmulas de los modelos fueron las siguientes:
+
+--
+
+*Modelo nulo*
+
+$$
+\text{op\_mig}_{ij} = \gamma_{00} + u_{0j} + r_{ij}
+$$
+
+---
+
+*Modelo variables nivel 1*
+
+$$
+\text{op\_mig}_{ij} = \gamma_{00} + \gamma_{01} \text{female} + \gamma_{02} \text{pos\_pol} + \gamma_{03} \text{nacionalismo} + \gamma_{04} \text{personal\_income} + u_{0j} + r_{ij}
+$$
+
+---
+
+*Modelo variables nivel 2*
+
+$$
+\text{op\_mig}_{ij} = \gamma_{00} + \gamma_{01} \text{meanschooling} + \gamma_{02} \text{happiness\_promedio\_pais} + \gamma_{03} \text{seguridad\_promedio\_pais} + u_{0j} + r_{ij}
+$$
+
+---
+
+*Modelo con variables nivel 1 y 2*
+
+$$
+\begin{aligned}
+\text{op\_mig}_{ij} &= \gamma_{00} + \gamma_{01} \text{meanschooling} + \gamma_{02} \text{happiness\_promedio\_pais} + \gamma_{03} \text{seguridad\_promedio\_pais} \\
+&+ \gamma_{04} \text{female} + \gamma_{05} \text{pos\_pol} + \gamma_{06} \text{nacionalismo} + \gamma_{07} \text{personal\_income} + u_{0j} + r_{ij}
+\end{aligned}
+$$
+
+---
+
+*Modelo con pendiente aleatoria en nacionalismo*
+
+$$
+\begin{aligned}
+\text{op\_mig}_{ij} &= \gamma_{00} + \gamma_{01} \text{meanschooling} + \gamma_{02} \text{happiness\_promedio\_pais} + \gamma_{03} \text{seguridad\_promedio\_pais} \\
+&+ \gamma_{04} \text{female} + \gamma_{05} \text{pos\_pol} + \gamma_{06} \text{nacionalismo} + \gamma_{07} \text{personal\_income} \\
+&+ u_{0j} + u_{1j} \text{nacionalismo} + r_{ij}
+\end{aligned}
+$$
+
+---
+
+*Modelo con interacción entre niveles*
+
+$$
+\begin{aligned}
+\text{op\_mig}_{ij} &= \gamma_{00} + \gamma_{01} \text{meanschooling} + \gamma_{02} \text{happiness\_promedio\_pais} + \gamma_{03} \text{seguridad\_promedio\_pais} \\
+&+ \gamma_{04} \text{female} + \gamma_{05} \text{pos\_pol} + \gamma_{06} \text{nacionalismo} + \gamma_{07} \text{personal\_income} \\
+&+ \gamma_{08} \text{happiness\_promedio\_pais} \times \text{nacionalismo} + u_{0j} + u_{1j} \text{nacionalismo} + r_{ij}
+\end{aligned}
+$$
+
+---
 # Análisis
 
-```{r, echo=FALSE, warning=FALSE, message=FALSE}
-results_0 = lmer(op_mig ~ 1 + (1 | pais), data = data)
-Null_model <- summary(results_0)
-ICC <- reghelper::ICC(results_0)
-```
-
-```{r, echo=FALSE, warning=FALSE, message=FALSE}
-results_1 = lmer(op_mig ~ 1 + female + pos_pol_cmc + nacionalismo_cmc + personal_income_cmc + (1 | pais), data = data)
-modelo_1 <- screenreg(results_1, naive=TRUE) #Modelo 1, variables individuales
-
-ICC_1 <- reghelper::ICC(results_1)
-
-
-```
-
-```{r, echo=FALSE, warning=FALSE, message=FALSE}
-results_2 = lmer(op_mig ~ 1 + happiness_gmc + seguridad_gmc + meanschooling_gmc + (1 | pais), data = data)
-modelo_2 <- screenreg(results_2)#Modelo 2, variables contextuales
-
-ICC_2 <- reghelper::ICC(results_2)
-
-```
-
-```{r, echo=FALSE, warning=FALSE, message=FALSE}
-results_3 = lmer(op_mig ~ 1 + happiness_gmc + meanschooling_gmc + seguridad_gmc + female + pos_pol_cmc + nacionalismo_cmc + personal_income_cmc + (1 | pais), data = data)
-modelo_3 <- screenreg(results_3) #Modelo 3 multinivel
-
-ICC_3 <- reghelper::ICC(results_3)
-
-```
-
-```{r, echo=FALSE, warning=FALSE, message=FALSE}
-
-results_4= lmer (op_mig ~ 1 + meanschooling_gmc + happiness_gmc + seguridad_gmc + female + pos_pol_cmc + nacionalismo_cmc + personal_income_cmc + (1 + nacionalismo_cmc | pais), data = data)
-
-modelo_4 <- screenreg(results_4)#Modelo 3, pendiente aleatoria
-
-ICC_4 <- reghelper::ICC(results_4)
-
-```
-
-```{r, echo=FALSE, warning=FALSE, message=FALSE}
-
-results_5 = lmer(op_mig ~ 1 + meanschooling_gmc + happiness_gmc + seguridad_gmc + female + pos_pol_cmc + nacionalismo_cmc + personal_income_cmc + happiness_gmc*nacionalismo_cmc + (1 | pais), data = data)
-
-modelo_5 <- screenreg(results_5)#Modelo 5, interacción entre niveles
-
-ICC_5 <- reghelper::ICC(results_5)
-
-```
-
-```{r, echo=FALSE, warning=FALSE, message=FALSE, results='asis'}
-tab_modelos <- tab_model(results_0, results_1, results_2, results_3, results_4, results_5,
-  show.ci = FALSE, 
-  show.se = TRUE,
-  dv.labels = c("Nulo","Nivel 1", "Nivel 2", "Nivel 1 y 2", "Pendiente aleatoria nacionalismo", "Interacción entre niveles"))
-
-
-```
-
-```{r tbl-modelos, echo=FALSE, results='asis'}
-#| label: tbl-modelos
-#| tbl-cap: "Comparación Modelos"
-#| tbl-cap-location: top
-#| warning: false
-tab_modelos
-```
-
-Todos los modelos dentro de la tabla cuentan con intercepto aleatorio. Como se observa en la @tbl-modelos el modelo Nulo presenta un beta de 8.77, al no tener ningún predictor se presenta como el promedio de la variable dependiente percepción frente a los migrantes. En este modelo también se observa un `r ICC`, por lo que este es el porcentaje de varianza explicada por la diferencia entre grupos. 
-
-El modelo individual cuenta con estimaciones considerando el n total de la muestra. Se visualiza que la mayoría de las variables tienen un efecto significativo con un p menor a 0.001. Sin embargo, la variable (female) cuenta con un valor p 0.005, lo cual involucra un 95% de confianza, a su vez que la variable nacionalismo presenta un valor p 0.001, siendo estas las únicas de estas variables que no presentan p \< 0.001. Por parte de las variables individuales, se observa que la pendiente más grande está en la variable (pos_pol) con un 0.14 y la más pequeña en la variable (nacionalismo) con un -0.06.
-
-En cuanto al modelo agregado, ninguna de las variables se presenta como significativa. La que presenta un valor p más alto es la variable (hdi), que en el anterior modelo contaba con menos de 0.001. Este problema se debe a colapsar la base en la variable de anidación (país). Dentro del modelo, también podemos observar que las variables de tipo individual (pos_pol, nacionalismo y personal income) pierden de manera importante significación estadística con valores p muy superiores a los del modelo anterior, pero se ve un aumento en la pendiente de estas variables.
-
-En el modelo multinivel, los principales predictores significativos de las percepción hacia la migración fueron la auto ubicación política (pos_pol), el orgullo nacional (nacionalismo), y el ingreso relativo del hogar (personal_income). En síntesis, una mayor inclinación hacia la derecha política, niveles más altos de nacionalismo y menores ingresos se asocian con percepciones más negativas hacia la migración. En contraste, variables agregadas como índice de democracia institucionalizada, el Índice de Desarrollo Humano y el promedio de años de escolaridad no mostraron efectos significativos. El modelo muestra un ICC de 0.14, lo que significa que un 14% de la varianza en las percepciones se explica por diferencias entre países.
-
-El modelo con pendiente aleatoria para nacionalismo muestra que las percepciones hacia la migración se explican en parte por diferencias entre países, tal como lo indica el ICC de 0.15, lo que sugiere que un 15% de la varianza total se debe al contexto nacional. Destacan como predictores individuales, tanto la auto ubicación política (coef. = .13, p \< .001), asociada a una mayor percepción negativa hacia la migración a medida que se ubican más hacia la derecha, como el ingreso relativo del hogar (coef. = .11, p \< 0.001), relacionado con una percepción más negativa hacia la migración mientras menor sea este. La inclusión del nacionalismo como pendiente aleatoria muestra que su efecto varía entre países (τ₁₁ = .19). Además, la correlación negativa entre el intercepto y la pendiente de nacionalismo (ρ₀₁ = -.54) muestra que en países donde hay un rechazo promedio más alto, el efecto del nacionalismo sobre estas percepciones tiende a ser menor. 
-
-A modo general, vemos que los interceptos no presentan una gran variabilidad al cambiar los modelos, estando todos entre el valor 10 y 11, siendo el modelo multinivel el que tiene un intercepto más bajo con 10.34. El modelo agregado, presenta el mayor error estándar dentro de cada uno de los modelos y a su vez, es el único con un valor p \>0.001, con una baja significancia estadística.
+**Bivariados**
 
 ```{r echo=FALSE, warning=FALSE, message=FALSE, results='hide'}
 
@@ -345,7 +338,15 @@ scatter2 <- plot_scatter(graf_scatt,
        y = "Opinión promedio sobre migración",
        title = "Scatterplot: Relación entre felicidad y opinión sobre migración")
 
-
+scatter3 <- plot_scatter(graf_scatt,
+             x = seguridad_prom, 
+             y = op_mig_prom,
+             dot.labels = graf_scatt$pais,
+             fit.line = "lm",
+             show.ci = TRUE) + 
+  labs(x = "Seguridad promedio del país",
+       y = "Opinión promedio sobre migración",
+       title = "Scatterplot: Relación entre seguridad y opinión sobre migración")
 ```
 
 ```{r fig-1, echo=FALSE, results='asis'}
@@ -354,9 +355,9 @@ scatter2 <- plot_scatter(graf_scatt,
 #| tbl-cap-location: top
 #| warning: false
 scatter1
-
-
 ```
+
+En la @fig-1 se muestra el diagrama de dispersión con la variable años promedio de escolaridad por país y opinión promedio sobre migración. En primer lugar cabe rescatar que hay una leve relación positiva entre la escolaridad promedio y las opiniones hacia la migración, señalando que un mayor nivel de escolaridad está asociado a un menor rechazo hacia la migración. Sin embargo, la pendiente es muy tenue, con los países bastante dispersos en el plano, lo que indica una débil relación con poca consistencia. Países como Nueva Zelanda y Canadá presentan altos niveles de escolaridad con una mayor aceptación de la migración, pero también países como Alemania o Eslovaquia, que tienen niveles similares de escolaridad promedio, presentan más opiniones vinculadas al rechazo hacia la migración.
 
 ```{r fig-2, echo=FALSE, results='asis'}
 #| label: fig-2
@@ -366,9 +367,96 @@ scatter1
 scatter2
 ```
 
-Viendo el Scatterplot de la @fig-1
+La @fig-2 muestra la relación entre la variable de nivel promedio de felicidad del país con la variable de opinión promedio sobre migración. Se puede observar una relación positiva entre estas variables, indicando que países con un mayor promedio de felicidad están asociados a una mayor apertura hacia la migración. El diagrama muestra una pendiente más pronunciada que la del gráfico anterior y una menor dispersión de los datos, lo que señala una mayor consistencia en esta relación.
 
-Viendo el Scatterplot de la @fig-2
+```{r fig-3, echo=FALSE, results='asis'}
+#| label: fig-3
+#| tbl-cap: "Relación entre felicidad y opinión sobre migración"
+#| tbl-cap-location: top
+#| warning: false
+scatter3
+```
+
+En la @fig-3 se muestra la relación entre la variable de promedio de sensación de seguridad y la variable opinión promedio sobre migración en un diagrama de dispersión. Se puede notar una leve relación inversa entre estas variables representada por la pendiente con una sutil inclinación. Esto quiere decir que una mayor sensación de seguridad está asociada a un mayor rechazo hacia la migración, sin embargo no constituye una relación robusta dada la característica de la pendiente. 
+
+**Multivariados**
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+results_0 = lmer(op_mig ~ 1 + (1 | pais), data = data)
+Null_model <- summary(results_0)
+ICC <- reghelper::ICC(results_0)
+```
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+results_1 = lmer(op_mig ~ 1 + female + pos_pol_cmc + nacionalismo_cmc + personal_income_cmc + (1 | pais), data = data)
+modelo_1 <- screenreg(results_1, naive=TRUE) #Modelo 1, variables individuales
+
+ICC_1 <- reghelper::ICC(results_1)
+
+
+```
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+results_2 = lmer(op_mig ~ 1 + happiness_gmc + seguridad_gmc + meanschooling_gmc + (1 | pais), data = data)
+modelo_2 <- screenreg(results_2)#Modelo 2, variables contextuales
+
+ICC_2 <- reghelper::ICC(results_2)
+
+```
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+results_3 = lmer(op_mig ~ 1 + happiness_gmc + meanschooling_gmc + seguridad_gmc + female + pos_pol_cmc + nacionalismo_cmc + personal_income_cmc + (1 | pais), data = data)
+modelo_3 <- screenreg(results_3) #Modelo 3 multinivel
+
+ICC_3 <- reghelper::ICC(results_3)
+
+```
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+
+results_4= lmer (op_mig ~ 1 + meanschooling_gmc + happiness_gmc + seguridad_gmc + female + pos_pol_cmc + nacionalismo_cmc + personal_income_cmc + (1 + nacionalismo_cmc | pais), data = data)
+
+modelo_4 <- screenreg(results_4)#Modelo 3, pendiente aleatoria
+
+ICC_4 <- reghelper::ICC(results_4)
+
+```
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+
+results_5 = lmer(op_mig ~ 1 + meanschooling_gmc + happiness_gmc + seguridad_gmc + female + pos_pol_cmc + nacionalismo_cmc + personal_income_cmc + happiness_gmc*nacionalismo_cmc + (1 | pais), data = data)
+
+modelo_5 <- screenreg(results_5)#Modelo 5, interacción entre niveles
+
+ICC_5 <- reghelper::ICC(results_5)
+
+```
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE, results='asis'}
+tab_modelos <- tab_model(results_0, results_1, results_2, results_3, results_4, results_5,
+  show.ci = FALSE, 
+  show.se = TRUE,
+  dv.labels = c("Nulo","Nivel 1", "Nivel 2", "Nivel 1 y 2", "Pendiente aleatoria nacionalismo", "Interacción entre niveles"))
+
+
+```
+
+```{r tbl-modelos, echo=FALSE, results='asis'}
+#| label: tbl-modelos
+#| tbl-cap: "Comparación Modelos"
+#| tbl-cap-location: top
+#| warning: false
+tab_modelos
+```
+
+En la @tbl-modelos se presenta una comparación entre los modelos estimados. En primer lugar está el modelo sin predictores. En segundo lugar está el modelo con variables de nivel 1: sexo (female), autoubicación ideológica (pos_pol_cmc), orgullo nacional (nacionalismo_cmc) e ingreso relativo del hogar (personal_income_cmc). Todas estas variables están centradas a la media del grupo. En tercer lugar se encuentra el modelo con las variables de nivel 2: nivel promedio de felicidad (happiness_gmc), promedio de sensación de seguridad (seguridad_gmc) y años promedio de escolaridad (meanschooling_gmc). Estas variables están centradas a la gran media. En cuarto lugar está el modelo con las variables de nivel 1 y nivel 2. En quinto lugar se encuentra el modelo con variables de nivel 1 y 2 con orgullo nacional como pendiente aleatoria. Finalmente, en sexto lugar está el modelo con la interacción entre los niveles. 
+
+*Modelo nulo*
+
+Respecto al modelo nulo, el intercepto muestra un valor promedio de 4.13 de la variable independiente, es decir, el promedio de la opinión sobre la migración, en una escala de 1 a 10, se encuentra relativamente al centro con más cercanía hacia el rechazo sobre la migración cuando no se considera ningún predictor. Además el coeficiente de correlación intraclase es de 0.18, lo que indica que un 18% de la varianza se explica por diferencias entre países, lo cual justifica el uso de modelos multinivel.
+
+*Modelo con variables de nivel 1*
+
 
 ```{r echo=FALSE, warning=FALSE, message=FALSE, results='hide'}
 
