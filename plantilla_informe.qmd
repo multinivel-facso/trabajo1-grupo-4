@@ -117,8 +117,9 @@ En este estudio se pretende abordar las opiniones negativas hacia la migración 
 
 **Interacción entre niveles:**
 
--   El promedio de felicidad de un país atenúa el efecto del nacionalismo en la opinión frente a los migrantes.
+-   El promedio de felicidad de un país atenúa el efecto del nacionalismo en la opinión frente a la migración.
 
+-   El promedio de percepción de seguridad de un país atenúa el efecto del nacionalismo en la opinión frente a la migración
 # Datos, variables y método
 
 *Datos*
@@ -181,7 +182,7 @@ Las variables independientes de nivel 2 son: el promedio de felicidad por país 
 
 **Métodos**
 
-Los métodos utilizados fueron la estimación de distintos modelos bajo una lógica de carácter multinivel, obteniendo un total de 6 modelos utilizando el programa Rstudio y la librería lmer. Se estimaron un modelo nulo para ver la variabilidad según país que se comentará más adelante, modelos con variables de nivel 1, nivel 2, nivel 1 + nivel 2, uno con pendiente aleatoria en nacionalismo, y uno para ver la interacción entre nacionalismo y felicidad promedio por país. Las fórmulas de los modelos fueron las siguientes:
+Los métodos utilizados fueron la estimación de distintos modelos bajo una lógica de carácter multinivel, obteniendo un total de 6 modelos utilizando el programa Rstudio y la librería lmer. Se estimaron un modelo nulo para ver la variabilidad según país que se comentará más adelante, modelos con variables de nivel 1, nivel 2, nivel 1 + nivel 2, uno con pendiente aleatoria en nacionalismo, y dos modelos de interacción entre niveles, uno para ver la interacción entre nacionalismo y felicidad promedio por país, y el otro para ver la interacción entre nacionalismo y seguridad promedio. Las fórmulas de los modelos fueron las siguientes:
 
 ------------------------------------------------------------------------
 
@@ -232,13 +233,24 @@ $$
 
 ------------------------------------------------------------------------
 
-*Modelo con interacción entre niveles*
+*Modelo con interacción entre niveles felicidad y nacionalismo*
 
 $$
 \begin{aligned}
 \text{op\_mig}_{ij} &= \gamma_{00} + \gamma_{01} \text{meanschooling} + \gamma_{02} \text{happiness\_promedio\_pais} + \gamma_{03} \text{seguridad\_promedio\_pais} \\
 &+ \gamma_{04} \text{female} + \gamma_{05} \text{pos\_pol} + \gamma_{06} \text{nacionalismo} + \gamma_{07} \text{personal\_income} \\
 &+ \gamma_{08} \text{happiness\_promedio\_pais} \times \text{nacionalismo} + u_{0j} + u_{1j} \text{nacionalismo} + r_{ij}
+\end{aligned}
+$$
+
+------------------------------------------------------------------------
+*Modelo con interacción entre niveles seguridad y nacionalismo*
+
+$$
+\begin{aligned}
+\text{op\_mig}_{ij} &= \gamma_{00} + \gamma_{01} \text{meanschooling} + \gamma_{02} \text{happiness\_promedio\_pais} + \gamma_{03} \text{seguridad\_promedio\_pais} \\
+&+ \gamma_{04} \text{female} + \gamma_{05} \text{pos\_pol} + \gamma_{06} \text{nacionalismo} + \gamma_{07} \text{personal\_income} \\
+&+ \gamma_{08} \text{seguridad\_promedio\_pais} \times \text{nacionalismo} + u_{0j} + u_{1j} \text{nacionalismo} + r_{ij}
 \end{aligned}
 $$
 
@@ -519,7 +531,7 @@ graf_pend<-plot(graf_pendiente) +
 ```
 
 ```{r echo=FALSE, warning=FALSE, message=FALSE, results='hide'}
-graf_interacción <- plot_model(results_5,
+graf_interacción_happiness <- plot_model(results_5,
            type = "int",
            terms = c("nacionalismo_cmc", "happiness_gmc")) +
   labs(
@@ -538,14 +550,14 @@ graf_interacción <- plot_model(results_5,
 ```
 
 ```{r echo=FALSE, warning=FALSE, message=FALSE, results='hide'}
-graf_interacción <- plot_model(results_6,
+graf_interacción_seguridad <- plot_model(results_6,
            type = "int",
            terms = c("nacionalismo_cmc", "seguridad_gmc")) +
   labs(
-    title  = "Interacción: Nacionalismo individual × Promedio de seguridad persibida por país",
+    title  = "Interacción: Nacionalismo individual × Promedio de seguridad percibida por país",
     x      = "Nacionalismo (centrado)",
     y      = "Opinión sobre migración",
-    colour = "Promedio de seguridad persibida por país"
+    colour = "Promedio de seguridad percibida por país"
   ) +
   scale_color_manual(values = c("#1b9e77", "#d95f02", "#7570b3")) +
   theme_minimal(base_size = 12) +
@@ -558,18 +570,31 @@ graf_interacción <- plot_model(results_6,
 
 
 ```{r echo=FALSE, warning=FALSE, message=FALSE, results='asis'}
-#| label: fig-interaccion-nacionalismo
+#| label: fig-4
 #| fig-cap: "Interacción entre nacionalismo individual y felicidad promedio del país"
 #| fig-align: center
 #| fig-width: 8
 #| fig-height: 5
 #| echo: false
 
-graf_interacción
+graf_interacción_happiness
 
 ```
 
-Como se muestra en la Figura @fig-interaccion-nacionalismo
+Como se muestra en la Figura @fig-4
+
+```{r echo=FALSE, warning=FALSE, message=FALSE, results='asis'}
+#| label: fig-5
+#| fig-cap: "Interacción entre nacionalismo individual y felicidad promedio del país"
+#| fig-align: center
+#| fig-width: 8
+#| fig-height: 5
+#| echo: false
+
+graf_interacción_seguridad
+
+```
+
 
 ```{r echo=FALSE, warning=FALSE, message=FALSE, results='hide', fig.show='hide'}
 library(influence.ME)
