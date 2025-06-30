@@ -2,13 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.555">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Paula Córdova, Jesús Díaz Molina, Benjamín Zavala">
 
-<title>Estudio sobre las percepciones hacia la migración desde un análisis multinivel: análisis según país</title>
+<title>Estudio sobre las opiniones negativas hacia la migración desde un análisis multinivel: análisis según país</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -39,7 +39,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="plantilla_informe_files/libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -79,7 +79,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Estudio sobre las percepciones hacia la migración desde un análisis multinivel: análisis según país</h1>
+<h1 class="title">Estudio sobre las opiniones negativas hacia la migración desde un análisis multinivel: análisis según país</h1>
 <p class="subtitle lead">Análisis de Datos Multinivel</p>
 </div>
 
@@ -109,42 +109,58 @@ window.Quarto = {
 </header>
 
 
+<section id="abstract" class="level1">
+<h1>Abstract</h1>
+<p>La migración se ha vuelto uno de los principales fenómenos a nivel global, producto del aumento constante de los flujos migratorios (ONU, s.f.; OCDE, 2024), y de la mano con esto han emergido posiciones y opiniones negativas hacia las personas migrantes, es por esto que la presente investigación busca estudiar las opiniones negativas hacia los migrantes desde una perspectiva multinivel, para poder atender a aquellos factores tanto contextuales como individuales, buscando responder a la pregunta ¿En qué medida los factores contextuales de cada país, como su felicidad promedio, su promedio de percepción de seguridad y su promedio de escolaridad, y los factores individuales, como el ser mujer, la posición política, el nacionalismo, y el ingreso propio, influyen en tener una opinión negativa hacia las personas migrantes? Se ocuparon datos de la World Values Survey, trabajando con 47 países de todas partes del mundo y un total de 53696 observaciones, y se estimaron un total de 6 modelos. Los principales hallazgos contextuales fueron que países con mayor felicidad promedio tienden a opiniones positivas, países con mayor percepción de seguridad tienden a opiniones negativas y la escolaridad promedio parece no ser significativa. Respecto a las variables individuales, el ser mujer no es significativa por lo que no habrían diferencias entre ser mujer u hombre respecto a las opiniones sobre la migración, las posiciones políticas de derecha tienden a opiniones negativas, las posiciones nacionalistas tienden hacia opiniones negativas y aquellos sectores con mayor ingreso presentan opiniones positivas respecto a la migración. Por último, la felicidad promedio no es significativa en su relación respecto al nacionalismo para atenuar el efecto de este.</p>
+</section>
 <section id="introducción" class="level1">
 <h1>Introducción</h1>
-<p>La migración es hoy en día como uno de los fenómenos más contingentes a nivel mundial, de acuerdo con la ONU (2025) el número de migrantes a nivel internacional corresponde a 304 millones de personas aproximadamente, un número que se ha duplicado desde 1990. Estos procesos migratorios pueden explicarse por diversos factores, como lo pueden ser los económicos, sociales, políticos, demográficos y ecológicos (Armijos-Orellana et al, 2022), por lo que debe comprenderse como un fenómeno multicausal en el que influyen cuestiones no solo individuales, sino también contextuales, como lo pueden ser una crisis económica a nivel nacional, crisis políticas, conflictos bélicos, desplazamiento por riesgos socionaturales, etc.&nbsp;</p>
-<p>Ante el aumento de los flujos migratorios, han aparecido también discursos que presentan una mala percepción hacia las personas migrantes, cayendo directamente en posiciones anti migrantes y discriminatorias que se pueden ver reflejadas en fenómenos políticos de nivel global como lo es el auge de la extrema derecha. Diversos estudios han dado cuenta de que existe una relación entre las posiciones de derecha más extremas y una mala percepción hacia la migración (Servicio Jesuita a Migrantes, 2020; Akkerman, 2018) en conjunto a una tendencia hacia posiciones más nacionalistas o bajo discursos, denominados por las mismas personas, “patriotas” que suelen ir de la mano con una negatividad hacia la migración (Akkerman, 2018; Buraschi y Aguilar-Idañez, 2023), estas posiciones, también suelen manifestarse más en hombres (SJM, 2020). La percepción hacia la migración también se puede ver influida por cuestiones como un régimen más democrático o liberal respecto a políticas de migración (Romero, 2021), donde en aquellos países con una política más democrática presentan una mejor percepción de las personas migrantes.</p>
-<p>Por otro lado, factores individuales como lo pueden ser el nivel educativo o el nivel socioeconómico pueden influir en una percepción negativa hacia la migración, producto de que existiría una posible competencia entre las personas migrantes y las personas de menor nivel educacional o bajos ingresos por aquellas ocupaciones de menor complejización (Romero, 2021; Emmenegger y Klemmensen, 2013). Los países que suelen tener un mayor nivel de desarrollo en diversos indicadores como el índice de desarrollo humano, o mayores niveles de educación, suelen recibir mayor migración. como lo muestran los informes OCDE (2024) que dan cuenta de cómo existe un aumento de la migración hacia gran parte de los países pertenecientes a este, por lo que la percepción hacia la migración puede verse afectada por el desarrollo de un país al existir una mayor migración ante un mayor nivel de desarrollo.</p>
-<p>Como se muestra con lo comentado anteriormente, vemos como el fenómeno migratorio y las percepciones hacia este constituyen una cuestión fundamental a nivel global, en tanto la migración, así como la oposición a esta van en aumento durante los últimos años por lo que el estudio de la percepción hacia la migración se vuelve contingente. Para estudiar esto se debe analizar cuestiones contextuales y factores individuales que darían cuenta de una mayor apreciación u oposición hacia la migración, y al transformarse en un fenómeno global, se vuelve interesante el análisis desde una perspectiva multinivel que considere factores contextuales de cada país que permita conocer cómo varían las percepciones sobre migración no solo considerando cuestiones individuales.&nbsp;</p>
+<p>La migración es hoy en día uno de los fenómenos más contingentes a nivel mundial, de acuerdo a la ONU (s.f.) el número de migrantes a nivel internacional corresponde a 304 millones de personas aproximadamente, un número que se ha duplicado desde 1990. Un claro ejemplo de esto lo encontramos en el último informe de la OCDE, donde se da cuenta de un aumento sostenido de la migración hacia los países pertenecientes a este (2024). Estos procesos migratorios pueden explicarse por diversos factores, convirtiéndolo en un fenómeno multicausal relacionado a causas económicas, políticas, decisiones personales, etc. encontrando cuestiones contextuales e individuales (Armijos-Orellana et al, 2022). A su vez, han aparecido opiniones negativas hacia las personas migrantes, cayendo directamente en posiciones anti migrantes y discriminatorias, ejemplo de esto es que a nivel nacional, un 33% cree que los migrantes no han traído ningún beneficio para el país (IPSOS, 2025). A nivel internacional, los datos muestran una tendencia de la opinión negativa hacia los migrantes con una variabilidad según países, pero con la tendencia hacia las opiniones negativas (IPSOS, 2024; Migration Data Portal, 2023).</p>
+<p>Respecto a la situación de los migrantes, desde la sociología podemos enmarcarnos en los análisis de la condición de estigma (Goffman, 1963) en la que comprendemos esta como una condición o atributo social desvalorizante que afecta a las personas, en este caso, por su condición de migrante. Goffman (1963) plantea que esto se da de manera relacional, definido por la mirada del otro, por lo que el estudio y análisis de las opiniones negativas sobre los migrantes se vuelven fundamentales en tanto el fenómeno migratorio está cada vez más presente, y en términos de poder aportar a la disciplina a estudiar estas relaciones, viendo qué factores influyen más en la condición del estigma migrante.</p>
+<p>Sobre las cuestiones individuales que influyen hacía una opinión negativa de las personas migrantes encontramos una relación entre las posiciones de derecha y una opinión negativa hacia la migración, la tendencia muestra que usualmente las personas de derecha son quienes concentran opiniones negativas hacia las personas migrantes, sobre todo bajo el contexto de las nuevas derechas a nivel global (Servicio Jesuita a Migrantes, 2020; Akkerman, 2018). Es decir, las personas de derecha tienden a tener opiniones negativas hacia la migración. En conjunto a esto, existe una tendencia hacia posiciones más nacionalistas que suelen ir de la mano con una negatividad hacia la migración, enmarcado en discursos relacionados con un mayor orgullo nacional (Akkerman, 2018; Buraschi y Aguilar-Idañez, 2023), el nacionalismo suele implicar una opinión negativa hacia las personas migrantes, y aparece como un fenómeno constante usualmente relacionado a las demás variables individuales (Akkerman, 2018; Buraschi y Aguilar-Idañez, 2023; Servicio Jesuita a Migrantes, 2020). Las opiniones negativas, también suelen manifestarse más en hombres que respecto a las mujeres, por lo que podría existir alguna tendencia hacia que la mujeres tienen una mejor opinión respecto a las personas migrantes (SJM, 2020). Otro factor individual, es el nivel socioeconómico, ya que puede influir en una opinión negativa hacia la migración, producto de que existiría una posible competencia entre las personas migrantes y las personas de bajos ingresos por aquellas ocupaciones de menor complejización, y que presentan un menor nivel de ingreso (Romero, 2021; Emmenegger y Klemmensen, 2013).</p>
+<p>Respecto a factores de nivel contextual, podemos encontrar desde la teoría psicosocial se plantea cómo las emociones pueden influir en una conducta prosocial, un mayor bienestar emocional y particularmente el sentimiento de felicidad tiene una asociación positiva con comportamientos prosociales, que puede llevar a una mejor opinión con las personas migrantes (Espelt et al, 1998). A esto se suma que la literatura reciente ha tenido un énfasis en el análisis y hacia la felicidad de las personas migrantes, pero no se ha estudiado a fondo la felicidad de las personas de los países que reciben a las personas migrantes, mostrando un vacío dentro de los estudios (Hendriks &amp; Bartram, 2018; Hinger, 2024). Se vuelve interesante estudiar el posible efecto de estos comportamientos prosociales con la migración, tomado el promedio de la felicidad del país, por la posible influencia de un contexto de mayor felicidad, y cómo podría influir este contexto en otras variables, atenuando sus posibles efectos. Por otro lado, tenemos que la percepción de la seguridad a nivel país puede afectar la opinión hacia la migración, en vista de que en distintos países se tiende a relacionar a las personas migrantes con fenómenos delictuales y por ende tienden a opiniones negativas (IPSOS, 2024; IPSOS 2025). Por último, encontramos la escolaridad promedio por país, ya que la escolaridad influye de manera parecida a la de tener menores ingresos, existiendo una competencia por aquellos puestos menos calificados, y por ende que requieren una menor especialización o estudios (Romero, 2021; Emmenegger y Klemmensen, 2013), y se considera a nivel contextual en tanto la educación puede ser un indicador del desarrollo de un país y el desarrollo sostenible (Grupo Banco Mundial, 2024; Keenan, 2023), haciendo referencia un país con menor nivel educativo promedio tiende a influir a una opinión negativa.</p>
+<p>Como vemos, tenemos un fenómeno migratorio que ha aumentado a nivel global y a su vez, una tendencia hacia la opinión negativa respecto a las personas migrantes, por lo que el objeto de estudio son las opiniones negativas hacia las personas migrantes, buscando conocer como influyen factores asociados a características individuales y contextuales a nivel país. Los datos muestran una variabilidad entre los países por lo que se hace interesante el análisis desde una perspectiva multinivel para conocer aquellos factores que inciden en que tengamos opiniones distintas respecto a los migrantes a nivel mundial, sumado a la influencia de factores individuales y contextuales en el fenómeno. Ante esto, se plantea la pregunta “¿En qué medida los factores contextuales de cada país, como su felicidad promedio, su promedio de percepción de seguridad y su promedio de escolaridad, y los factores individuales, como el ser mujer, la posición política, el nacionalismo, y el ingreso propio, influyen en tener una opinión negativa hacia las personas migrantes?”.</p>
 </section>
 <section id="objetivos" class="level1">
 <h1>Objetivos</h1>
-<p><strong>Objetivos</strong></p>
 <p>En este estudio se pretende abordar las opiniones negativas hacia la migración en distintos países a través de un enfoque multinivel, en el cual se consideran tanto factores individuales como contextuales, para determinar si existen patrones contextuales que puedan dar una explicación a posibles diferencias sistemáticas entre países.&nbsp;</p>
-<p><strong>Objetivo general:</strong> Identificar en qué medida las opiniones negativas hacia la migración se ven influidas por el país de residencia.&nbsp;</p>
-<p><strong>Hipótesis:</strong></p>
+<section id="objetivo-general" class="level4">
+<h4 class="anchored" data-anchor-id="objetivo-general"><strong>Objetivo general:</strong></h4>
+<p>Identificar en qué medida las opiniones negativas hacia la migración se ven influidas por el país de residencia.&nbsp;</p>
+</section>
+<section id="hipótesis" class="level4">
+<h4 class="anchored" data-anchor-id="hipótesis"><strong>Hipótesis:</strong></h4>
 <p><strong>Nivel 1 (individual):</strong></p>
 <ul>
-<li><p>Personas que se identifican con posiciones políticas inclinadas a la derecha tenderán hacia opiniones negativas respecto a la migración.&nbsp;</p></li>
-<li><p>Personas con mayores niveles de ingresos tenderán hacia una opinión positiva hacia la migración.&nbsp;</p></li>
-<li><p>Las mujeres tienen opiniones positivas hacia la migración en comparativa a los hombres.</p></li>
-<li><p>Personas con tendencias más nacionalistas tenderán hacia una opinión negativa hacia la migración.&nbsp;</p></li>
+<li><p><span class="math inline">\(H_1\)</span> Personas que se identifican con posiciones políticas inclinadas a la derecha tenderán hacia opiniones negativas respecto a las personas migrantes.&nbsp;</p></li>
+<li><p><span class="math inline">\(H_2\)</span> Las personas con mayores niveles de ingresos tenderán hacia una opinión positiva hacia las personas migrantes.&nbsp;</p></li>
+<li><p><span class="math inline">\(H_3\)</span> Las mujeres tienen opiniones positivas hacia las personas migrantes en comparación a los hombres.</p></li>
+<li><p><span class="math inline">\(H_4\)</span> Personas con tendencias nacionalistas tenderán hacia una opinión negativa hacia las personas migrantes.&nbsp;</p></li>
 </ul>
 <p><strong>Nivel 2: (país):</strong></p>
 <ul>
-<li><p>Países con un mayor promedio de felicidad, presentan opiniones positivas hacia la migración.</p></li>
-<li><p>Países con mayores promedios de años de escolaridad, presentan opiniones positivas hacia la migración.</p></li>
-<li><p>Países con una mayor percepción de inseguridad, presentan una opinión negativa hacia la migración.</p></li>
+<li><p><span class="math inline">\(H_5\)</span> Países con un mayor promedio de felicidad, presentan opiniones positivas hacia la migración.</p></li>
+<li><p><span class="math inline">\(H_6\)</span> Países con mayores promedios de años de escolaridad, presentan opiniones positivas hacia las personas migrantes.</p></li>
+<li><p><span class="math inline">\(H_7\)</span> Países con una mayor percepción de inseguridad, presentan una opinión negativa hacia las personas migrantes.</p></li>
 </ul>
 <p><strong>Interacción entre niveles:</strong></p>
 <ul>
-<li><p>El promedio de felicidad de un país atenúa el efecto del nacionalismo en la opinión frente a la migración.</p></li>
-<li><p>El promedio de percepción de seguridad de un país atenúa el efecto del nacionalismo en la opinión frente a la migración # Datos, variables y método</p></li>
+<li><span class="math inline">\(H_8\)</span> El promedio de felicidad de un país atenúa el efecto del nacionalismo en la opinión frente a las personas migrantes.</li>
 </ul>
-<p><em>Datos</em></p>
-<p>La base utilizada es la séptima ola del World Values Survey (WVS), con datos recolectados entre 2017 y 2022. Con esto, es posible construir una estructura de datos de dos niveles: nivel 1 (personas) y nivel 2 (países), anidados en la variable país. Para preparar los datos, se aplicó un proceso de limpieza que incluyó la recodificación y eliminación de valores perdidos por listwise, resultando en una base final de 53.696 casos en 47 países.&nbsp;</p>
-<p><em>Variable dependiente.</em></p>
-<p>Respecto a la variable dependiente se elaboró una escala sumativa de opiniones hacia la migración (op_mig) a partir de 5 ítems, codificados en una escala de 0 a 10, donde el valor más alto (10) indica una opinión positiva hacia la migración y el valor más bajo (0) indica una opinión&nbsp; negativa frente a la migración. Los ítems considerados fueron de las variables Q124, Q126, Q128 y Q129, que expresan opiniones respecto a la migración bajo la consigna “Desde su punto de vista, ¿cuáles han sido los efectos de los inmigrantes en el desarrollo de este país?”, los efectos que se consultaban eran “aumentan la criminalidad” (Q124), “aumentan el riesgo de terrorismo” (Q126), “aumentan el desempleo” (Q128) y por último “llevan al conflicto social” (Q129). Estos ítems tenían tres posibilidades de respuesta: De acuerdo (2); Difícil de decir (1); En desacuerdo (0). Se invirtieron los valores de 2 y 0, para poder tener resultados de a mayor puntaje en la escala, mejor opinión hacia migrantes. Finalmente, se incluyó el ítem Q121 (Ahora nos gustaría saber su opinión sobre las personas de otros países que vienen a vivir a este país: los inmigrantes. ¿Cómo evaluaría el impacto de estas personas en el desarrollo del país?), pregunta que utiliza una escala Likert que va de Muy bueno (5) a Muy malo (1). Para mantener la coherencia con la dirección de la escala general, se recodificaron las categorías 1 y 2 como 0, la categoría 3 como 1, y las categorías 4 y 5 como 2. Esta escala presenta un alfa cronbach de 0.77 dando cuenta de una consistencia interna suficiente para el análisis estadístico, con una mediana de 4, y un promedio de 4,25 (sd=3.03), indicando una leve tendencia hacia opiniones positivas.</p>
-<div id="tbl-1" class="cell quarto-float anchored" data-tbl-cap-location="top">
+</section>
+</section>
+<section id="datos-variables-y-método" class="level1">
+<h1>Datos, variables y método</h1>
+<section id="datos" class="level4">
+<h4 class="anchored" data-anchor-id="datos"><em>Datos</em></h4>
+<p>La base utilizada es la séptima ola del World Values Survey (WVS), con datos recolectados entre 2017 y 2022. Con esto, es posible construir una estructura de datos de dos niveles: nivel 1 (personas) y nivel 2 (países), anidados en la variable país. Para preparar los datos, se aplicó un proceso de limpieza que incluyó la recodificación y eliminación de valores perdidos por listwise, resultando en una base final de 53.696 casos en 47 países.</p>
+</section>
+<section id="variable-dependiente." class="level4">
+<h4 class="anchored" data-anchor-id="variable-dependiente."><em>Variable dependiente.</em></h4>
+<p>Respecto a la variable dependiente se elaboró una escala sumativa de opiniones hacia los migrantes (op_mig) a partir de 5 ítems, codificados en una escala de 0 a 10, donde el valor más alto (10) indica una opinión positiva hacia los migrantes y el valor más bajo (0) indica una opinión&nbsp; negativa frente a la migración. Los ítems considerados fueron de las variables Q124, Q126, Q128 y Q129, que expresan opiniones respecto a la migración bajo la consigna “Desde su punto de vista, ¿cuáles han sido los efectos de los inmigrantes en el desarrollo de este país?”, los efectos que se consultaban eran “aumentan la criminalidad” (Q124), “aumentan el riesgo de terrorismo” (Q126), “aumentan el desempleo” (Q128) y por último “llevan al conflicto social” (Q129). Estos ítems tenían tres posibilidades de respuesta: De acuerdo (2); Difícil de decir (1); En desacuerdo (0). Se invirtieron los valores de 2 y 0, para poder tener resultados de a mayor puntaje en la escala, mejor opinión hacia migrantes. Finalmente, se incluyó el ítem Q121 (Ahora nos gustaría saber su opinión sobre las personas de otros países que vienen a vivir a este país: los inmigrantes. ¿Cómo evaluaría el impacto de estas personas en el desarrollo del país?), pregunta que utiliza una escala Likert que va de Muy bueno (5) a Muy malo (1). Para mantener la coherencia con la dirección de la escala general, se recodificaron las categorías 1 y 2 como 0, la categoría 3 como 1, y las categorías 4 y 5 como 2. Esta escala presenta un alfa cronbach de 0.77 dando cuenta de una consistencia interna suficiente para el análisis estadístico, con una mediana de 4, y un promedio de 4,25 (sd=3.03), indicando una leve tendencia hacia opiniones negativas al estar bajo el promedio.</p>
+<p><br>
+</p>
+<div id="tbl-1" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-tbl-cap-location="top">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Tabla&nbsp;1: Descriptivos nivel 1
@@ -344,9 +360,11 @@ personal_income
 </div>
 </figure>
 </div>
-<p><em>Variables independientes de nivel 1</em></p>
-<p>Las variables independientes a nivel individual son: nacionalismo (Q254), cuyas opciones de respuesta van desde Muy orgullosa/o (1) a Para nada orgullosa/o (4). Luego se encuentra la variable ingreso relativo del hogar (personal income, Q288) que consta de una escala de 1 (ingreso más bajo) a 10 (ingreso más alto). Tambien se incluyó la variable female (Q260), y recodificada: 0 = Masculino y 1 = Femenino. Por último, se utilizó la variable autoubicación ideológica en el eje izquierda-derecha (pos_pol), que se encuentra en la pregunta Q240, que consiste en&nbsp; una escala del 1 (izquierda) al 10 (derecha). Los principales estadísticos descriptivos pueden ser encontrados en la <a href="#tbl-1" class="quarto-xref">Tabla&nbsp;1</a>, destacamos los resultados de pos_pol, donde se tiende al centro con una mediana 5 y promedio de 5.79 (sd=2.46), también vemos que nacionalismo tiende a que la mayoría presenta un mayor orgullo con promedio 3.44 y mediana 4.</p>
-<div id="tbl-2" class="cell quarto-float anchored" data-tbl-cap-location="top">
+</section>
+<section id="variables-independientes-de-nivel-1" class="level4">
+<h4 class="anchored" data-anchor-id="variables-independientes-de-nivel-1"><em>Variables independientes de nivel 1</em></h4>
+<p>Las variables independientes a nivel individual son: nacionalismo (Q254),&nbsp; cuyas opciones de respuesta van desde Muy orgullosa/o (1) a Para nada orgullosa/o (4). Luego se encuentra la variable ingreso relativo del hogar (personal income, Q288)&nbsp; que consta de una escala de 1 (ingreso más bajo) a 10 (ingreso más alto). También se incluyó la variable female (Q260), y recodificada: 0 = Masculino y 1 = Femenino. Por último, se utilizó la variable autoubicación ideológica en el eje izquierda-derecha (pos_pol), que se encuentra en la pregunta Q240, que consiste en&nbsp; una escala del 1 (izquierda) al 10 (derecha). Los principales estadísticos descriptivos pueden ser encontrados en la <a href="#tbl-1" class="quarto-xref">Tabla&nbsp;1</a>, destacamos los resultados de pos_pol, donde se tiende al centro con una mediana 5 y promedio de 5.79 (sd=2.46), también vemos que nacionalismo tiende a que la mayoría presenta un mayor orgullo con promedio 3.44 y mediana 4.</p>
+<div id="tbl-2" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-tbl-cap-location="top">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Tabla&nbsp;2: Descriptivos nivel 2
@@ -517,10 +535,14 @@ meanschooling
 </div>
 </figure>
 </div>
-<p><em>Variables independientes de nivel 2</em></p>
+</section>
+<section id="variables-independientes-de-nivel-2" class="level4">
+<h4 class="anchored" data-anchor-id="variables-independientes-de-nivel-2"><em>Variables independientes de nivel 2</em></h4>
 <p>Las variables independientes de nivel 2 son: el promedio de felicidad por país (Q46, “qué tan feliz te sientes en general”) con valores del 1 al 4, la cual se invirtió para que a mayor puntaje mayor felicidad promedio, la variable de años promedio de escolaridad (meanschooling) proveniente de datos de la UNESCO de 2018, y el promedio de sensación de seguridad por país (Q131, qué tan seguro te sientes en tu barrio) con valores del 1 al 4, invertidos para que a mayor seguridad un mayor número promedio. Los principales estadísticos descriptivos pueden ser encontrados en la <a href="#tbl-2" class="quarto-xref">Tabla&nbsp;2</a>, destacando que existe una alta sensación de seguridad con valores sobre 3 en promedio, mediana y en sus rangos, así como una alta sensación de felicidad promedio, nuevamente con valores rondando el 3 en todos sus descriptivos.</p>
-<p><strong>Métodos</strong></p>
-<p>Los métodos utilizados fueron la estimación de distintos modelos bajo una lógica de carácter multinivel, obteniendo un total de 6 modelos utilizando el programa Rstudio y la librería lmer. Se estimaron un modelo nulo para ver la variabilidad según país que se comentará más adelante, modelos con variables de nivel 1, nivel 2, nivel 1 + nivel 2, uno con pendiente aleatoria en nacionalismo, y dos modelos de interacción entre niveles, uno para ver la interacción entre nacionalismo y felicidad promedio por país, y el otro para ver la interacción entre nacionalismo y seguridad promedio. Las fórmulas de los modelos fueron las siguientes:</p>
+</section>
+<section id="métodos" class="level4">
+<h4 class="anchored" data-anchor-id="métodos"><strong>Métodos</strong></h4>
+<p>Los métodos utilizados fueron la estimación de distintos modelos bajo una lógica de carácter multinivel, obteniendo un total de 6 modelos utilizando el programa Rstudio y la librería lmer. Se estimaron un modelo nulo para ver la variabilidad según país que se comentará más adelante, modelos con variables de nivel 1, nivel 2, nivel 1 + nivel 2, uno con pendiente aleatoria en nacionalismo, y un modelo de interacción entre niveles, para ver la interacción entre nacionalismo y felicidad promedio por país. Las fórmulas de los modelos fueron las siguientes:</p>
 <hr>
 <p><em>Modelo nulo</em></p>
 <p><span class="math display">\[
@@ -562,31 +584,15 @@ meanschooling
 &amp;+ \gamma_{08} \text{happiness\_promedio\_pais} \times \text{nacionalismo} + u_{0j} + u_{1j} \text{nacionalismo} + r_{ij}
 \end{aligned}
 \]</span></p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 100%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><em>Modelo con interacción entre niveles seguridad y nacionalismo</em></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><span class="math display">\[
-\begin{aligned}
-\text{op\_mig}_{ij} &amp;= \gamma_{00} + \gamma_{01} \text{meanschooling} + \gamma_{02} \text{happiness\_promedio\_pais} + \gamma_{03} \text{seguridad\_promedio\_pais} \\
-&amp;+ \gamma_{04} \text{female} + \gamma_{05} \text{pos\_pol} + \gamma_{06} \text{nacionalismo} + \gamma_{07} \text{personal\_income} \\
-&amp;+ \gamma_{08} \text{seguridad\_promedio\_pais} \times \text{nacionalismo} + u_{0j} + u_{1j} \text{nacionalismo} + r_{ij}
-\end{aligned}
-\]</span></td>
-</tr>
-</tbody>
-</table>
+<hr>
+</section>
 </section>
 <section id="análisis" class="level1">
 <h1>Análisis</h1>
-<p><strong>Bivariados</strong></p>
+<section id="bivariados" class="level4">
+<h4 class="anchored" data-anchor-id="bivariados"><strong>Bivariados</strong></h4>
 <div class="cell tbl-cap-location-top" data-tbl-cap="Relación entre escolaridad y opinión sobre migración">
-<div id="fig-1" class="quarto-figure quarto-figure-center quarto-float anchored" width="672">
+<div id="fig-1" class="quarto-float quarto-figure quarto-figure-center anchored" width="672">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="plantilla_informe_files/figure-html/fig-1-1.png" id="fig-1" class="img-fluid figure-img" width="672">
@@ -599,7 +605,7 @@ Figura&nbsp;1
 </div>
 <p>En la <a href="#fig-1" class="quarto-xref">Figura&nbsp;1</a> se muestra el diagrama de dispersión con la variable años promedio de escolaridad por país y opinión promedio sobre migración. En primer lugar cabe rescatar que hay una leve relación positiva entre la escolaridad promedio y las opiniones hacia la migración, señalando que un mayor nivel de escolaridad está asociado a un menor rechazo hacia la migración. Sin embargo, la pendiente es muy tenue, con los países bastante dispersos en el plano, lo que indica una débil relación con poca consistencia. Países como Nueva Zelanda y Canadá presentan altos niveles de escolaridad con una mayor aceptación de la migración, pero también países como Alemania o Eslovaquia, que tienen niveles similares de escolaridad promedio, presentan más opiniones vinculadas al rechazo hacia la migración.</p>
 <div class="cell tbl-cap-location-top" data-tbl-cap="Relación entre felicidad y opinión sobre migración">
-<div id="fig-2" class="quarto-figure quarto-figure-center quarto-float anchored" width="672">
+<div id="fig-2" class="quarto-float quarto-figure quarto-figure-center anchored" width="672">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="plantilla_informe_files/figure-html/fig-2-1.png" id="fig-2" class="img-fluid figure-img" width="672">
@@ -612,7 +618,7 @@ Figura&nbsp;2
 </div>
 <p>La <a href="#fig-2" class="quarto-xref">Figura&nbsp;2</a> muestra la relación entre la variable de nivel promedio de felicidad del país con la variable de opinión promedio sobre migración. Se puede observar una relación positiva entre estas variables, indicando que países con un mayor promedio de felicidad están asociados a una mayor apertura hacia la migración. El diagrama muestra una pendiente más pronunciada que la del gráfico anterior y una menor dispersión de los datos, lo que señala una mayor consistencia en esta relación.</p>
 <div class="cell tbl-cap-location-top" data-tbl-cap="Relación entre felicidad y opinión sobre migración">
-<div id="fig-3" class="quarto-figure quarto-figure-center quarto-float anchored" width="672">
+<div id="fig-3" class="quarto-float quarto-figure quarto-figure-center anchored" width="672">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="plantilla_informe_files/figure-html/fig-3-1.png" id="fig-3" class="img-fluid figure-img" width="672">
@@ -624,8 +630,10 @@ Figura&nbsp;3
 </div>
 </div>
 <p>En la <a href="#fig-3" class="quarto-xref">Figura&nbsp;3</a> se muestra la relación entre la variable de promedio de sensación de seguridad y la variable opinión promedio sobre migración en un diagrama de dispersión. Se puede notar una leve relación inversa entre estas variables representada por la pendiente con una sutil inclinación. Esto quiere decir que una mayor sensación de seguridad está asociada a un mayor rechazo hacia la migración, sin embargo no constituye una relación robusta dada la característica de la pendiente.</p>
-<p><strong>Multivariados</strong></p>
-<div id="tbl-modelos" class="cell quarto-float anchored" data-tbl-cap-location="top">
+</section>
+<section id="multivariados" class="level4">
+<h4 class="anchored" data-anchor-id="multivariados"><strong>Multivariados</strong></h4>
+<div id="tbl-modelos" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-tbl-cap-location="top">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-modelos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Tabla&nbsp;3: Comparación Modelos
@@ -640,7 +648,6 @@ Tabla&nbsp;3: Comparación Modelos
 <th colspan="3" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">Nivel 1 y 2</th>
 <th colspan="3" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">Pendiente aleatoria nacionalismo</th>
 <th colspan="3" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">Interacción entre niveles Felicidad</th>
-<th colspan="3" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">Interacción entre niveles Seguridad</th>
 </tr>
 <tr>
 <td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  text-align:left; ">Predictors</td>
@@ -662,9 +669,6 @@ Tabla&nbsp;3: Comparación Modelos
 <td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  7">Estimates</td>
 <td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  8">std. Error</td>
 <td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  9">p</td>
-<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  0">Estimates</td>
-<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  1">std. Error</td>
-<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  2">p</td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">(Intercept)</td>
@@ -686,9 +690,6 @@ Tabla&nbsp;3: Comparación Modelos
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  7">4.16</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  8">0.18</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  9"><strong>&lt;0.001</strong></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">4.16</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">0.18</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2"><strong>&lt;0.001</strong></td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">female</td>
@@ -707,12 +708,9 @@ Tabla&nbsp;3: Comparación Modelos
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  4">-0.03</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  5">0.02</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  6">0.210</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  7">-0.02</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  7">-0.03</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  8">0.02</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  9">0.382</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">-0.02</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">0.02</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2">0.378</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  9">0.210</td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">pos pol cmc</td>
@@ -734,9 +732,6 @@ Tabla&nbsp;3: Comparación Modelos
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  7">-0.08</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  8">0.00</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  9"><strong>&lt;0.001</strong></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">-0.08</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">0.00</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2"><strong>&lt;0.001</strong></td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">nacionalismo cmc</td>
@@ -755,12 +750,9 @@ Tabla&nbsp;3: Comparación Modelos
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  4">-0.12</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  5">0.05</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  6"><strong>0.027</strong></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  7">-0.10</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  8">0.02</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  9"><strong>&lt;0.001</strong></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">-0.09</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">0.02</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2"><strong>&lt;0.001</strong></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  7">-0.12</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  8">0.06</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  9"><strong>0.028</strong></td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">personal income cmc</td>
@@ -782,9 +774,6 @@ Tabla&nbsp;3: Comparación Modelos
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  7">0.07</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  8">0.01</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  9"><strong>&lt;0.001</strong></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">0.07</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">0.01</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2"><strong>&lt;0.001</strong></td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">happiness gmc</td>
@@ -803,12 +792,9 @@ Tabla&nbsp;3: Comparación Modelos
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  4">1.72</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  5">0.81</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  6"><strong>0.034</strong></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  7">1.74</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  7">1.64</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  8">0.88</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  9"><strong>0.047</strong></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">1.74</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">0.88</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2"><strong>0.047</strong></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  9">0.061</td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">seguridad gmc</td>
@@ -830,9 +816,6 @@ Tabla&nbsp;3: Comparación Modelos
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  7">-0.34</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  8">0.04</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  9"><strong>&lt;0.001</strong></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">-0.36</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">0.04</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2"><strong>&lt;0.001</strong></td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">meanschooling gmc</td>
@@ -851,12 +834,9 @@ Tabla&nbsp;3: Comparación Modelos
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  4">0.05</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  5">0.07</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  6">0.445</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  7">0.09</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  7">0.05</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  8">0.07</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  9">0.227</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">0.09</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">0.07</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2">0.227</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  9">0.446</td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">happiness gmc ×<br>nacionalismo cmc</td>
@@ -875,39 +855,12 @@ Tabla&nbsp;3: Comparación Modelos
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  4"></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  5"></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  6"></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  7">-0.23</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  8">0.08</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  9"><strong>0.004</strong></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0"></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1"></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2"></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  7">-0.06</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  8">0.26</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  9">0.804</td>
 </tr>
 <tr>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">seguridad gmc ×<br>nacionalismo cmc</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7"></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8"></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9"></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0"></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1"></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2"></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  3"></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  4"></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  5"></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  6"></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  7"></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  8"></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  9"></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">-0.14</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">0.05</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2"><strong>0.007</strong></td>
-</tr>
-<tr>
-<td colspan="22" style="font-weight:bold; text-align:left; padding-top:.8em;">Random Effects</td>
+<td colspan="19" style="font-weight:bold; text-align:left; padding-top:.8em;">Random Effects</td>
 </tr>
 
 <tr>
@@ -917,8 +870,7 @@ Tabla&nbsp;3: Comparación Modelos
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">7.48</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">7.42</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">7.34</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">7.42</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">7.42</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">7.34</td>
 </tr>
 
 <tr>
@@ -928,8 +880,7 @@ Tabla&nbsp;3: Comparación Modelos
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">1.52 <sub>pais</sub></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">1.52 <sub>pais</sub></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">1.52 <sub>pais</sub></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">1.52 <sub>pais</sub></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">1.52 <sub>pais</sub></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">1.53 <sub>pais</sub></td>
 
 </tr><tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">τ<sub>11</sub></td>
@@ -938,8 +889,7 @@ Tabla&nbsp;3: Comparación Modelos
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">&nbsp;</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">&nbsp;</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.12 <sub>pais.nacionalismo_cmc</sub></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">&nbsp;</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">&nbsp;</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.13 <sub>pais.nacionalismo_cmc</sub></td>
 
 </tr><tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">ρ<sub>01</sub></td>
@@ -948,8 +898,7 @@ Tabla&nbsp;3: Comparación Modelos
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">&nbsp;</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">&nbsp;</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.41 <sub>pais</sub></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">&nbsp;</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">&nbsp;</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.42 <sub>pais</sub></td>
 
 </tr><tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">ICC</td>
@@ -958,12 +907,10 @@ Tabla&nbsp;3: Comparación Modelos
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.17</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.17</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.18</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.17</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.17</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.18</td>
 
 </tr><tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">N</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">47 <sub>pais</sub></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">47 <sub>pais</sub></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">47 <sub>pais</sub></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">47 <sub>pais</sub></td>
@@ -978,7 +925,6 @@ Tabla&nbsp;3: Comparación Modelos
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">53696</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">53696</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">53696</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">53696</td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">Marginal R<sup>2</sup> / Conditional R<sup>2</sup></td>
@@ -987,8 +933,7 @@ Tabla&nbsp;3: Comparación Modelos
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.017 / 0.183</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.023 / 0.190</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.021 / 0.195</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.024 / 0.190</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.024 / 0.190</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.020 / 0.194</td>
 </tr>
 
 </tbody></table>
@@ -996,11 +941,47 @@ Tabla&nbsp;3: Comparación Modelos
 </div>
 </figure>
 </div>
-<p>En la <a href="#tbl-modelos" class="quarto-xref">Tabla&nbsp;3</a> se presenta una comparación entre los modelos estimados. En primer lugar está el modelo sin predictores. En segundo lugar está el modelo con variables de nivel 1: sexo (female), autoubicación ideológica (pos_pol_cmc), orgullo nacional (nacionalismo_cmc) e ingreso relativo del hogar (personal_income_cmc). Todas estas variables están centradas a la media del grupo. En tercer lugar se encuentra el modelo con las variables de nivel 2: nivel promedio de felicidad (happiness_gmc), promedio de sensación de seguridad (seguridad_gmc) y años promedio de escolaridad (meanschooling_gmc). Estas variables están centradas a la gran media. En cuarto lugar está el modelo con las variables de nivel 1 y nivel 2. En quinto lugar se encuentra el modelo con variables de nivel 1 y 2 con orgullo nacional como pendiente aleatoria. Finalmente, en sexto lugar está el modelo con la interacción entre los niveles.</p>
-<p><em>Modelo nulo</em></p>
-<p>Respecto al modelo nulo, el intercepto muestra un valor promedio de 4.13 de la variable independiente, es decir, el promedio de la opinión sobre la migración, en una escala de 1 a 10, se encuentra relativamente al centro con más cercanía hacia el rechazo sobre la migración cuando no se considera ningún predictor. Además el coeficiente de correlación intraclase es de 0.18, lo que indica que un 18% de la varianza se explica por diferencias entre países, lo cual justifica el uso de modelos multinivel.</p>
-<p><em>Modelo con variables de nivel 1</em></p>
-<div id="tbl-3" class="cell quarto-float anchored" data-tbl-cap-location="top">
+<p>En la <a href="#tbl-modelos" class="quarto-xref">Tabla&nbsp;3</a> se presenta una comparación entre los modelos estimados. En primer lugar está el modelo sin predictores. En segundo lugar está el modelo con variables de nivel 1: sexo (female), autoubicación ideológica (pos_pol_cmc), nacionalismo (nacionalismo_cmc) e ingreso relativo del hogar (personal_income_cmc). Todas estas variables están centradas a la media del grupo. En tercer lugar se encuentra el modelo con las variables de nivel 2: nivel promedio de felicidad (happiness_gmc), promedio de sensación de seguridad (seguridad_gmc) y años promedio de escolaridad (meanschooling_gmc). Estas variables están centradas a la gran media. En cuarto lugar está el modelo con las variables de nivel 1 y nivel 2. En quinto lugar se encuentra el modelo con variables de nivel 1 y 2 con nacionalismo como pendiente aleatoria. En sexto y séptimo lugar se encuentran los modelos de interacción entre niveles con las variables nivel promedio de felicidad y nacionalismo; y sensación de seguridad promedio con nacionalismo, respectivamente. Para todos los modelos fueron centradas las variables, a la gran media para aquellas contextuales, y a la media del grupo para aquellas individuales, a excepción de female por su carácter de dummy. Esto se realizó para poder interpretar mejor nuestros efectos y lograr un mejor ajuste de los modelos, sobre todo considerando que las variables contextuales no presentaban un valor 0 real y muchas no tenían ninguna medición en su nivel más bajo, mientras que en las variables individuales se realizó pues no presentaban valores 0.</p>
+<p>Respecto al modelo nulo, el intercepto muestra un valor promedio de 4.13 de la variable independiente, es decir, el promedio de la opinión hacia los migrantes, en una escala de 1 a 10, se encuentra relativamente al centro con más cercanía hacia el rechazo hacia los migrantes cuando no se considera ningún predictor. Además el coeficiente de correlación intraclase es de 0.18, lo que indica que un 18% de la varianza se explica por diferencias entre países, lo cual justifica el uso de modelos multinivel.&nbsp;</p>
+<p>Al incorporar predictores de nivel 1, en los datos del segundo modelo se puede observar que la autoubicación política, el nacionalismo y los ingresos relativos del hogar influyen significativamente en el modelo, sin embargo su efecto es muy leve con un -0.08, y -0.09 y un 0.07 respectivamente. Esto comprobaría nuestras hipótesis de carácter individual, a excepción de la de female. Además, la variable female no resulta significativa, lo que indica que no existirían diferencias entre ser mujer u hombre respecto a tener una opinión negativa hacia los migrantes. Vemos también que sus errores estándar se encuentran muy cercanos al 0, Por último, cabe mencionar que el R2 marginal es de 0.007, lo que significa que los predictores de nivel 1 explican una proporción muy pequeña de la varianza total de la variable dependiente.&nbsp;</p>
+<p>En el tercer modelo se incorporan las variables de nivel 2 , donde se visualiza que tanto el promedio de felicidad por país y la percepción de seguridad tienen un efecto significativo. La primera variable cuenta con un nivel de significancia del 95% y la segunda con un 99.9%. Felicidad promedio cuenta con un pendiente de 1.74, por lo que se interpreta que a mayor felicidad hay una opinión más positiva hacia los migrantes. Vemos que acá el error estándar de felicidad promedio destaca al ser mucho mayor al de las otras variables, y ser la mayor de todos los errores estándar de&nbsp; los modelos con un valor de 0.88, indicando una posible mayor variabilidad de esat variable.Por otro lado, la variable seguridad promedio cuenta con una pendiente negativa de -0.35, dando una relación inversa con opinión positiva hacia los migrantes, aceptando la hipótesis nula de nuestra hipótesis ya que aquellos países que presentan una mayor percepción de seguridad son los que tendrían opiniones negativas hacia las personas migrantes.Por otro lado, la variable meanschooling no es estadísticamente significativa, por lo que las diferencias entre aquellos con más y menor años de escolaridad, respecto a la opinión hacia los migrantes, no es distinta de 0.</p>
+<p>En el modelo con ambos niveles se mantienen todos los efectos significativos anteriores, manteniéndose los valores de sus pendientes con un leve cambio en el efecto de nacionalismo que sube un 0.01 respecto al modelo anterior. En este modelo el R2 marginal sube a 0.023, indicando un mayor ajuste en relación a los modelos anteriores pero aún su capacidad explicativa es limitada.La poca variabilidad puede plantear que no existen grandes alteraciones en los efectos al integrar variables de un nivel distinto respecto a lo que logran explicar sobre opinión negativa hacia la migración las variables individuales&nbsp;</p>
+<p>En el modelo con pendiente aleatoria para nacionalismo se muestra que τ₁₁= 0.12, sugiriendo que el efecto del nacionalismo no es el mismo en todos los países. La pendiente es de -0.12 con significancia estadística (p = 0.027), indicando que por cada punto que incrementa nacionalismo la puntuación sobre la escala de opinión sobre los migrantes disminuye en promedio 0.12 unidades, demostrando su relación inversa. Vemos también que se pierde significancia de la variable nacionalismo, mientras que happiness gana significancia al incluirse el intercepto aleatorio. Además, vemos que ρ₀₁ = 0.41, lo que indica que a mayor intercepto del país, se tiende a tener un mayor efecto del nacionalismo.</p>
+<p>En el modelo de interacción entre la felicidad promedio del país con el nacionalismo individual, vemos que se pierde significancia estadística de la variable happiness al incluir la variable de interacción, sumado a que la interacción como tal no resulta significativa estadísticamente. Sus demás valores (ρ₀₁,&nbsp; τ₁₁, σ²) se mantienen similares a los del modelo anterior que no incluía la variable de interacción pero si la pendiente aleatoria, presentando un R2 marginal inferior por 0.01.&nbsp; Esto lleva a un rechazo de la hipótesis número 8 que se planteó en un principio.</p>
+<p>A modo general, respecto a medidas de ajuste, encontramos que existe una varianza residual bastante estable, con valores σ² similares, variando entre el 7.42 y el 7.49 en los modelos que no incluyen pendiente aleatoria, dando a entender que el error a nivel individual se mantiene similar entre distintos modelos. Por el otro lado, el τ₀₀ muestra una reducción de la varianza del intercepto aleatorio entre países, dando cuenta de que a medida de que incluímos variables contextuales disminuye el τ₀₀ (de 1.61 a 1.52), lo que se debe a que parte de esa variabilidad sería explicada por los factores contextuales incluídos. También de modo general, respecto a los interceptos, vemos que no varían mucho entre modelos, estando entre el 4.13 y el 4.16 en todos los casos, bastante cercano a la media de la escala de opinión hacia los migrantes que podemos ver en la <a href="#tbl-1" class="quarto-xref">Tabla&nbsp;1</a>.</p>
+</section>
+<section id="interacción-entre-niveles-y-pendiente-aleatoria." class="level4">
+<h4 class="anchored" data-anchor-id="interacción-entre-niveles-y-pendiente-aleatoria.">Interacción entre niveles y pendiente aleatoria.</h4>
+<div class="cell" data-layout-align="center">
+<div id="fig-4" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="plantilla_informe_files/figure-html/fig-4-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="768">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;4: Pendiente aleatoria nacionalismo
+</figcaption>
+</figure>
+</div>
+</div>
+<p>En la <a href="#fig-4" class="quarto-xref">Figura&nbsp;4</a> se observa la incorporación de aleatorizar la pendiente de la variable nacionalismo. En este se presenta un país representante de cada continente, separando América en norte y sur, quedando 6 países (Canadá, Chile, Alemania, Corea del Sur, Nueva Zelanda y Nigeria), con pendientes distintas. Demostrando que la variable se comporta de forma distinta entre los países, descartando la posibilidad de cometer una falacia ecológica (Van Poppel y Day, 1996)</p>
+<div class="cell" data-layout-align="center">
+<div id="fig-5" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="plantilla_informe_files/figure-html/fig-5-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="768">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;5: Interacción entre nacionalismo individual y felicidad promedio del país
+</figcaption>
+</figure>
+</div>
+</div>
+<p>La <a href="#fig-5" class="quarto-xref">Figura&nbsp;5</a> refleja la interacción entre nacionalismo y la opinión sobre los migrantes, moderada por el nivel promedio de felicidad por país, sin embargo, como se observa en el modelo 5, la interacción entre estas variables no es estadísticamente significativa. Por lo que no se puede asegurar que la influencia de la variables felicidad promedio de los países atenúa el efecto del nacionalismo. La visualización gráfica nos ayuda a denotar como esta diferencia en el efecto no es significativa, las rectas al no interceptar, no se determina una diferenciación notoria en las pendientes de cada una.&nbsp;</p>
+</section>
+<section id="devianza-y-casos-influyentes" class="level4">
+<h4 class="anchored" data-anchor-id="devianza-y-casos-influyentes">Devianza y casos influyentes</h4>
+<div id="tbl-3" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-tbl-cap-location="top">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Tabla&nbsp;4: Devianza
@@ -1015,7 +996,7 @@ Tabla&nbsp;4: Devianza
 <th style="text-align: right;" data-quarto-table-cell-role="th">AIC</th>
 <th style="text-align: right;" data-quarto-table-cell-role="th">BIC</th>
 <th style="text-align: right;" data-quarto-table-cell-role="th">logLik</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">-2*log(L)</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">deviance</th>
 <th style="text-align: right;" data-quarto-table-cell-role="th">Chisq</th>
 <th style="text-align: right;" data-quarto-table-cell-role="th">Df</th>
 <th style="text-align: right;" data-quarto-table-cell-role="th">Pr(&gt;Chisq)</th>
@@ -1024,25 +1005,25 @@ Tabla&nbsp;4: Devianza
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Modelo 4: Pendiente aleatoria</td>
-<td style="text-align: right;">11</td>
-<td style="text-align: right;">260253.8</td>
-<td style="text-align: right;">260351.6</td>
-<td style="text-align: right;">-130115.9</td>
-<td style="text-align: right;">260231.8</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">259806.3</td>
+<td style="text-align: right;">259912.9</td>
+<td style="text-align: right;">-129891.1</td>
+<td style="text-align: right;">259782.3</td>
 <td style="text-align: right;">NA</td>
 <td style="text-align: right;">NA</td>
 <td style="text-align: right;">NA</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Modelo 5: Interacción entre niveles</td>
-<td style="text-align: right;">12</td>
-<td style="text-align: right;">259806.3</td>
-<td style="text-align: right;">259912.9</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">259808.2</td>
+<td style="text-align: right;">259923.8</td>
 <td style="text-align: right;">-129891.1</td>
-<td style="text-align: right;">259782.3</td>
-<td style="text-align: right;">449.576</td>
+<td style="text-align: right;">259782.2</td>
+<td style="text-align: right;">0.064</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.801</td>
 </tr>
 </tbody>
 </table>
@@ -1051,49 +1032,35 @@ Tabla&nbsp;4: Devianza
 </div>
 </figure>
 </div>
-<p>Viendo la Tabla de <a href="#tbl-3" class="quarto-xref">Tabla&nbsp;4</a></p>
-<div class="cell" data-layout-align="center">
-<div id="fig-4" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="plantilla_informe_files/figure-html/fig-4-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="768">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;4: Interacción entre nacionalismo individual y felicidad promedio del país
-</figcaption>
-</figure>
-</div>
-</div>
-<p>Como se muestra en la Figura <a href="#fig-4" class="quarto-xref">Figura&nbsp;4</a></p>
-<div class="cell" data-layout-align="center">
-<div id="fig-5" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="plantilla_informe_files/figure-html/fig-5-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="768">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;5: Interacción entre nacionalismo individual y felicidad promedio del país
-</figcaption>
-</figure>
-</div>
-</div>
+<p>Como se observa en la <a href="#tbl-3" class="quarto-xref">Tabla&nbsp;4</a> se utilizó un test de desvianza que busca comparar el Modelo 4 y 5, con la finalidad de comprobar si el modelo con interacción entre niveles tiene un mejor ajuste. La prueba de razón de verosimilitud (Chi-cuadrado = 0.064, p&gt;0.1) indica que el modelo que incluye la interacción entre niveles no presenta mayores diferencias al modelo solo con pendiente aleatoria, sin existir diferencias significativas entre ambos modelos, pese a la inclusión de la variable de interacción entre niveles.&nbsp;</p>
+<p>Por último, se realizó una estimación de casos influyentes utilizando test de cook para el modelo 4 (al ser el que mejor ajusta tras el test de desvianza y observando los R2 marginales), en los que se encontraron algunos países que se mostraban influyentes y lejanos a los parámetros del modelo, pero ninguno de estos resultó ser significativo, por lo que se resolvió mantener el modelo tal y como estaba.</p>
 </section>
-<section id="conclusiones-preliminares" class="level1">
-<h1>Conclusiones preliminares</h1>
-<p>De momento, con los modelos preliminares, se puede plantear que, en las hipótesis de primer nivel, la primera de nuestras hipótesis se estaría cumpliendo, ya que aquellas personas con tendencias políticas hacia la derecha presentan una percepción negativa hacia las personas migrantes. Respecto a la segunda hipótesis, también se cumple, puesto que, a menor nivel de ingreso, mayor percepción negativa hacia los migrantes, siendo significativa en todos los modelos excepto el agregado. La tercera hipótesis, se cumple parcialmente al existir diferencias, pero no tan importantes, y existir un p &gt; 0.001, teniendo significancia solo al 95%. Respecto a la cuarta hipótesis, vemos que existe una variabilidad entre países respecto a la influencia del nacionalismo en la percepción de migrantes producto de lo visto en la pendiente aleatoria de esta variable.</p>
-<p>Respecto a las hipótesis de segundo nivel, podemos concluir que no se cumplirían ya que ninguna de estas variables presenta niveles de significancia estadística p &lt; 0.001, pero, no se puede dejar de lado que variables como HDI, a mayor nivel de desarrollo humano, presentan un aumento importante de la percepción negativa respecto a los migrantes, esto puede relacionarse con la bibliografía citada ya que los países OCDE, por ejemplo, son aquellos que mayor nivel de migrantes han recibido durante los últimos años (2024).</p>
 </section>
-<section id="biliografía" class="level1">
-<h1>Biliografía</h1>
+<section id="conclusiones" class="level1">
+<h1>Conclusiones</h1>
+<p>Los principales hallazgos indican que los predictores como posición política, nacionalismo y estatus social subjetivo son relevantes, ya que influyen en la opinión que se tiene frente a los migrantes. Se puede establecer que las hipótesis 1, 2 y 3 se confirman, donde se observa que tanto una orientación política hacia la derecha como niveles altos de nacionalistas se asocian a tener opiniones más negativas hacia los migrantes. Por otro lado, las personas que perciben un ingreso más alto tienden a mostrar opiniones más positivas. Sin embargo, la hipótesis número 4 no se confirma, ya que ser mujer no presenta una diferencia significativa en comparación a los hombres frente a la opinión sobre los migrantes.&nbsp;</p>
+<p>Respecto de las hipótesis de segundo nivel, sólo la hipótesis 5 es válida, ya que los países con un mayor promedio de felicidad presentan opiniones más positivas frente a los migrantes. Por su parte, la hipótesis referida al promedio de sensación&nbsp; de seguridad tiene significancia estadística, pero con una pendiente negativa, lo que indica&nbsp; una asociación inversa. Es decir, a mayor seguridad habrá una opinión más negativa hacia los migrantes. La hipótesis 6 se rechaza ya que la asociación del promedio de años de escolaridad por país con opinión frente a los migrantes, no tiene significancia estadística por lo que las diferencias no serían distintas de 0.&nbsp; La hipótesis de interacción entre niveles se rechaza, esto debido a que no presenta significancia estadística con un valor p&gt;0.1.</p>
+<p>Se destaca el utilizamiento de modelos multinivel ya que permitió poder analizar variables de índole contextual para explicar las opiniones negativas hacia la migración, expandiendo el análisis que usualmente se centra en factores individuales. Además, permite conocer los resultados anidándonos en distintos países, lo que se vuelve contingente cuando el fenómeno migratorio ocurre a nivel mundial y en diversos sectores del planeta, por lo que el estudio realizado permite acercarse a qué variables explican la diferencia entre países, y al incluir lo individual, permite conocer aquellos efectos que ya se relacionan con las interacciones mismas entre las personas, permitiendo acercarnos a las nociones de estigma (Goffman, 1963).&nbsp;</p>
+<p>Dentro de las limitaciones que se encontró para este estudio, encontramos el bajo efecto que tuvieron gran parte de las variables, pese a su significancia estadística, sumado a que variables como female o meanschooling, que en la bibliografía aparecen como importantes, no presentaron significancia dentro de nuestros modelos. Esto abre paso a la posibilidad de nuevas investigaciones sobre el mismo tema, pero ahondando en otras posibles variables que se relacionen a éstas que no fueron significativas, como podrían serlo tratar desigualdad de género por sobre female, o indicadores de desarrollo por sobre solo la educación.</p>
+</section>
+<section id="bibliografía" class="level1">
+<h1>Bibliografía</h1>
 <ul>
-<li><p>Akkerman, T. (2024). Inmigración y redistribución en Europa: ¿a favor o en contra del Estado del bienestar? Revista CIDOB d’Afers Internacionals, (137), 47–62.<a href="https://www.cidob.org/sites/default/files/2024-09/47-62_TJITSKE%20AKKERMAN.pdf" class="uri">https://www.cidob.org/sites/default/files/2024-09/47-62_TJITSKE%20AKKERMAN.pdf</a></p></li>
-<li><p>Armijos-Orellana, Ana Carolina, Maldonado-Matute, Juan Manuel, González-Calle, María José, &amp; Guerrero-Maxi, Pedro Fernando. (2022). Los motivos de la migración. Una breve revisión bibliográfica. Universitas-XXI, Revista de Ciencias Sociales y Humanas, (37), 223-246. <a href="https://doi.org/10.17163/uni.n37.2022.09" class="uri">https://doi.org/10.17163/uni.n37.2022.09</a></p></li>
-<li><p>Buraschi, D., &amp; Aguilar-Idañez, M. J. (2023). La amenaza percibida y la redistribución: actitudes de los españoles hacia el gasto público destinado a los inmigrantes. Migraciones. Publicación del Instituto Universitario de Estudios sobre Migraciones, (60), 77–105.<a href="https://revistas.comillas.edu/index.php/revistamigraciones/article/view/18461/17228" class="uri">https://revistas.comillas.edu/index.php/revistamigraciones/article/view/18461/17228</a></p></li>
-<li><p>Emmenegger, P., &amp; Klemmensen, R. (2013). Immigration and redistribution revisited: How different motivations can offset each other. Journal of European Social Policy, 23(4), 406–422. https://doi.org/10.1177/0958928713492773</p></li>
-<li><p>OCDE (2024). International Migration Outlook 2024. OCDE Publishing. <a href="https://doi.org/10.1787/50b0353e-en" class="uri">https://doi.org/10.1787/50b0353e-en</a>.</p></li>
-<li><p>Organización de las Naciones Unidas. (s.f.). Migración.<a href="https://www.un.org/es/global-issues/migration" class="uri">https://www.un.org/es/global-issues/migration</a></p></li>
-<li><p>Romero Montero, A. (2021). Actitudes hacia la inmigración y preferencias redistributivas en España. Universitat Autònoma de Barcelona.<a href="https://ddd.uab.cat/pub/tfg/2021/tfg_375812/TFG_aromeromontero2.pdf" class="uri">https://ddd.uab.cat/pub/tfg/2021/tfg_375812/TFG_aromeromontero2.pdf</a></p></li>
-<li><p>Servicio Jesuita a Migrantes (SJM Chile). (2020). Barómetro de percepción de la migración 2018-2020. Actividad en redes sociales y su contexto. <a href="https://sjmchile.org/wp-content/uploads/2024/01/barometrofinal.pdf">&nbsp;https://sjmchile.org/wp-content/uploads/2024/01/barometrofinal.pdf</a></p></li>
+<li><p>Akkerman, T. (2024). Inmigración y redistribución en Europa: ¿a favor o en contra del Estado del bienestar? Revista CIDOB d’Afers Internacionals, (137), 47–62.<a href="https://www.cidob.org/sites/default/files/2024-09/47-62_TJITSKE%20AKKERMAN.pdf">https://www.cidob.org/sites/default/files/2024-09/47-62_TJITSKE%20AKKERMAN.pdf</a></p></li>
+<li><p>Armijos-Orellana, A. C., Maldonado-Matute, J. M., González-Calle, M. J., &amp; Guerrero-Maxi, P. F. (2022). Los motivos de la migración. Una breve revisión bibliográfica. Universitas-XXI, Revista de Ciencias Sociales y Humanas, (37), 223–246.<a href="https://doi.org/10.17163/uni.n37.2022.09">https://doi.org/10.17163/uni.n37.2022.09</a></p></li>
+<li><p>Banco Mundial. (2024). Educación: panorama general.<a href="https://www.bancomundial.org/es/topic/education/overview">https://www.bancomundial.org/es/topic/education/overview</a></p></li>
+<li><p>Buraschi, D., &amp; Aguilar-Idañez, M. J. (2023). La amenaza percibida y la redistribución: actitudes de los españoles hacia el gasto público destinado a los inmigrantes. Migraciones. Publicación del Instituto Universitario de Estudios sobre Migraciones, (60), 77–105.<a href="https://revistas.comillas.edu/index.php/revistamigraciones/article/view/18461/17228">https://revistas.comillas.edu/index.php/revistamigraciones/article/view/18461/17228</a></p></li>
+<li><p>Emmenegger, P., &amp; Klemmensen, R. (2013). Immigration and redistribution revisited: How different motivations can offset each other. Journal of European Social Policy, 23(4), 406–422.<a href="https://doi.org/10.1177/0958928713492773">https://doi.org/10.1177/0958928713492773</a></p></li>
+<li><p>Goffman, E. (1963). Estigma. La identidad deteriorada. Editorial Amorrortu.</p></li>
+<li><p>Global Migration Data Analysis Centre (IOM). (2023, 5 de abril). Public opinion on migration. Migration Data Portal. Recuperado el 30 de junio de 2025, de<a href="https://www.migrationdataportal.org/themes/public-opinion-migration">https://www.migrationdataportal.org/themes/public-opinion-migration</a></p></li>
+<li><p>IPSOS. (2024). Ipsos Global Trends: In search of a new consensus – From tension to intention.<a href="https://www.ipsos.com/en/global-trends-2024">https://www.ipsos.com/en/global-trends-2024</a></p></li>
+<li><p>IPSOS. (2025). Claves Ipsos: Informe N.º 40. Ipsos.</p></li>
+<li><p>Keenan, M. (2023). Human Development Index (HDI). Salem Press Encyclopedia. EBSCO.<a href="https://www.ebsco.com/research-starters/education/human-development-index-hdi">https://www.ebsco.com/research-starters/education/human-development-index-hdi</a></p></li>
+<li><p>OCDE. (2024). International Migration Outlook 2024. OCDE Publishing.<a href="https://doi.org/10.1787/50b0353e-en">https://doi.org/10.1787/50b0353e-en</a></p></li>
+<li><p>Organización de las Naciones Unidas. (s.f.). Migración.<a href="https://www.un.org/es/global-issues/migration">https://www.un.org/es/global-issues/migration</a></p></li>
+<li><p>Romero Montero, A. (2021). Actitudes hacia la inmigración y preferencias redistributivas en España [Trabajo de grado, Universitat Autònoma de Barcelona].<a href="https://ddd.uab.cat/pub/tfg/2021/tfg_375812/TFG_aromeromontero2.pdf">https://ddd.uab.cat/pub/tfg/2021/tfg_375812/TFG_aromeromontero2.pdf</a></p></li>
+<li><p>Servicio Jesuita a Migrantes (SJM Chile). (2020). Barómetro de percepción de la migración 2018–2020. Actividad en redes sociales y su contexto.<a href="https://sjmchile.org/wp-content/uploads/2024/01/barometrofinal.pdf">https://sjmchile.org/wp-content/uploads/2024/01/barometrofinal.pdf</a></p></li>
+<li><p>Van Poppel, F., y Day, L.H. (1996). Una prueba de la teoría del suicidio de Durkheim sin cometer la «falacia ecológica». American Sociological Review , 500-507. <a href="https://multinivel-facso.netlify.app/files/readings/Poppel-TestDurkheimsTheory-1996.pdf" class="uri">https://multinivel-facso.netlify.app/files/readings/Poppel-TestDurkheimsTheory-1996.pdf</a></p></li>
 </ul>
 </section>
 
@@ -1134,18 +1101,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1177,7 +1133,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -1185,7 +1163,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
