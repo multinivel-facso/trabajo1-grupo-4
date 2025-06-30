@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.555">
+<meta name="generator" content="quarto-1.6.42">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -30,16 +30,16 @@ ul.task-list li input[type="checkbox"] {
 <script src="plantilla_informe_files/libs/quarto-html/tippy.umd.min.js"></script>
 <script src="plantilla_informe_files/libs/quarto-html/anchor.min.js"></script>
 <link href="plantilla_informe_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="plantilla_informe_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="plantilla_informe_files/libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="plantilla_informe_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="plantilla_informe_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="plantilla_informe_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="plantilla_informe_files/libs/bootstrap/bootstrap-1bc8a17f135ab3d594c857e9f48e611b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="plantilla_informe_files/libs/kePrint-0.0.1/kePrint.js"></script>
 
 <link href="plantilla_informe_files/libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -146,7 +146,7 @@ window.Quarto = {
 <p>La base utilizada es la séptima ola del World Values Survey (WVS), con datos recolectados entre 2017 y 2022. Con esto, es posible construir una estructura de datos de dos niveles: nivel 1 (personas) y nivel 2 (países), anidados en la variable país. Para preparar los datos, se aplicó un proceso de limpieza que incluyó la recodificación y eliminación de valores perdidos por listwise, resultando en una base final de 53.696 casos en 47 países.&nbsp;</p>
 <p><em>Variable dependiente.</em></p>
 <p>Respecto a la variable dependiente se elaboró una escala sumativa de opiniones hacia la migración (op_mig) a partir de 5 ítems, codificados en una escala de 0 a 10, donde el valor más alto (10) indica una opinión positiva hacia la migración y el valor más bajo (0) indica una opinión&nbsp; negativa frente a la migración. Los ítems considerados fueron de las variables Q124, Q126, Q128 y Q129, que expresan opiniones respecto a la migración bajo la consigna “Desde su punto de vista, ¿cuáles han sido los efectos de los inmigrantes en el desarrollo de este país?”, los efectos que se consultaban eran “aumentan la criminalidad” (Q124), “aumentan el riesgo de terrorismo” (Q126), “aumentan el desempleo” (Q128) y por último “llevan al conflicto social” (Q129). Estos ítems tenían tres posibilidades de respuesta: De acuerdo (2); Difícil de decir (1); En desacuerdo (0). Se invirtieron los valores de 2 y 0, para poder tener resultados de a mayor puntaje en la escala, mejor opinión hacia migrantes. Finalmente, se incluyó el ítem Q121 (Ahora nos gustaría saber su opinión sobre las personas de otros países que vienen a vivir a este país: los inmigrantes. ¿Cómo evaluaría el impacto de estas personas en el desarrollo del país?), pregunta que utiliza una escala Likert que va de Muy bueno (5) a Muy malo (1). Para mantener la coherencia con la dirección de la escala general, se recodificaron las categorías 1 y 2 como 0, la categoría 3 como 1, y las categorías 4 y 5 como 2. Esta escala presenta un alfa cronbach de 0.77 dando cuenta de una consistencia interna suficiente para el análisis estadístico, con una mediana de 4, y un promedio de 4,25 (sd=3.03), indicando una leve tendencia hacia opiniones positivas.</p>
-<div id="tbl-1" class="cell quarto-float anchored" data-tbl-cap-location="top">
+<div id="tbl-1" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-tbl-cap-location="top">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Tabla&nbsp;1: Descriptivos nivel 1
@@ -348,7 +348,7 @@ personal_income
 </div>
 <p><em>Variables independientes de nivel 1</em></p>
 <p>Las variables independientes a nivel individual son: nacionalismo (Q254), cuyas opciones de respuesta van desde Muy orgullosa/o (1) a Para nada orgullosa/o (4). Luego se encuentra la variable ingreso relativo del hogar (personal income, Q288) que consta de una escala de 1 (ingreso más bajo) a 10 (ingreso más alto). Tambien se incluyó la variable female (Q260), y recodificada: 0 = Masculino y 1 = Femenino. Por último, se utilizó la variable autoubicación ideológica en el eje izquierda-derecha (pos_pol), que se encuentra en la pregunta Q240, que consiste en&nbsp; una escala del 1 (izquierda) al 10 (derecha). Los principales estadísticos descriptivos pueden ser encontrados en la <a href="#tbl-1" class="quarto-xref">Tabla&nbsp;1</a>, destacamos los resultados de pos_pol, donde se tiende al centro con una mediana 5 y promedio de 5.79 (sd=2.46), también vemos que nacionalismo tiende a que la mayoría presenta un mayor orgullo con promedio 3.44 y mediana 4.</p>
-<div id="tbl-2" class="cell quarto-float anchored" data-tbl-cap-location="top">
+<div id="tbl-2" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-tbl-cap-location="top">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Tabla&nbsp;2: Descriptivos nivel 2
@@ -570,7 +570,7 @@ meanschooling
 <h1>Análisis</h1>
 <p><strong>Bivariados</strong></p>
 <div class="cell tbl-cap-location-top" data-tbl-cap="Relación entre escolaridad y opinión sobre migración">
-<div id="fig-1" class="quarto-figure quarto-figure-center quarto-float anchored" width="672">
+<div id="fig-1" class="quarto-float quarto-figure quarto-figure-center anchored" width="672">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="plantilla_informe_files/figure-html/fig-1-1.png" id="fig-1" class="img-fluid figure-img" width="672">
@@ -583,7 +583,7 @@ Figura&nbsp;1
 </div>
 <p>En la <a href="#fig-1" class="quarto-xref">Figura&nbsp;1</a> se muestra el diagrama de dispersión con la variable años promedio de escolaridad por país y opinión promedio sobre migración. En primer lugar cabe rescatar que hay una leve relación positiva entre la escolaridad promedio y las opiniones hacia la migración, señalando que un mayor nivel de escolaridad está asociado a un menor rechazo hacia la migración. Sin embargo, la pendiente es muy tenue, con los países bastante dispersos en el plano, lo que indica una débil relación con poca consistencia. Países como Nueva Zelanda y Canadá presentan altos niveles de escolaridad con una mayor aceptación de la migración, pero también países como Alemania o Eslovaquia, que tienen niveles similares de escolaridad promedio, presentan más opiniones vinculadas al rechazo hacia la migración.</p>
 <div class="cell tbl-cap-location-top" data-tbl-cap="Relación entre felicidad y opinión sobre migración">
-<div id="fig-2" class="quarto-figure quarto-figure-center quarto-float anchored" width="672">
+<div id="fig-2" class="quarto-float quarto-figure quarto-figure-center anchored" width="672">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="plantilla_informe_files/figure-html/fig-2-1.png" id="fig-2" class="img-fluid figure-img" width="672">
@@ -596,7 +596,7 @@ Figura&nbsp;2
 </div>
 <p>La <a href="#fig-2" class="quarto-xref">Figura&nbsp;2</a> muestra la relación entre la variable de nivel promedio de felicidad del país con la variable de opinión promedio sobre migración. Se puede observar una relación positiva entre estas variables, indicando que países con un mayor promedio de felicidad están asociados a una mayor apertura hacia la migración. El diagrama muestra una pendiente más pronunciada que la del gráfico anterior y una menor dispersión de los datos, lo que señala una mayor consistencia en esta relación.</p>
 <div class="cell tbl-cap-location-top" data-tbl-cap="Relación entre felicidad y opinión sobre migración">
-<div id="fig-3" class="quarto-figure quarto-figure-center quarto-float anchored" width="672">
+<div id="fig-3" class="quarto-float quarto-figure quarto-figure-center anchored" width="672">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="plantilla_informe_files/figure-html/fig-3-1.png" id="fig-3" class="img-fluid figure-img" width="672">
@@ -609,7 +609,7 @@ Figura&nbsp;3
 </div>
 <p>En la <a href="#fig-3" class="quarto-xref">Figura&nbsp;3</a> se muestra la relación entre la variable de promedio de sensación de seguridad y la variable opinión promedio sobre migración en un diagrama de dispersión. Se puede notar una leve relación inversa entre estas variables representada por la pendiente con una sutil inclinación. Esto quiere decir que una mayor sensación de seguridad está asociada a un mayor rechazo hacia la migración, sin embargo no constituye una relación robusta dada la característica de la pendiente.</p>
 <p><strong>Multivariados</strong></p>
-<div id="tbl-modelos" class="cell quarto-float anchored" data-tbl-cap-location="top">
+<div id="tbl-modelos" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-tbl-cap-location="top">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-modelos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Tabla&nbsp;3: Comparación Modelos
@@ -623,7 +623,8 @@ Tabla&nbsp;3: Comparación Modelos
 <th colspan="3" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">Nivel 2</th>
 <th colspan="3" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">Nivel 1 y 2</th>
 <th colspan="3" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">Pendiente aleatoria nacionalismo</th>
-<th colspan="3" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">Interacción entre niveles</th>
+<th colspan="3" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">Interacción entre niveles Felicidad</th>
+<th colspan="3" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">Interacción entre niveles Seguridad</th>
 </tr>
 <tr>
 <td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  text-align:left; ">Predictors</td>
@@ -645,6 +646,9 @@ Tabla&nbsp;3: Comparación Modelos
 <td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  7">Estimates</td>
 <td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  8">std. Error</td>
 <td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  9">p</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  0">Estimates</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  1">std. Error</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  2">p</td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">(Intercept)</td>
@@ -666,6 +670,9 @@ Tabla&nbsp;3: Comparación Modelos
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  7">4.16</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  8">0.18</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  9"><strong>&lt;0.001</strong></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">4.16</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">0.18</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2"><strong>&lt;0.001</strong></td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">female</td>
@@ -687,6 +694,9 @@ Tabla&nbsp;3: Comparación Modelos
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  7">-0.02</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  8">0.02</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  9">0.382</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">-0.02</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">0.02</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2">0.378</td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">pos pol cmc</td>
@@ -708,6 +718,9 @@ Tabla&nbsp;3: Comparación Modelos
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  7">-0.08</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  8">0.00</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  9"><strong>&lt;0.001</strong></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">-0.08</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">0.00</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2"><strong>&lt;0.001</strong></td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">nacionalismo cmc</td>
@@ -729,6 +742,9 @@ Tabla&nbsp;3: Comparación Modelos
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  7">-0.10</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  8">0.02</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  9"><strong>&lt;0.001</strong></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">-0.09</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">0.02</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2"><strong>&lt;0.001</strong></td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">personal income cmc</td>
@@ -750,6 +766,9 @@ Tabla&nbsp;3: Comparación Modelos
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  7">0.07</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  8">0.01</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  9"><strong>&lt;0.001</strong></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">0.07</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">0.01</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2"><strong>&lt;0.001</strong></td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">happiness gmc</td>
@@ -771,6 +790,9 @@ Tabla&nbsp;3: Comparación Modelos
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  7">1.74</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  8">0.88</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  9"><strong>0.047</strong></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">1.74</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">0.88</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2"><strong>0.047</strong></td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">seguridad gmc</td>
@@ -792,6 +814,9 @@ Tabla&nbsp;3: Comparación Modelos
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  7">-0.34</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  8">0.04</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  9"><strong>&lt;0.001</strong></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">-0.36</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">0.04</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2"><strong>&lt;0.001</strong></td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">meanschooling gmc</td>
@@ -813,6 +838,9 @@ Tabla&nbsp;3: Comparación Modelos
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  7">0.09</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  8">0.07</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  9">0.227</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">0.09</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">0.07</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2">0.227</td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">happiness gmc ×<br>nacionalismo cmc</td>
@@ -834,9 +862,36 @@ Tabla&nbsp;3: Comparación Modelos
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  7">-0.23</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  8">0.08</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  9"><strong>0.004</strong></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0"></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1"></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2"></td>
 </tr>
 <tr>
-<td colspan="19" style="font-weight:bold; text-align:left; padding-top:.8em;">Random Effects</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">seguridad gmc ×<br>nacionalismo cmc</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col7"></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col8"></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  col9"></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0"></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1"></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2"></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  3"></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  4"></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  5"></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  6"></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  7"></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  8"></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  9"></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  0">-0.14</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  1">0.05</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  2"><strong>0.007</strong></td>
+</tr>
+<tr>
+<td colspan="22" style="font-weight:bold; text-align:left; padding-top:.8em;">Random Effects</td>
 </tr>
 
 <tr>
@@ -847,12 +902,14 @@ Tabla&nbsp;3: Comparación Modelos
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">7.42</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">7.34</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">7.42</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">7.42</td>
 </tr>
 
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">τ<sub>00</sub></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">1.61 <sub>pais</sub></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">1.61 <sub>pais</sub></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">1.52 <sub>pais</sub></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">1.52 <sub>pais</sub></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">1.52 <sub>pais</sub></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">1.52 <sub>pais</sub></td>
@@ -866,6 +923,7 @@ Tabla&nbsp;3: Comparación Modelos
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">&nbsp;</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.12 <sub>pais.nacionalismo_cmc</sub></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">&nbsp;</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">&nbsp;</td>
 
 </tr><tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">ρ<sub>01</sub></td>
@@ -874,6 +932,7 @@ Tabla&nbsp;3: Comparación Modelos
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">&nbsp;</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">&nbsp;</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.41 <sub>pais</sub></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">&nbsp;</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">&nbsp;</td>
 
 </tr><tr>
@@ -884,6 +943,7 @@ Tabla&nbsp;3: Comparación Modelos
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.17</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.18</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.17</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.17</td>
 
 </tr><tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">N</td>
@@ -893,8 +953,10 @@ Tabla&nbsp;3: Comparación Modelos
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">47 <sub>pais</sub></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">47 <sub>pais</sub></td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">47 <sub>pais</sub></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">47 <sub>pais</sub></td>
 </tr><tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm; border-top:1px solid;">Observations</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">53696</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">53696</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">53696</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">53696</td>
@@ -910,6 +972,7 @@ Tabla&nbsp;3: Comparación Modelos
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.023 / 0.190</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.021 / 0.195</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.024 / 0.190</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.024 / 0.190</td>
 </tr>
 
 </tbody></table>
@@ -921,7 +984,7 @@ Tabla&nbsp;3: Comparación Modelos
 <p><em>Modelo nulo</em></p>
 <p>Respecto al modelo nulo, el intercepto muestra un valor promedio de 4.13 de la variable independiente, es decir, el promedio de la opinión sobre la migración, en una escala de 1 a 10, se encuentra relativamente al centro con más cercanía hacia el rechazo sobre la migración cuando no se considera ningún predictor. Además el coeficiente de correlación intraclase es de 0.18, lo que indica que un 18% de la varianza se explica por diferencias entre países, lo cual justifica el uso de modelos multinivel.</p>
 <p><em>Modelo con variables de nivel 1</em></p>
-<div id="tbl-3" class="cell quarto-float anchored" data-tbl-cap-location="top">
+<div id="tbl-3" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-tbl-cap-location="top">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Tabla&nbsp;4: Devianza
@@ -936,7 +999,7 @@ Tabla&nbsp;4: Devianza
 <th style="text-align: right;" data-quarto-table-cell-role="th">AIC</th>
 <th style="text-align: right;" data-quarto-table-cell-role="th">BIC</th>
 <th style="text-align: right;" data-quarto-table-cell-role="th">logLik</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">-2*log(L)</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">deviance</th>
 <th style="text-align: right;" data-quarto-table-cell-role="th">Chisq</th>
 <th style="text-align: right;" data-quarto-table-cell-role="th">Df</th>
 <th style="text-align: right;" data-quarto-table-cell-role="th">Pr(&gt;Chisq)</th>
@@ -974,7 +1037,7 @@ Tabla&nbsp;4: Devianza
 </div>
 <p>Viendo la Tabla de <a href="#tbl-3" class="quarto-xref">Tabla&nbsp;4</a></p>
 <div class="cell" data-layout-align="center">
-<div id="fig-interaccion-nacionalismo" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<div id="fig-interaccion-nacionalismo" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-interaccion-nacionalismo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="plantilla_informe_files/figure-html/fig-interaccion-nacionalismo-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="768">
@@ -1043,18 +1106,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1086,7 +1138,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -1094,7 +1166,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
@@ -1191,7 +1263,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {

@@ -183,7 +183,7 @@ Las variables independientes de nivel 2 son: el promedio de felicidad por país 
 
 Los métodos utilizados fueron la estimación de distintos modelos bajo una lógica de carácter multinivel, obteniendo un total de 6 modelos utilizando el programa Rstudio y la librería lmer. Se estimaron un modelo nulo para ver la variabilidad según país que se comentará más adelante, modelos con variables de nivel 1, nivel 2, nivel 1 + nivel 2, uno con pendiente aleatoria en nacionalismo, y uno para ver la interacción entre nacionalismo y felicidad promedio por país. Las fórmulas de los modelos fueron las siguientes:
 
----
+------------------------------------------------------------------------
 
 *Modelo nulo*
 
@@ -191,7 +191,7 @@ $$
 \text{op\_mig}_{ij} = \gamma_{00} + u_{0j} + r_{ij}
 $$
 
----
+------------------------------------------------------------------------
 
 *Modelo variables nivel 1*
 
@@ -199,7 +199,7 @@ $$
 \text{op\_mig}_{ij} = \gamma_{00} + \gamma_{01} \text{female} + \gamma_{02} \text{pos\_pol} + \gamma_{03} \text{nacionalismo} + \gamma_{04} \text{personal\_income} + u_{0j} + r_{ij}
 $$
 
----
+------------------------------------------------------------------------
 
 *Modelo variables nivel 2*
 
@@ -207,7 +207,7 @@ $$
 \text{op\_mig}_{ij} = \gamma_{00} + \gamma_{01} \text{meanschooling} + \gamma_{02} \text{happiness\_promedio\_pais} + \gamma_{03} \text{seguridad\_promedio\_pais} + u_{0j} + r_{ij}
 $$
 
----
+------------------------------------------------------------------------
 
 *Modelo con variables nivel 1 y 2*
 
@@ -218,7 +218,7 @@ $$
 \end{aligned}
 $$
 
----
+------------------------------------------------------------------------
 
 *Modelo con pendiente aleatoria en nacionalismo*
 
@@ -230,7 +230,7 @@ $$
 \end{aligned}
 $$
 
----
+------------------------------------------------------------------------
 
 *Modelo con interacción entre niveles*
 
@@ -242,7 +242,8 @@ $$
 \end{aligned}
 $$
 
----
+------------------------------------------------------------------------
+
 # Análisis
 
 **Bivariados**
@@ -377,7 +378,7 @@ La @fig-2 muestra la relación entre la variable de nivel promedio de felicidad 
 scatter3
 ```
 
-En la @fig-3 se muestra la relación entre la variable de promedio de sensación de seguridad y la variable opinión promedio sobre migración en un diagrama de dispersión. Se puede notar una leve relación inversa entre estas variables representada por la pendiente con una sutil inclinación. Esto quiere decir que una mayor sensación de seguridad está asociada a un mayor rechazo hacia la migración, sin embargo no constituye una relación robusta dada la característica de la pendiente. 
+En la @fig-3 se muestra la relación entre la variable de promedio de sensación de seguridad y la variable opinión promedio sobre migración en un diagrama de dispersión. Se puede notar una leve relación inversa entre estas variables representada por la pendiente con una sutil inclinación. Esto quiere decir que una mayor sensación de seguridad está asociada a un mayor rechazo hacia la migración, sin embargo no constituye una relación robusta dada la característica de la pendiente.
 
 **Multivariados**
 
@@ -432,11 +433,21 @@ ICC_5 <- reghelper::ICC(results_5)
 
 ```
 
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+
+results_6 = lmer(op_mig ~ 1 + meanschooling_gmc + happiness_gmc + seguridad_gmc + female + pos_pol_cmc + nacionalismo_cmc + personal_income_cmc + seguridad_gmc*nacionalismo_cmc + (1 | pais), data = data)
+
+modelo_6 <- screenreg(results_6)#Modelo 5, interacción entre niveles
+
+ICC_6 <- reghelper::ICC(results_6)
+
+```
+
 ```{r, echo=FALSE, warning=FALSE, message=FALSE, results='asis'}
-tab_modelos <- tab_model(results_0, results_1, results_2, results_3, results_4, results_5,
+tab_modelos <- tab_model(results_0, results_1, results_2, results_3, results_4, results_5, results_6,
   show.ci = FALSE, 
   show.se = TRUE,
-  dv.labels = c("Nulo","Nivel 1", "Nivel 2", "Nivel 1 y 2", "Pendiente aleatoria nacionalismo", "Interacción entre niveles"))
+  dv.labels = c("Nulo","Nivel 1", "Nivel 2", "Nivel 1 y 2", "Pendiente aleatoria nacionalismo", "Interacción entre niveles Felicidad", "Interacción entre niveles Seguridad"))
 
 
 ```
@@ -449,14 +460,13 @@ tab_modelos <- tab_model(results_0, results_1, results_2, results_3, results_4, 
 tab_modelos
 ```
 
-En la @tbl-modelos se presenta una comparación entre los modelos estimados. En primer lugar está el modelo sin predictores. En segundo lugar está el modelo con variables de nivel 1: sexo (female), autoubicación ideológica (pos_pol_cmc), orgullo nacional (nacionalismo_cmc) e ingreso relativo del hogar (personal_income_cmc). Todas estas variables están centradas a la media del grupo. En tercer lugar se encuentra el modelo con las variables de nivel 2: nivel promedio de felicidad (happiness_gmc), promedio de sensación de seguridad (seguridad_gmc) y años promedio de escolaridad (meanschooling_gmc). Estas variables están centradas a la gran media. En cuarto lugar está el modelo con las variables de nivel 1 y nivel 2. En quinto lugar se encuentra el modelo con variables de nivel 1 y 2 con orgullo nacional como pendiente aleatoria. Finalmente, en sexto lugar está el modelo con la interacción entre los niveles. 
+En la @tbl-modelos se presenta una comparación entre los modelos estimados. En primer lugar está el modelo sin predictores. En segundo lugar está el modelo con variables de nivel 1: sexo (female), autoubicación ideológica (pos_pol_cmc), orgullo nacional (nacionalismo_cmc) e ingreso relativo del hogar (personal_income_cmc). Todas estas variables están centradas a la media del grupo. En tercer lugar se encuentra el modelo con las variables de nivel 2: nivel promedio de felicidad (happiness_gmc), promedio de sensación de seguridad (seguridad_gmc) y años promedio de escolaridad (meanschooling_gmc). Estas variables están centradas a la gran media. En cuarto lugar está el modelo con las variables de nivel 1 y nivel 2. En quinto lugar se encuentra el modelo con variables de nivel 1 y 2 con orgullo nacional como pendiente aleatoria. Finalmente, en sexto lugar está el modelo con la interacción entre los niveles.
 
 *Modelo nulo*
 
 Respecto al modelo nulo, el intercepto muestra un valor promedio de 4.13 de la variable independiente, es decir, el promedio de la opinión sobre la migración, en una escala de 1 a 10, se encuentra relativamente al centro con más cercanía hacia el rechazo sobre la migración cuando no se considera ningún predictor. Además el coeficiente de correlación intraclase es de 0.18, lo que indica que un 18% de la varianza se explica por diferencias entre países, lo cual justifica el uso de modelos multinivel.
 
 *Modelo con variables de nivel 1*
-
 
 ```{r echo=FALSE, warning=FALSE, message=FALSE, results='hide'}
 
@@ -526,6 +536,26 @@ graf_interacción <- plot_model(results_5,
     plot.margin = margin(t = 20, r = 10, b = 10, l = 10)
   )
 ```
+
+```{r echo=FALSE, warning=FALSE, message=FALSE, results='hide'}
+graf_interacción <- plot_model(results_6,
+           type = "int",
+           terms = c("nacionalismo_cmc", "seguridad_gmc")) +
+  labs(
+    title  = "Interacción: Nacionalismo individual × Promedio de seguridad persibida por país",
+    x      = "Nacionalismo (centrado)",
+    y      = "Opinión sobre migración",
+    colour = "Promedio de seguridad persibida por país"
+  ) +
+  scale_color_manual(values = c("#1b9e77", "#d95f02", "#7570b3")) +
+  theme_minimal(base_size = 12) +
+  theme(
+    plot.title = element_text(face = "bold", hjust = 0.5, margin = margin(b = 10)),
+    legend.position = "bottom",
+    plot.margin = margin(t = 20, r = 10, b = 10, l = 10)
+  )
+```
+
 
 ```{r echo=FALSE, warning=FALSE, message=FALSE, results='asis'}
 #| label: fig-interaccion-nacionalismo
