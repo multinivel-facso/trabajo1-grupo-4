@@ -165,7 +165,7 @@ cat(tbl_1, sep = "\n")
 
 *Variables independientes de nivel 1*
 
-Las variables independientes a nivel individual son: nacionalismo (Q254),  cuyas opciones de respuesta van desde Muy orgullosa/o (1) a Para nada orgullosa/o (4). Luego se encuentra la variable ingreso relativo del hogar (personal income, Q288)  que consta de una escala de 1 (ingreso más bajo) a 10 (ingreso más alto). Tambien se incluyó la variable female (Q260), y recodificada: 0 = Masculino y 1 = Femenino. Por último, se utilizó la variable autoubicación ideológica en el eje izquierda-derecha (pos_pol), que se encuentra en la pregunta Q240, que consiste en  una escala del 1 (izquierda) al 10 (derecha). Los principales estadísticos descriptivos pueden ser encontrados en la \@tbl-1, destacamos los resultados de pos_pol, donde se tiende al centro con una mediana 5 y promedio de 5.79 (sd=2.46), también vemos que nacionalismo tiende a que la mayoría presenta un mayor orgullo con promedio 3.44 y mediana 4.
+Las variables independientes a nivel individual son: nacionalismo (Q254), cuyas opciones de respuesta van desde Muy orgullosa/o (1) a Para nada orgullosa/o (4). Luego se encuentra la variable ingreso relativo del hogar (personal income, Q288) que consta de una escala de 1 (ingreso más bajo) a 10 (ingreso más alto). Tambien se incluyó la variable female (Q260), y recodificada: 0 = Masculino y 1 = Femenino. Por último, se utilizó la variable autoubicación ideológica en el eje izquierda-derecha (pos_pol), que se encuentra en la pregunta Q240, que consiste en  una escala del 1 (izquierda) al 10 (derecha). Los principales estadísticos descriptivos pueden ser encontrados en la @tbl-1, destacamos los resultados de pos_pol, donde se tiende al centro con una mediana 5 y promedio de 5.79 (sd=2.46), también vemos que nacionalismo tiende a que la mayoría presenta un mayor orgullo con promedio 3.44 y mediana 4.
 
 ```{r tbl-2, echo=FALSE, message=FALSE, warning=FALSE, results='asis'}
 #| label: tbl-2
@@ -177,13 +177,13 @@ cat(tbl_2, sep = "\n")
 
 *Variables independientes de nivel 2*
 
-Las variables independientes de nivel 2 son: el promedio de felicidad por país (Q46, “qué tan feliz te sientes en general") con valores del 1 al 4, la cual se invirtió para que a mayor puntaje mayor felicidad promedio, la variable de años promedio de escolaridad (meanschooling) proveniente de datos de la UNESCO de 2018, y el promedio de sensación de seguridad por país (Q131, qué tan seguro te sientes en tu barrio) con valores del 1 al 4, invertidos para que a mayor seguridad un mayor número promedio. Los principales estadísticos descriptivos pueden ser encontrados en la \@tbl-2, destacando que existe una alta sensación de seguridad con valores sobre 3 en promedio, mediana y en sus rangos, así como una alta sensación de felicidad promedio, nuevamente con valores rondando el 3 en todos sus descriptivos.
+Las variables independientes de nivel 2 son: el promedio de felicidad por país (Q46, “qué tan feliz te sientes en general") con valores del 1 al 4, la cual se invirtió para que a mayor puntaje mayor felicidad promedio, la variable de años promedio de escolaridad (meanschooling) proveniente de datos de la UNESCO de 2018, y el promedio de sensación de seguridad por país (Q131, qué tan seguro te sientes en tu barrio) con valores del 1 al 4, invertidos para que a mayor seguridad un mayor número promedio. Los principales estadísticos descriptivos pueden ser encontrados en la @tbl-2, destacando que existe una alta sensación de seguridad con valores sobre 3 en promedio, mediana y en sus rangos, así como una alta sensación de felicidad promedio, nuevamente con valores rondando el 3 en todos sus descriptivos.
 
 **Métodos**
 
 Los métodos utilizados fueron la estimación de distintos modelos bajo una lógica de carácter multinivel, obteniendo un total de 6 modelos utilizando el programa Rstudio y la librería lmer. Se estimaron un modelo nulo para ver la variabilidad según país que se comentará más adelante, modelos con variables de nivel 1, nivel 2, nivel 1 + nivel 2, uno con pendiente aleatoria en nacionalismo, y uno para ver la interacción entre nacionalismo y felicidad promedio por país. Las fórmulas de los modelos fueron las siguientes:
 
---
+---
 
 *Modelo nulo*
 
