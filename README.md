@@ -3,4 +3,5 @@
 Informe final disponible acá: [https://multinivel-facso.github.io/trabajo1-grupo-4/plantilla_informe.html](https://multinivel-facso.github.io/trabajo1-grupo-4/plantilla_informe.html)
 
 Presentación disponible acá: [https://multinivel-facso.github.io/trabajo1-grupo-4/presentations/presentacion.html](https://multinivel-facso.github.io/trabajo1-grupo-4/presentations/presentacion.html)
+
 La base original no pudo ser subida por temas de almacenamiento, pero puede ser encontrada acá junto a su libro de códigos:[https://www.worldvaluessurvey.org/WVSDocumentationWV7.jsp](https://www.worldvaluessurvey.org/WVSDocumentationWV7.jsp)
